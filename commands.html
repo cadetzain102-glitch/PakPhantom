@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PakPhantom Discord Bot - Complete list of all 94 commands across 6 categories including games, fun, economy, utility, API, and general.">
+    <meta name="keywords" content="pakphantom commands, discord bot commands, slash commands, game commands">
+    <meta name="author" content="PakPhantom">
+    <meta name="theme-color" content="#00FF88">
+
+    <meta property="og:title" content="PakPhantom - All 94 Commands">
+    <meta property="og:description" content="Browse all 94 commands across 6 categories. Games, Fun, Economy, Utility, API & General.">
+    <meta property="og:image" content="assets/images/og-image.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <title>Commands - PakPhantom Discord Bot 🇵🇰</title>
+</head>
+<body class="loading">
+
+    <!-- LOADER -->
+    <div id="page-loader" class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <div class="loader-ring ring-1"></div>
+                <div class="loader-ring ring-2"></div>
+                <div class="loader-ring ring-3"></div>
+                <div class="loader-emoji">⚡</div>
+            </div>
+            <div class="loader-text">
+                <span class="loader-brand">PakPhantom</span>
+                <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+                <span class="loader-status">Loading commands...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CURSOR -->
+    <div id="cursor" class="custom-cursor"></div>
+    <div id="cursor-follower" class="cursor-follower"></div>
+
+    <!-- PARTICLES -->
+    <canvas id="particles-canvas" class="particles-canvas"></canvas>
+
+    <!-- AURORA -->
+    <div class="aurora-bg">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+    </div>
+
+    <!-- SCROLL PROGRESS -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <span class="logo-emoji">🇵🇰</span>
+                    <div class="logo-glow"></div>
+                </div>
+                <div class="nav-logo-text">
+                    <span class="logo-name">PakPhantom</span>
+                    <span class="logo-tag">Discord Bot</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link" data-page="home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="commands.html" class="nav-link active" data-page="commands"><i class="fas fa-terminal"></i> Commands</a></li>
+                <li><a href="games.html" class="nav-link" data-page="games"><i class="fas fa-gamepad"></i> Games</a></li>
+                <li><a href="features.html" class="nav-link" data-page="features"><i class="fas fa-star"></i> Features</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-page="more">
+                        <i class="fas fa-ellipsis-h"></i> More <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="fun.html"><i class="fas fa-laugh"></i> Fun Commands</a></li>
+                        <li><a href="economy.html"><i class="fas fa-coins"></i> Economy</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="support.html"><i class="fas fa-headset"></i> Support</a></li>
+                        <li><a href="status.html"><i class="fas fa-signal"></i> Status</a></li>
+                    </ul>
+                </li>
+                <li><a href="support.html" class="nav-link" data-page="support"><i class="fas fa-headset"></i> Support</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary nav-cta">
+                    <i class="fab fa-discord"></i><span>Add to Server</span><div class="btn-shimmer"></div>
+                </a>
+                <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle Menu">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="mobile-menu-inner">
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="commands.html" class="mobile-nav-link active"><i class="fas fa-terminal"></i> Commands</a></li>
+                    <li><a href="games.html" class="mobile-nav-link"><i class="fas fa-gamepad"></i> Games</a></li>
+                    <li><a href="features.html" class="mobile-nav-link"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="fun.html" class="mobile-nav-link"><i class="fas fa-laugh"></i> Fun</a></li>
+                    <li><a href="economy.html" class="mobile-nav-link"><i class="fas fa-coins"></i> Economy</a></li>
+                    <li><a href="about.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="support.html" class="mobile-nav-link"><i class="fas fa-headset"></i> Support</a></li>
+                    <li><a href="status.html" class="mobile-nav-link"><i class="fas fa-signal"></i> Status</a></li>
+                </ul>
+                <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary mobile-cta">
+                    <i class="fab fa-discord"></i> Add to Server
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== PAGE HEADER ========== -->
+    <section class="page-header-section">
+        <div class="container">
+            <!-- Breadcrumbs -->
+            <div class="breadcrumbs" data-aos="fade-down">
+                <div class="breadcrumb-item">
+                    <a href="index.html" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a>
+                    <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+                </div>
+                <div class="breadcrumb-item">
+                    <span class="breadcrumb-current">Commands</span>
+                </div>
+            </div>
+
+            <div class="page-header-content" data-aos="fade-up">
+                <div class="section-badge">⚡ All Commands</div>
+                <h1 class="page-title">All <span class="gradient-text">94 Commands</span></h1>
+                <p class="page-subtitle">Browse every command PakPhantom offers across 6 categories. Click any command to copy it!</p>
+
+                <!-- Stats Bar -->
+                <div class="commands-stats-bar">
+                    <div class="cmd-stat-item" data-aos="fade-up" data-aos-delay="100">
+                        <span class="cmd-stat-number" data-count="94">0</span>
+                        <span class="cmd-stat-label">Total Commands</span>
+                    </div>
+                    <div class="cmd-stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <span class="cmd-stat-number" data-count="6">0</span>
+                        <span class="cmd-stat-label">Categories</span>
+                    </div>
+                    <div class="cmd-stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <span class="cmd-stat-number" data-count="22">0</span>
+                        <span class="cmd-stat-label">Game Commands</span>
+                    </div>
+                    <div class="cmd-stat-item" data-aos="fade-up" data-aos-delay="400">
+                        <span class="cmd-stat-number" data-count="100" data-suffix="%">0</span>
+                        <span class="cmd-stat-label">Free</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="search-container" data-aos="fade-up" data-aos-delay="300">
+                <input type="text" id="command-search" class="search-input" placeholder="Search commands... (Ctrl+K)" autocomplete="off">
+                <i class="fas fa-search search-icon"></i>
+                <button id="search-clear" class="search-clear"><i class="fas fa-times"></i></button>
+                <span id="search-results-count" class="search-results-count"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== COMMANDS SECTION ========== -->
+    <section id="commands" class="commands-page-section">
+        <div class="container">
+
+            <!-- Category Tabs -->
+            <div class="tabs-container" data-aos="fade-up">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="all">
+                        <i class="fas fa-th"></i> All <span class="tab-count">(94)</span>
+                    </button>
+                    <button class="tab-btn" data-tab="games">
+                        <i class="fas fa-gamepad"></i> Games <span class="tab-count">(22)</span>
+                    </button>
+                    <button class="tab-btn" data-tab="fun">
+                        <i class="fas fa-laugh"></i> Fun <span class="tab-count">(30)</span>
+                    </button>
+                    <button class="tab-btn" data-tab="economy">
+                        <i class="fas fa-coins"></i> Economy <span class="tab-count">(5)</span>
+                    </button>
+                    <button class="tab-btn" data-tab="utility">
+                        <i class="fas fa-tools"></i> Utility <span class="tab-count">(20)</span>
+                    </button>
+                    <button class="tab-btn" data-tab="api">
+                        <i class="fas fa-globe"></i> API <span class="tab-count">(13)</span>
+                    </button>
+                    <button class="tab-btn" data-tab="general">
+                        <i class="fas fa-list"></i> General <span class="tab-count">(4)</span>
+                    </button>
+                    <div class="tab-indicator"></div>
+                </div>
+
+                <!-- ALL COMMANDS -->
+                <div id="commands-grid" class="commands-full-grid">
+
+                    <!-- ===== GAMES CATEGORY ===== -->
+                    <div class="command-category-header" data-category="games" data-aos="fade-up">
+                        <h2><i class="fas fa-gamepad"></i> Games <span class="category-count">22 commands</span></h2>
+                    </div>
+
+                    <div class="commands-category-grid" data-category="games">
+                        <div class="command-card" data-category="games" data-name="blackjack" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🃏</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/blackjack</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Play blackjack against the AI dealer with your coins. Features Hit, Stand, Double Down & Insurance.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">💰 Betting</span>
+                                <span class="command-feature-tag">🤖 AI Dealer</span>
+                                <span class="command-feature-tag">📊 Stats</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="games" data-name="wordle" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🟩</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/wordle</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Guess the word Wordle-style! Color-coded feedback with 685+ word database and multiple difficulties.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">4-7 Letters</span>
+                                <span class="command-feature-tag">Hard Mode</span>
+                                <span class="command-feature-tag">685+ Words</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="games" data-name="slots" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🎰</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/slots</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Spin the slot machine with 8 weighted symbols! Triple Crown jackpot pays 150x your bet.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">8 Symbols</span>
+                                <span class="command-feature-tag">Auto-spin</span>
+                                <span class="command-feature-tag">150x Jackpot</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="games" data-name="tictactoe" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🎯</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/tictactoe</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Classic Tic-Tac-Toe against AI or friends. AI uses Minimax algorithm on impossible mode!</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Solo / Multi</span>
+                                <span class="command-feature-tag">4 Difficulties</span>
+                                <span class="command-feature-tag">Minimax AI</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="games" data-name="connect4" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🎮</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/connect4</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Connect 4 vertical strategy game with AI using alpha-beta pruning algorithm.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">7x6 Board</span>
+                                <span class="command-feature-tag">Smart AI</span>
+                                <span class="command-feature-tag">Multiplayer</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="games" data-name="minesweeper" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">💣</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/minesweeper</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Classic minesweeper with cursor controls. Reveal, flag, chord with first-click safety zone.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">4 Difficulties</span>
+                                <span class="command-feature-tag">Flags</span>
+                                <span class="command-feature-tag">Safe Start</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="games" data-name="trivia" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🧠</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/trivia</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Multi-category trivia with lifelines! 154 questions across 8 categories with grade system.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">154 Questions</span>
+                                <span class="command-feature-tag">Lifelines</span>
+                                <span class="command-feature-tag">8 Categories</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="games" data-name="snake" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🐍</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/snake</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Classic Snake arcade game turn-based for Discord. D-pad controls with boost and golden apples.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">D-pad</span>
+                                <span class="command-feature-tag">Golden Apples</span>
+                                <span class="command-feature-tag">Custom Board</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="games" data-name="roulette" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🎡</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/roulette</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Casino roulette with multiple bet types. Color, straight, even/odd, high/low, dozen & column bets.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">6 Bet Types</span>
+                                <span class="command-feature-tag">35:1 Payout</span>
+                                <span class="command-feature-tag">Multi-round</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="games" data-name="hangman" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🪢</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/hangman</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Classic hangman word guessing with ASCII art gallows. Letter buttons, hints and hard mode.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">ASCII Art</span>
+                                <span class="command-feature-tag">Hints</span>
+                                <span class="command-feature-tag">Hard Mode</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="games" data-name="rps" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">✊</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/rps</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Rock Paper Scissors with smart AI pattern detection. Best of 1, 3, 5, or 7 rounds.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Smart AI</span>
+                                <span class="command-feature-tag">Multiplayer</span>
+                                <span class="command-feature-tag">Bo7</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="games" data-name="dice" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🎲</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/dice</span>
+                                    <span class="badge badge-primary">Games</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Roll dice with various types. D4 to D100 with advantage, explode, and detailed statistics.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">7 Dice Types</span>
+                                <span class="command-feature-tag">Statistics</span>
+                                <span class="command-feature-tag">Multi-roll</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== FUN CATEGORY ===== -->
+                    <div class="command-category-header" data-category="fun" data-aos="fade-up">
+                        <h2><i class="fas fa-laugh"></i> Fun <span class="category-count">30+ commands</span></h2>
+                    </div>
+
+                    <div class="commands-category-grid" data-category="fun">
+                        <div class="command-card" data-category="fun" data-name="interact" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">💕</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/interact</span>
+                                    <span class="badge badge-danger">Fun</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">10 interaction commands with GIFs! Hug, kiss, slap, pat, cuddle, punch, poke, tickle, bite & dance.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">10 Types</span>
+                                <span class="command-feature-tag">GIF API</span>
+                                <span class="command-feature-tag">Counters</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="fun" data-name="marry" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">💍</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/marry</span>
+                                    <span class="badge badge-danger">Fun</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Complete marriage system! Propose, divorce, check status with anniversary tracking.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Propose</span>
+                                <span class="command-feature-tag">Divorce</span>
+                                <span class="command-feature-tag">Status</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="fun" data-name="8ball" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🎱</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/8ball</span>
+                                    <span class="badge badge-danger">Fun</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Ask the magic 8-ball anything! 600+ responses with standard, funny, detailed & quick modes.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">600+ Answers</span>
+                                <span class="command-feature-tag">4 Modes</span>
+                                <span class="command-feature-tag">Private</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="fun" data-name="desi" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🇵🇰</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/desi</span>
+                                    <span class="badge badge-danger">Fun</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Pakistani desi jokes and cultural humor. Made specifically for Pakistani Discord servers!</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">🇵🇰 Desi</span>
+                                <span class="command-feature-tag">Comedy</span>
+                                <span class="command-feature-tag">Cultural</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="fun" data-name="meme" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">😂</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/meme</span>
+                                    <span class="badge badge-danger">Fun</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Get random memes from the internet. Fresh memes every time with upvote and share buttons.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Random</span>
+                                <span class="command-feature-tag">Fresh</span>
+                                <span class="command-feature-tag">Share</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="fun" data-name="ship" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">💘</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/ship</span>
+                                    <span class="badge badge-danger">Fun</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Ship compatibility percentage between two users. See if you're meant to be together!</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Compatibility</span>
+                                <span class="command-feature-tag">Percentage</span>
+                                <span class="command-feature-tag">Fun</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== ECONOMY CATEGORY ===== -->
+                    <div class="command-category-header" data-category="economy" data-aos="fade-up">
+                        <h2><i class="fas fa-coins"></i> Economy <span class="category-count">5 commands</span></h2>
+                    </div>
+
+                    <div class="commands-category-grid" data-category="economy">
+                        <div class="command-card" data-category="economy" data-name="balance" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">💰</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/balance</span>
+                                    <span class="badge badge-warning">Economy</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Check your current coin balance. See how rich you are in the PakPhantom economy!</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Balance</span>
+                                <span class="command-feature-tag">Coins</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="economy" data-name="daily" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">📅</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/daily</span>
+                                    <span class="badge badge-warning">Economy</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Claim your daily rewards! Get free coins every 24 hours with streak bonuses.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Daily</span>
+                                <span class="command-feature-tag">Streak</span>
+                                <span class="command-feature-tag">Bonus</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="economy" data-name="work" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">💼</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/work</span>
+                                    <span class="badge badge-warning">Economy</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Work to earn coins! Different jobs with different pay rates. Cooldown between work sessions.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Jobs</span>
+                                <span class="command-feature-tag">Coins</span>
+                                <span class="command-feature-tag">Cooldown</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="economy" data-name="pay" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">💸</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/pay</span>
+                                    <span class="badge badge-warning">Economy</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Send coins to another user. Transfer your wealth to friends or pay for services.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Transfer</span>
+                                <span class="command-feature-tag">Send</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="economy" data-name="shop" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🛒</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/shop</span>
+                                    <span class="badge badge-warning">Economy</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Browse and buy items from the shop. Spend your hard-earned coins on cool items!</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Buy</span>
+                                <span class="command-feature-tag">Items</span>
+                                <span class="command-feature-tag">Inventory</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== UTILITY CATEGORY ===== -->
+                    <div class="command-category-header" data-category="utility" data-aos="fade-up">
+                        <h2><i class="fas fa-tools"></i> Utility <span class="category-count">20+ commands</span></h2>
+                    </div>
+
+                    <div class="commands-category-grid" data-category="utility">
+                        <div class="command-card" data-category="utility" data-name="avatar" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🖼️</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/avatar</span>
+                                    <span class="badge badge-success">Utility</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Show any user's avatar in full size. Download in multiple formats and sizes.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Full Size</span>
+                                <span class="command-feature-tag">Download</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="utility" data-name="remind" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">⏰</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/remind</span>
+                                    <span class="badge badge-success">Utility</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Set custom reminders. Get notified after a specified time with your custom message.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Custom Time</span>
+                                <span class="command-feature-tag">DM Notify</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="utility" data-name="poll" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">📊</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/poll</span>
+                                    <span class="badge badge-success">Utility</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Create server polls with multiple options. Let your community vote on important decisions!</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Multi-option</span>
+                                <span class="command-feature-tag">Reactions</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="utility" data-name="note" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">📝</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/note</span>
+                                    <span class="badge badge-success">Utility</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Save personal notes in Discord. Create, view, edit and delete your notes anytime.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">CRUD</span>
+                                <span class="command-feature-tag">Personal</span>
+                                <span class="command-feature-tag">Persistent</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== API CATEGORY ===== -->
+                    <div class="command-category-header" data-category="api" data-aos="fade-up">
+                        <h2><i class="fas fa-globe"></i> API <span class="category-count">13+ commands</span></h2>
+                    </div>
+
+                    <div class="commands-category-grid" data-category="api">
+                        <div class="command-card" data-category="api" data-name="weather" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🌤️</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/weather</span>
+                                    <span class="badge badge-info">API</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Real-time weather info for any city. Temperature, humidity, wind speed and more.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Real-time</span>
+                                <span class="command-feature-tag">Global</span>
+                                <span class="command-feature-tag">Detailed</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="api" data-name="dog" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🐕</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/dog</span>
+                                    <span class="badge badge-info">API</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Random adorable dog images from the internet. Fresh cute dogs every time!</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Random</span>
+                                <span class="command-feature-tag">API</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="api" data-name="anime" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🎌</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/anime</span>
+                                    <span class="badge badge-info">API</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Get anime information including synopsis, rating, episodes and more.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Info</span>
+                                <span class="command-feature-tag">Rating</span>
+                                <span class="command-feature-tag">Synopsis</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="api" data-name="imdb" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🎬</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/imdb</span>
+                                    <span class="badge badge-info">API</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Search movies and TV shows. Get ratings, plot, cast, year and more from IMDB.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Movies</span>
+                                <span class="command-feature-tag">TV Shows</span>
+                                <span class="command-feature-tag">Ratings</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== GENERAL CATEGORY ===== -->
+                    <div class="command-category-header" data-category="general" data-aos="fade-up">
+                        <h2><i class="fas fa-list"></i> General <span class="category-count">4 commands</span></h2>
+                    </div>
+
+                    <div class="commands-category-grid" data-category="general">
+                        <div class="command-card" data-category="general" data-name="help" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">❓</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/help</span>
+                                    <span class="badge badge-secondary">General</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">View the help menu with all categories and commands. Your starting point for everything!</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Menu</span>
+                                <span class="command-feature-tag">Categories</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="general" data-name="ping" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🏓</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/ping</span>
+                                    <span class="badge badge-secondary">General</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">Check bot latency and API response time. See how fast PakPhantom is responding!</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Latency</span>
+                                <span class="command-feature-tag">API Ping</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="general" data-name="leaderboard" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">🏆</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/leaderboard</span>
+                                    <span class="badge badge-secondary">General</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">View server leaderboards. See who's the richest, most active, and top gamers!</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Rankings</span>
+                                <span class="command-feature-tag">Server</span>
+                            </div>
+                        </div>
+
+                        <div class="command-card" data-category="general" data-name="stats" data-aos="fade-up">
+                            <div class="command-card-header">
+                                <span class="command-card-icon">📊</span>
+                                <div class="command-card-title-wrap">
+                                    <span class="command-card-name">/stats</span>
+                                    <span class="badge badge-secondary">General</span>
+                                </div>
+                            </div>
+                            <p class="command-card-desc">View bot statistics. Servers, users, uptime, memory usage and version info.</p>
+                            <div class="command-card-features">
+                                <span class="command-feature-tag">Bot Info</span>
+                                <span class="command-feature-tag">Live Stats</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA SECTION ========== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2 class="cta-title">Ready to use these <span class="gradient-text">94 Commands</span>?</h2>
+                <p class="cta-subtitle">Add PakPhantom to your server and start having fun today!</p>
+                <div class="cta-buttons">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary btn-xl magnetic-btn">
+                        <i class="fab fa-discord"></i> Add to Server — Free! <div class="btn-shimmer"></div>
+                    </a>
+                    <a href="https://discord.gg/support" target="_blank" class="btn btn-ghost btn-xl magnetic-btn">
+                        <i class="fas fa-headset"></i> Join Support Server
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <span class="logo-emoji">🇵🇰</span>
+                            <span class="logo-name">PakPhantom</span>
+                        </a>
+                        <p class="footer-tagline">The Ultimate Pakistani Discord Bot. 94 commands, 22 games, endless fun!</p>
+                        <div class="footer-socials">
+                            <a href="https://discord.gg/CtHEgdGdp" class="social-btn discord"><i class="fab fa-discord"></i></a>
+                            <a href="#" class="social-btn github"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div class="footer-status"><span class="status-dot online"></span><span>Bot is Online</span></div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Pages</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="commands.html"><i class="fas fa-terminal"></i> Commands</a></li>
+                            <li><a href="features.html"><i class="fas fa-star"></i> Features</a></li>
+                            <li><a href="games.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Resources</h4>
+                        <ul class="footer-links">
+                            <li><a href="support.html"><i class="fas fa-headset"></i> Support</a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                            <li><a href="status.html"><i class="fas fa-signal"></i> Status</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Legal</h4>
+                        <ul class="footer-links">
+                            <li><a href="privacy.html"><i class="fas fa-lock"></i> Privacy</a></li>
+                            <li><a href="terms.html"><i class="fas fa-file-alt"></i> Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p class="footer-copy">© 2024 <strong>PakPhantom</strong>. Made with 💚 in Pakistan 🇵🇰</p>
+                    <div class="footer-bottom-links">
+                        <a href="privacy.html">Privacy</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="support.html">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+        <div class="btt-ring"></div>
+    </button>
+
+    <!-- PAGE SPECIFIC STYLES -->
+    <style>
+        .page-header-section {
+            padding: calc(var(--nav-height) + 4rem) 0 3rem;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .commands-stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .cmd-stat-item {
+            text-align: center;
+        }
+
+        .cmd-stat-number {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
+
+        .cmd-stat-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.3rem;
+            display: block;
+        }
+
+        .commands-page-section {
+            padding: 2rem 0 5rem;
+        }
+
+        .commands-full-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .command-category-header {
+            margin-top: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .command-category-header h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .command-category-header h2 i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .category-count {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        .commands-category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1rem;
+        }
+
+        .command-category-header.hidden-cat,
+        .commands-category-grid.hidden-grid {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .commands-stats-bar {
+                gap: 1.5rem;
+            }
+
+            .cmd-stat-number {
+                font-size: 1.5rem;
+            }
+
+            .commands-category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- SCRIPTS -->
+    <script src="js/particles.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/typewriter.js"></script>
+    <script src="js/tilt.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- PAGE-SPECIFIC JS -->
+    <script>
+        'use strict';
+
+        // Commands page search & filter
+        (function() {
+            const searchInput = document.getElementById('command-search');
+            const searchClear = document.getElementById('search-clear');
+            const searchCount = document.getElementById('search-results-count');
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const allCards = document.querySelectorAll('.command-card');
+            const categoryHeaders = document.querySelectorAll('.command-category-header');
+            const categoryGrids = document.querySelectorAll('.commands-category-grid');
+
+            let activeTab = 'all';
+
+            // Tab filtering
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    activeTab = this.dataset.tab;
+                    filterCommands();
+                });
+            });
+
+            // Search
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const container = this.closest('.search-container');
+                    if (this.value.length > 0) {
+                        container.classList.add('has-value');
+                    } else {
+                        container.classList.remove('has-value');
+                    }
+                    filterCommands();
+                });
+
+                // Ctrl+K focus
+                document.addEventListener('keydown', function(e) {
+                    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                        e.preventDefault();
+                        searchInput.focus();
+                    }
+                });
+            }
+
+            if (searchClear) {
+                searchClear.addEventListener('click', function() {
+                    searchInput.value = '';
+                    searchInput.closest('.search-container').classList.remove('has-value');
+                    filterCommands();
+                    searchInput.focus();
+                });
+            }
+
+            function filterCommands() {
+                const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+                let visibleCount = 0;
+
+                allCards.forEach(card => {
+                    const category = card.dataset.category;
+                    const name = card.dataset.name || '';
+                    const text = card.textContent.toLowerCase();
+
+                    const matchesTab = activeTab === 'all' || category === activeTab;
+                    const matchesSearch = !query || name.includes(query) || text.includes(query);
+
+                    if (matchesTab && matchesSearch) {
+                        card.style.display = '';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(10px)';
+
+                        setTimeout(() => {
+                            card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, visibleCount * 30);
+
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Show/hide category headers
+                categoryHeaders.forEach(header => {
+                    const cat = header.dataset.category;
+                    const matchesTab = activeTab === 'all' || cat === activeTab;
+
+                    if (!matchesTab) {
+                        header.classList.add('hidden-cat');
+                    } else {
+                        header.classList.remove('hidden-cat');
+                    }
+                });
+
+                categoryGrids.forEach(grid => {
+                    const cat = grid.dataset.category;
+                    const matchesTab = activeTab === 'all' || cat === activeTab;
+                    const hasVisible = grid.querySelectorAll('.command-card[style*="display: none"]').length < grid.querySelectorAll('.command-card').length;
+
+                    if (!matchesTab || !hasVisible) {
+                        grid.classList.add('hidden-grid');
+                    } else {
+                        grid.classList.remove('hidden-grid');
+                    }
+                });
+
+                // Update count
+                if (searchCount) {
+                    if (query) {
+                        searchCount.textContent = `${visibleCount} found`;
+                    } else {
+                        searchCount.textContent = '';
+                    }
+                }
+            }
+
+            // Copy command on click
+            allCards.forEach(card => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', function() {
+                    const name = this.querySelector('.command-card-name');
+                    if (!name) return;
+
+                    const cmdText = name.textContent;
+                    navigator.clipboard.writeText(cmdText).then(() => {
+                        const original = name.textContent;
+                        name.textContent = '✓ Copied!';
+                        name.style.color = '#00FF88';
+                        this.style.borderColor = 'rgba(0, 255, 136, 0.4)';
+
+                        setTimeout(() => {
+                            name.textContent = original;
+                            name.style.color = '';
+                            this.style.borderColor = '';
+                        }, 1500);
+                    }).catch(() => {});
+                });
+            });
+
+            console.log('%c📋 Commands page initialized', 'color: #00FF88;');
+        })();
+    </script>
+</body>
+</html>

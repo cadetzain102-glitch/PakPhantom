@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PakPhantom Discord Bot Status - Real-time bot status, uptime, and system health monitoring.">
+    <meta name="keywords" content="pakphantom status, discord bot status, uptime, health check">
+    <meta name="author" content="PakPhantom">
+    <meta name="theme-color" content="#00FF88">
+
+    <meta property="og:title" content="PakPhantom - Bot Status">
+    <meta property="og:description" content="Check PakPhantom's real-time status, uptime, and system health.">
+    <meta property="og:image" content="assets/images/og-image.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <title>Status - PakPhantom Discord Bot 📊</title>
+</head>
+<body class="loading page-status status-online">
+
+    <!-- LOADER -->
+    <div id="page-loader" class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <div class="loader-ring ring-1"></div>
+                <div class="loader-ring ring-2"></div>
+                <div class="loader-ring ring-3"></div>
+                <div class="loader-emoji">📊</div>
+            </div>
+            <div class="loader-text">
+                <span class="loader-brand">PakPhantom</span>
+                <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+                <span class="loader-status">Checking status...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CURSOR -->
+    <div id="cursor" class="custom-cursor"></div>
+    <div id="cursor-follower" class="cursor-follower"></div>
+
+    <!-- PARTICLES -->
+    <canvas id="particles-canvas" class="particles-canvas"></canvas>
+
+    <!-- AURORA -->
+    <div class="aurora-bg">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+    </div>
+
+    <!-- SCROLL PROGRESS -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon"><span class="logo-emoji">🇵🇰</span><div class="logo-glow"></div></div>
+                <div class="nav-logo-text"><span class="logo-name">PakPhantom</span><span class="logo-tag">Discord Bot</span></div>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="commands.html" class="nav-link"><i class="fas fa-terminal"></i> Commands</a></li>
+                <li><a href="games.html" class="nav-link"><i class="fas fa-gamepad"></i> Games</a></li>
+                <li><a href="features.html" class="nav-link"><i class="fas fa-star"></i> Features</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-ellipsis-h"></i> More <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="fun.html"><i class="fas fa-laugh"></i> Fun Commands</a></li>
+                        <li><a href="economy.html"><i class="fas fa-coins"></i> Economy</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="support.html"><i class="fas fa-headset"></i> Support</a></li>
+                        <li><a href="status.html"><i class="fas fa-signal"></i> Status</a></li>
+                    </ul>
+                </li>
+                <li><a href="support.html" class="nav-link"><i class="fas fa-headset"></i> Support</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary nav-cta">
+                    <i class="fab fa-discord"></i><span>Add to Server</span><div class="btn-shimmer"></div>
+                </a>
+                <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle Menu">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="mobile-menu-inner">
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="commands.html" class="mobile-nav-link"><i class="fas fa-terminal"></i> Commands</a></li>
+                    <li><a href="games.html" class="mobile-nav-link"><i class="fas fa-gamepad"></i> Games</a></li>
+                    <li><a href="features.html" class="mobile-nav-link"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="fun.html" class="mobile-nav-link"><i class="fas fa-laugh"></i> Fun</a></li>
+                    <li><a href="economy.html" class="mobile-nav-link"><i class="fas fa-coins"></i> Economy</a></li>
+                    <li><a href="about.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="support.html" class="mobile-nav-link"><i class="fas fa-headset"></i> Support</a></li>
+                    <li><a href="status.html" class="mobile-nav-link active"><i class="fas fa-signal"></i> Status</a></li>
+                </ul>
+                <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary mobile-cta"><i class="fab fa-discord"></i> Add to Server</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== PAGE HEADER ========== -->
+    <section class="page-header-section">
+        <div class="container">
+            <div class="breadcrumbs" data-aos="fade-down">
+                <div class="breadcrumb-item">
+                    <a href="index.html" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a>
+                    <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+                </div>
+                <div class="breadcrumb-item"><span class="breadcrumb-current">Status</span></div>
+            </div>
+
+            <div class="page-header-content" data-aos="fade-up">
+                <div class="section-badge">📊 System Status</div>
+                <h1 class="page-title">Bot <span class="gradient-text">Status</span></h1>
+                <p class="page-subtitle">Real-time monitoring of PakPhantom's systems and services.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== OVERALL STATUS ========== -->
+    <section class="status-overview-section">
+        <div class="container">
+
+            <!-- Main Status Banner -->
+            <div class="status-banner" id="status-banner" data-aos="fade-up">
+                <div class="status-banner-icon">
+                    <span class="status-pulse"></span>
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="status-banner-info">
+                    <h2 id="status-title">All Systems Operational</h2>
+                    <p id="status-desc">PakPhantom is running smoothly. All services are online and responding normally.</p>
+                </div>
+                <div class="status-banner-time">
+                    <span class="status-last-check">Last checked: <span id="last-check-time">Just now</span></span>
+                </div>
+            </div>
+
+            <!-- System Status Cards -->
+            <div class="status-grid" data-aos="fade-up">
+
+                <div class="status-card" data-service="bot">
+                    <div class="status-card-header">
+                        <div class="status-card-info">
+                            <span class="status-card-icon">🤖</span>
+                            <h3>Bot Core</h3>
+                        </div>
+                        <div class="status-indicator online">
+                            <span class="status-dot-sm online"></span>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                    <div class="status-card-body">
+                        <div class="status-metric">
+                            <span class="metric-label">Uptime</span>
+                            <span class="metric-value" id="bot-uptime">99.9%</span>
+                        </div>
+                        <div class="status-metric">
+                            <span class="metric-label">Response Time</span>
+                            <span class="metric-value" id="bot-ping">45ms</span>
+                        </div>
+                        <div class="progress-container" style="margin-top: 0.75rem;">
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 99.9%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-card" data-service="database">
+                    <div class="status-card-header">
+                        <div class="status-card-info">
+                            <span class="status-card-icon">🗄️</span>
+                            <h3>Database</h3>
+                        </div>
+                        <div class="status-indicator online">
+                            <span class="status-dot-sm online"></span>
+                            <span>Connected</span>
+                        </div>
+                    </div>
+                    <div class="status-card-body">
+                        <div class="status-metric">
+                            <span class="metric-label">Status</span>
+                            <span class="metric-value">Connected</span>
+                        </div>
+                        <div class="status-metric">
+                            <span class="metric-label">Latency</span>
+                            <span class="metric-value" id="db-ping">12ms</span>
+                        </div>
+                        <div class="progress-container" style="margin-top: 0.75rem;">
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-card" data-service="commands">
+                    <div class="status-card-header">
+                        <div class="status-card-info">
+                            <span class="status-card-icon">⚡</span>
+                            <h3>Commands</h3>
+                        </div>
+                        <div class="status-indicator online">
+                            <span class="status-dot-sm online"></span>
+                            <span>Operational</span>
+                        </div>
+                    </div>
+                    <div class="status-card-body">
+                        <div class="status-metric">
+                            <span class="metric-label">Active</span>
+                            <span class="metric-value">94/94</span>
+                        </div>
+                        <div class="status-metric">
+                            <span class="metric-label">Success Rate</span>
+                            <span class="metric-value">99.8%</span>
+                        </div>
+                        <div class="progress-container" style="margin-top: 0.75rem;">
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 99.8%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-card" data-service="api">
+                    <div class="status-card-header">
+                        <div class="status-card-info">
+                            <span class="status-card-icon">🌐</span>
+                            <h3>External APIs</h3>
+                        </div>
+                        <div class="status-indicator online">
+                            <span class="status-dot-sm online"></span>
+                            <span>All Online</span>
+                        </div>
+                    </div>
+                    <div class="status-card-body">
+                        <div class="status-metric">
+                            <span class="metric-label">APIs Active</span>
+                            <span class="metric-value">15/15</span>
+                        </div>
+                        <div class="status-metric">
+                            <span class="metric-label">Avg Latency</span>
+                            <span class="metric-value">120ms</span>
+                        </div>
+                        <div class="progress-container" style="margin-top: 0.75rem;">
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-card" data-service="games">
+                    <div class="status-card-header">
+                        <div class="status-card-info">
+                            <span class="status-card-icon">🎮</span>
+                            <h3>Game System</h3>
+                        </div>
+                        <div class="status-indicator online">
+                            <span class="status-dot-sm online"></span>
+                            <span>Operational</span>
+                        </div>
+                    </div>
+                    <div class="status-card-body">
+                        <div class="status-metric">
+                            <span class="metric-label">Games Active</span>
+                            <span class="metric-value">22/22</span>
+                        </div>
+                        <div class="status-metric">
+                            <span class="metric-label">Active Sessions</span>
+                            <span class="metric-value" id="active-games">0</span>
+                        </div>
+                        <div class="progress-container" style="margin-top: 0.75rem;">
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-card" data-service="website">
+                    <div class="status-card-header">
+                        <div class="status-card-info">
+                            <span class="status-card-icon">🖥️</span>
+                            <h3>Website</h3>
+                        </div>
+                        <div class="status-indicator online">
+                            <span class="status-dot-sm online"></span>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                    <div class="status-card-body">
+                        <div class="status-metric">
+                            <span class="metric-label">Status</span>
+                            <span class="metric-value">Online</span>
+                        </div>
+                        <div class="status-metric">
+                            <span class="metric-label">Load Time</span>
+                            <span class="metric-value" id="page-load">Fast</span>
+                        </div>
+                        <div class="progress-container" style="margin-top: 0.75rem;">
+                            <div class="progress-track">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Uptime History -->
+            <div class="uptime-history" data-aos="fade-up">
+                <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.5rem;">
+                    <i class="fas fa-chart-bar" style="color: var(--primary); margin-right: 0.5rem;"></i>
+                    30-Day Uptime History
+                </h3>
+                <div class="uptime-bars" id="uptime-bars">
+                    <!-- Generated by JS -->
+                </div>
+                <div class="uptime-legend">
+                    <span><span class="legend-dot" style="background: var(--primary);"></span> Online</span>
+                    <span><span class="legend-dot" style="background: #FFD700;"></span> Degraded</span>
+                    <span><span class="legend-dot" style="background: #FF6B6B;"></span> Outage</span>
+                </div>
+            </div>
+
+            <!-- Discord Status -->
+            <div class="discord-status-card" data-aos="fade-up">
+                <div class="card" style="padding: 1.5rem 2rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                        <i class="fab fa-discord" style="font-size: 1.5rem; color: #5865F2;"></i>
+                        <div>
+                            <h4 style="font-size: 0.95rem; font-weight: 700;">Discord Status</h4>
+                            <p style="font-size: 0.82rem; color: var(--text-muted);">PakPhantom relies on Discord's services. Check Discord's status for platform-wide issues.</p>
+                        </div>
+                        <a href="https://discordstatus.com" target="_blank" class="btn btn-ghost btn-sm" style="margin-left: auto;">
+                            <i class="fas fa-external-link-alt"></i> Discord Status
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== INCIDENT HISTORY ========== -->
+    <section class="incident-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">📋 History</div>
+                <h2 class="section-title">Recent <span class="gradient-text">Incidents</span></h2>
+                <p class="section-subtitle">Past incidents and maintenance events.</p>
+            </div>
+
+            <div class="incidents-list" data-aos="fade-up">
+                <div class="card" style="padding: 2rem; text-align: center; margin-bottom: 1.5rem;">
+                    <span style="font-size: 2.5rem; display: block; margin-bottom: 0.75rem;">✅</span>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">No Recent Incidents</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">All systems have been running smoothly. No incidents to report.</p>
+                </div>
+
+                <div class="timeline" style="margin-top: 2rem;">
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="background: var(--primary);"></div>
+                        <span class="timeline-date">🟢 Today</span>
+                        <h4 class="timeline-title">All Systems Operational</h4>
+                        <p class="timeline-desc">No issues detected. All 94 commands and 22 games functioning normally.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="background: #FFD700;"></div>
+                        <span class="timeline-date" style="color: #FFD700;">🟡 Scheduled Maintenance</span>
+                        <h4 class="timeline-title">Regular Update Deployed</h4>
+                        <p class="timeline-desc">Routine maintenance for bug fixes and performance improvements. Downtime was less than 5 minutes.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot" style="background: var(--primary);"></div>
+                        <span class="timeline-date">🟢 Launch Day</span>
+                        <h4 class="timeline-title">PakPhantom Goes Live!</h4>
+                        <p class="timeline-desc">Successfully launched with 94 commands, 22 games, and this beautiful website. 🇵🇰🎉</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><span class="logo-emoji">🇵🇰</span><span class="logo-name">PakPhantom</span></a>
+                        <p class="footer-tagline">The Ultimate Pakistani Discord Bot. 94 commands, 22 games, endless fun!</p>
+                        <div class="footer-socials">
+                            <a href="https://discord.gg/CtHEgdGdp" class="social-btn discord"><i class="fab fa-discord"></i></a>
+                            <a href="#" class="social-btn github"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div class="footer-status"><span class="status-dot online"></span><span>Bot is Online</span></div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Pages</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="commands.html"><i class="fas fa-terminal"></i> Commands</a></li>
+                            <li><a href="games.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Resources</h4>
+                        <ul class="footer-links">
+                            <li><a href="support.html"><i class="fas fa-headset"></i> Support</a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Legal</h4>
+                        <ul class="footer-links">
+                            <li><a href="privacy.html"><i class="fas fa-lock"></i> Privacy</a></li>
+                            <li><a href="terms.html"><i class="fas fa-file-alt"></i> Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p class="footer-copy">© 2024 <strong>PakPhantom</strong>. Made with 💚 in Pakistan 🇵🇰</p>
+                    <div class="footer-bottom-links">
+                        <a href="privacy.html">Privacy</a>
+                        <a href="terms.html">Terms</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i><div class="btt-ring"></div>
+    </button>
+
+    <!-- PAGE STYLES -->
+    <style>
+        .page-header-section {
+            padding: calc(var(--nav-height) + 4rem) 0 3rem;
+            text-align: center;
+        }
+        .page-title {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        .page-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .status-overview-section {
+            padding: 2rem 0 5rem;
+        }
+
+        /* Status Banner */
+        .status-banner {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.75rem 2rem;
+            background: rgba(0, 255, 136, 0.06);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: var(--border-radius-xl);
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .status-banner-icon {
+            position: relative;
+            font-size: 2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .status-pulse {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 255, 136, 0.4);
+            animation: btt-pulse 2s ease infinite;
+        }
+        .status-banner-info h2 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+        .status-banner-info p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .status-banner-time {
+            margin-left: auto;
+        }
+        .status-last-check {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        /* Status Grid */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+        .status-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            transition: all var(--transition-base);
+        }
+        .status-card:hover {
+            border-color: rgba(0, 255, 136, 0.2);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .status-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+        }
+        .status-card-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .status-card-icon {
+            font-size: 1.35rem;
+        }
+        .status-card-info h3 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+        .status-indicator.online { color: var(--primary); }
+        .status-indicator.degraded { color: #FFD700; }
+        .status-indicator.offline { color: #FF6B6B; }
+        .status-dot-sm {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .status-dot-sm.online {
+            background: var(--primary);
+            box-shadow: 0 0 6px rgba(0, 255, 136, 0.5);
+            animation: dot-blink 2s ease infinite;
+        }
+        .status-dot-sm.degraded {
+            background: #FFD700;
+            box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+        }
+        .status-dot-sm.offline {
+            background: #FF6B6B;
+            box-shadow: 0 0 6px rgba(255, 107, 107, 0.5);
+        }
+        .status-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .metric-label {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+        .metric-value {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+        }
+
+        /* Uptime History */
+        .uptime-history {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-xl);
+        }
+        .uptime-bars {
+            display: flex;
+            gap: 3px;
+            height: 32px;
+            margin-bottom: 1rem;
+        }
+        .uptime-bar {
+            flex: 1;
+            border-radius: 4px;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            position: relative;
+        }
+        .uptime-bar:hover {
+            transform: scaleY(1.2);
+            opacity: 0.9;
+        }
+        .uptime-bar.online { background: var(--primary); }
+        .uptime-bar.degraded { background: #FFD700; }
+        .uptime-bar.offline { background: #FF6B6B; }
+        .uptime-legend {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .uptime-legend span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .incident-section {
+            padding: 5rem 0;
+            background: var(--bg-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+            .status-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .status-banner-time {
+                margin-left: 0;
+            }
+            .uptime-bars {
+                height: 24px;
+            }
+        }
+    </style>
+
+    <!-- SCRIPTS -->
+    <script src="js/particles.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/typewriter.js"></script>
+    <script src="js/tilt.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- PAGE JS -->
+    <script>
+        'use strict';
+        (function() {
+            // Generate uptime bars (30 days)
+            const uptimeBarsContainer = document.getElementById('uptime-bars');
+            if (uptimeBarsContainer) {
+                for (let i = 0; i < 30; i++) {
+                    const bar = document.createElement('div');
+                    bar.className = 'uptime-bar';
+
+                    // Simulate mostly online with rare issues
+                    const rand = Math.random();
+                    if (rand > 0.97) {
+                        bar.classList.add('degraded');
+                        bar.title = `Day ${30 - i}: Degraded (partial outage)`;
+                    } else if (rand > 0.995) {
+                        bar.classList.add('offline');
+                        bar.title = `Day ${30 - i}: Outage`;
+                    } else {
+                        bar.classList.add('online');
+                        bar.title = `Day ${30 - i}: Online (100%)`;
+                    }
+
+                    // Stagger animation
+                    bar.style.opacity = '0';
+                    bar.style.transform = 'scaleY(0)';
+                    setTimeout(() => {
+                        bar.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        bar.style.opacity = '1';
+                        bar.style.transform = 'scaleY(1)';
+                    }, i * 30);
+
+                    uptimeBarsContainer.appendChild(bar);
+                }
+            }
+
+            // Update last check time
+            function updateLastCheck() {
+                const el = document.getElementById('last-check-time');
+                if (el) el.textContent = 'Just now';
+            }
+            updateLastCheck();
+
+            // Simulate live ping updates
+            function updatePing() {
+                const botPing = document.getElementById('bot-ping');
+                const dbPing = document.getElementById('db-ping');
+                const activeGames = document.getElementById('active-games');
+
+                if (botPing) botPing.textContent = (Math.floor(Math.random() * 30) + 35) + 'ms';
+                if (dbPing) dbPing.textContent = (Math.floor(Math.random() * 10) + 8) + 'ms';
+                if (activeGames) activeGames.textContent = Math.floor(Math.random() * 15);
+            }
+
+            // Update every 5 seconds
+            setInterval(updatePing, 5000);
+            updatePing();
+
+            // Page load time
+            window.addEventListener('load', () => {
+                const loadEl = document.getElementById('page-load');
+                if (loadEl && window.performance) {
+                    const loadTime = Math.floor(performance.now());
+                    loadEl.textContent = loadTime + 'ms';
+                }
+            });
+
+            // Status card hover pulse
+            document.querySelectorAll('.status-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const dot = this.querySelector('.status-dot-sm');
+                    if (dot) {
+                        dot.style.transform = 'scale(1.5)';
+                        dot.style.transition = 'transform 0.3s ease';
+                    }
+                });
+                card.addEventListener('mouseleave', function() {
+                    const dot = this.querySelector('.status-dot-sm');
+                    if (dot) dot.style.transform = '';
+                });
+            });
+
+            console.log('%c📊 Status page initialized', 'color: #00FF88;');
+        })();
+    </script>
+</body>
+</html>

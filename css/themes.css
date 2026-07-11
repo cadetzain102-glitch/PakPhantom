@@ -1,0 +1,563 @@
+/* ============================================
+   PakPhantom Website - THEMES
+   ============================================
+   Table of Contents:
+   1. Dark Theme (Default)
+   2. Light Theme (Future)
+   3. AMOLED Theme
+   4. Pakistan Theme
+   5. Discord Theme
+   6. Neon Theme
+   7. Theme Toggle
+   8. Page-Specific Themes
+   9. Season Themes
+============================================ */
+
+/* ============================================
+   1. DARK THEME (DEFAULT)
+============================================ */
+[data-theme="dark"] {
+    --primary: #00FF88;
+    --primary-dark: #00CC6A;
+    --primary-light: #33FFa0;
+    --primary-glow: rgba(0, 255, 136, 0.3);
+    --primary-subtle: rgba(0, 255, 136, 0.08);
+
+    --secondary: #5865F2;
+    --secondary-dark: #4752C4;
+    --secondary-light: #7983F5;
+    --secondary-glow: rgba(88, 101, 242, 0.3);
+
+    --accent: #FF6B6B;
+    --accent-glow: rgba(255, 107, 107, 0.3);
+
+    --gold: #FFD700;
+    --gold-glow: rgba(255, 215, 0, 0.3);
+
+    --bg-primary: #0F0F13;
+    --bg-secondary: #13131A;
+    --bg-tertiary: #1A1A24;
+    --bg-card: #16161F;
+    --bg-card-hover: #1E1E2A;
+    --bg-glass: rgba(255, 255, 255, 0.03);
+    --bg-glass-hover: rgba(255, 255, 255, 0.06);
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #B0B0C3;
+    --text-muted: #6B6B80;
+    --text-accent: #00FF88;
+
+    --border-color: rgba(255, 255, 255, 0.06);
+    --border-color-hover: rgba(0, 255, 136, 0.3);
+    --border-glass: rgba(255, 255, 255, 0.08);
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 16px 60px rgba(0, 0, 0, 0.6);
+    --shadow-primary: 0 0 30px rgba(0, 255, 136, 0.2);
+
+    --gradient-primary: linear-gradient(135deg, #00FF88, #00CC6A);
+    --gradient-secondary: linear-gradient(135deg, #5865F2, #7983F5);
+    --gradient-text: linear-gradient(135deg, #00FF88, #5865F2, #00FF88);
+}
+
+/* ============================================
+   2. LIGHT THEME (Future Support)
+============================================ */
+[data-theme="light"] {
+    --primary: #00B368;
+    --primary-dark: #009050;
+    --primary-light: #00D680;
+    --primary-glow: rgba(0, 179, 104, 0.25);
+    --primary-subtle: rgba(0, 179, 104, 0.08);
+
+    --secondary: #5865F2;
+    --secondary-dark: #4752C4;
+    --secondary-light: #7983F5;
+    --secondary-glow: rgba(88, 101, 242, 0.2);
+
+    --accent: #E5484D;
+    --accent-glow: rgba(229, 72, 77, 0.2);
+
+    --gold: #D9A400;
+    --gold-glow: rgba(217, 164, 0, 0.2);
+
+    --bg-primary: #FAFBFC;
+    --bg-secondary: #F0F2F5;
+    --bg-tertiary: #E4E6EB;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #F7F8FA;
+    --bg-glass: rgba(255, 255, 255, 0.7);
+    --bg-glass-hover: rgba(255, 255, 255, 0.85);
+
+    --text-primary: #1A1A2E;
+    --text-secondary: #4A4A5A;
+    --text-muted: #8A8A9A;
+    --text-accent: #00B368;
+
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-color-hover: rgba(0, 179, 104, 0.3);
+    --border-glass: rgba(0, 0, 0, 0.06);
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 16px 60px rgba(0, 0, 0, 0.12);
+    --shadow-primary: 0 0 30px rgba(0, 179, 104, 0.15);
+
+    --gradient-primary: linear-gradient(135deg, #00D680, #00B368);
+    --gradient-secondary: linear-gradient(135deg, #5865F2, #7983F5);
+    --gradient-text: linear-gradient(135deg, #00B368, #5865F2, #00B368);
+}
+
+/* Light Theme Specific Overrides */
+[data-theme="light"] .navbar.scrolled {
+    background: rgba(250, 251, 252, 0.9);
+}
+
+[data-theme="light"] .discord-mockup {
+    box-shadow: var(--shadow-lg);
+}
+
+[data-theme="light"] .page-loader {
+    background: #FAFBFC;
+}
+
+[data-theme="light"] .custom-cursor {
+    mix-blend-mode: normal;
+    background: var(--primary);
+}
+
+[data-theme="light"] .particles-canvas {
+    opacity: 0.3;
+}
+
+[data-theme="light"] .aurora {
+    opacity: 0.04;
+}
+
+[data-theme="light"] ::selection {
+    background: rgba(0, 179, 104, 0.2);
+    color: var(--primary-dark);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="light"] .mockup-body,
+[data-theme="light"] .mockup-header,
+[data-theme="light"] .mockup-sidebar {
+    background: #1E1F22;
+}
+
+[data-theme="light"] .msg-embed {
+    background: #2B2D31;
+}
+
+[data-theme="light"] .chat-input {
+    background: #383A40;
+}
+
+[data-theme="light"] .wg-cell {
+    color: white;
+}
+
+[data-theme="light"] .code-block {
+    background: #1E1F22;
+}
+
+[data-theme="light"] .code-content pre {
+    color: #E2E8F0;
+}
+
+/* ============================================
+   3. AMOLED THEME
+============================================ */
+[data-theme="amoled"] {
+    --bg-primary: #000000;
+    --bg-secondary: #050508;
+    --bg-tertiary: #0A0A10;
+    --bg-card: #080810;
+    --bg-card-hover: #10101A;
+    --bg-glass: rgba(255, 255, 255, 0.02);
+    --bg-glass-hover: rgba(255, 255, 255, 0.04);
+
+    --border-color: rgba(255, 255, 255, 0.04);
+    --border-glass: rgba(255, 255, 255, 0.05);
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.8);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.9);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 1);
+    --shadow-xl: 0 16px 60px rgba(0, 0, 0, 1);
+}
+
+[data-theme="amoled"] .page-loader {
+    background: #000000;
+}
+
+[data-theme="amoled"] .navbar.scrolled {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+[data-theme="amoled"] .aurora {
+    opacity: 0.04;
+}
+
+/* ============================================
+   4. PAKISTAN THEME
+============================================ */
+[data-theme="pakistan"] {
+    --primary: #01411C;
+    --primary-dark: #013316;
+    --primary-light: #1A6B3C;
+    --primary-glow: rgba(1, 65, 28, 0.4);
+    --primary-subtle: rgba(1, 65, 28, 0.12);
+
+    --accent: #FFFFFF;
+    --gold: #FFD700;
+
+    --bg-primary: #0A0E0C;
+    --bg-secondary: #0E1410;
+    --bg-tertiary: #152018;
+    --bg-card: #111A14;
+    --bg-card-hover: #1A2A1E;
+
+    --text-accent: #01411C;
+
+    --gradient-primary: linear-gradient(135deg, #01411C, #1A6B3C);
+    --gradient-text: linear-gradient(135deg, #01411C, #FFD700, #01411C);
+}
+
+[data-theme="pakistan"] .badge-new {
+    background: #FFD700;
+    color: #01411C;
+}
+
+[data-theme="pakistan"] .hero-badge {
+    background: rgba(1, 65, 28, 0.15);
+    border-color: rgba(1, 65, 28, 0.3);
+    color: #1A6B3C;
+}
+
+/* ============================================
+   5. DISCORD THEME
+============================================ */
+[data-theme="discord"] {
+    --primary: #5865F2;
+    --primary-dark: #4752C4;
+    --primary-light: #7983F5;
+    --primary-glow: rgba(88, 101, 242, 0.3);
+    --primary-subtle: rgba(88, 101, 242, 0.1);
+
+    --secondary: #EB459E;
+    --secondary-dark: #C73884;
+    --secondary-light: #F06FAF;
+
+    --bg-primary: #1E1F22;
+    --bg-secondary: #2B2D31;
+    --bg-tertiary: #313338;
+    --bg-card: #2B2D31;
+    --bg-card-hover: #35373C;
+    --bg-glass: rgba(255, 255, 255, 0.04);
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #B5BAC1;
+    --text-muted: #80848E;
+
+    --border-color: rgba(255, 255, 255, 0.06);
+
+    --gradient-primary: linear-gradient(135deg, #5865F2, #7983F5);
+    --gradient-text: linear-gradient(135deg, #5865F2, #EB459E, #5865F2);
+}
+
+[data-theme="discord"] .page-loader {
+    background: #1E1F22;
+}
+
+[data-theme="discord"] .navbar.scrolled {
+    background: rgba(30, 31, 34, 0.9);
+}
+
+/* ============================================
+   6. NEON THEME
+============================================ */
+[data-theme="neon"] {
+    --primary: #00FFFF;
+    --primary-dark: #00CCCC;
+    --primary-light: #33FFFF;
+    --primary-glow: rgba(0, 255, 255, 0.3);
+    --primary-subtle: rgba(0, 255, 255, 0.08);
+
+    --secondary: #FF00FF;
+    --secondary-light: #FF33FF;
+    --secondary-glow: rgba(255, 0, 255, 0.3);
+
+    --accent: #FF0080;
+
+    --bg-primary: #0A0A14;
+    --bg-secondary: #0E0E1A;
+    --bg-tertiary: #141420;
+    --bg-card: #101018;
+    --bg-card-hover: #18182A;
+
+    --gradient-primary: linear-gradient(135deg, #00FFFF, #00CCCC);
+    --gradient-text: linear-gradient(135deg, #00FFFF, #FF00FF, #00FFFF);
+}
+
+[data-theme="neon"] .feature-card:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.15), 0 0 60px rgba(0, 255, 255, 0.05);
+}
+
+[data-theme="neon"] .btn-primary {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.1);
+}
+
+[data-theme="neon"] .btn-primary:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.6), 0 0 60px rgba(0, 255, 255, 0.2);
+}
+
+/* ============================================
+   7. THEME TOGGLE
+============================================ */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-sm);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-glass-hover);
+    border-color: var(--border-color-hover);
+    color: var(--primary);
+    transform: rotate(20deg);
+}
+
+.theme-toggle .theme-icon {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(360deg);
+}
+
+/* Theme Switcher Dropdown */
+.theme-switcher {
+    position: relative;
+}
+
+.theme-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 0.5rem;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-lg);
+    z-index: 50;
+}
+
+.theme-switcher.open .theme-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.85rem;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: none;
+    background: none;
+    width: 100%;
+    color: var(--text-secondary);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.theme-option:hover {
+    background: var(--bg-glass-hover);
+    color: var(--text-primary);
+}
+
+.theme-option.active {
+    background: var(--primary-subtle);
+    color: var(--primary);
+}
+
+.theme-option-color {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    flex-shrink: 0;
+    transition: border-color var(--transition-base);
+}
+
+.theme-option:hover .theme-option-color {
+    border-color: var(--primary);
+}
+
+.theme-option.active .theme-option-color {
+    border-color: var(--primary);
+    box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.theme-color-dark { background: #0F0F13; }
+.theme-color-light { background: #FAFBFC; }
+.theme-color-amoled { background: #000000; }
+.theme-color-pakistan { background: #01411C; }
+.theme-color-discord { background: #5865F2; }
+.theme-color-neon { background: linear-gradient(135deg, #00FFFF, #FF00FF); }
+
+.theme-option-check {
+    margin-left: auto;
+    color: var(--primary);
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.theme-option.active .theme-option-check {
+    opacity: 1;
+}
+
+/* ============================================
+   8. PAGE-SPECIFIC THEMES
+============================================ */
+
+/* Games Page - Slightly different accent */
+.page-games {
+    --accent: #7983F5;
+}
+
+.page-games .section-badge {
+    background: rgba(88, 101, 242, 0.1);
+    border-color: rgba(88, 101, 242, 0.2);
+    color: var(--secondary-light);
+}
+
+/* Fun Page - Warm accent */
+.page-fun {
+    --accent: #FF8E8E;
+}
+
+.page-fun .section-badge {
+    background: rgba(255, 107, 107, 0.1);
+    border-color: rgba(255, 107, 107, 0.2);
+    color: #FF8E8E;
+}
+
+/* Economy Page - Gold accent */
+.page-economy {
+    --accent: #FFD700;
+}
+
+.page-economy .section-badge {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: rgba(255, 215, 0, 0.2);
+    color: #FFD700;
+}
+
+/* Status Page - Based on status */
+.page-status.status-online {
+    --accent: #00FF88;
+}
+
+.page-status.status-degraded {
+    --accent: #FFD700;
+}
+
+.page-status.status-offline {
+    --accent: #FF6B6B;
+}
+
+/* ============================================
+   9. SEASON THEMES (Easter Eggs)
+============================================ */
+
+/* Ramadan Theme */
+.season-ramadan {
+    --primary: #C6A962;
+    --primary-dark: #A68E4F;
+    --primary-light: #D4BE7E;
+    --primary-glow: rgba(198, 169, 98, 0.3);
+    --primary-subtle: rgba(198, 169, 98, 0.1);
+
+    --gradient-primary: linear-gradient(135deg, #C6A962, #A68E4F);
+    --gradient-text: linear-gradient(135deg, #C6A962, #01411C, #C6A962);
+}
+
+/* Pakistan Day (March 23) */
+.season-pakistan-day {
+    --primary: #01411C;
+    --accent: #FFFFFF;
+
+    --gradient-primary: linear-gradient(135deg, #01411C, #FFFFFF);
+}
+
+/* Independence Day (August 14) */
+.season-independence {
+    --primary: #00FF88;
+    --accent: #FFFFFF;
+}
+
+/* Winter Theme */
+.season-winter {
+    --primary: #88CCFF;
+    --primary-dark: #66AADD;
+    --primary-light: #AADDFF;
+    --primary-glow: rgba(136, 204, 255, 0.3);
+    --primary-subtle: rgba(136, 204, 255, 0.08);
+
+    --gradient-primary: linear-gradient(135deg, #88CCFF, #66AADD);
+    --gradient-text: linear-gradient(135deg, #88CCFF, #FFFFFF, #88CCFF);
+}
+
+/* Theme Transition */
+body {
+    transition: background-color 0.4s ease, color 0.3s ease;
+}
+
+.navbar,
+.footer,
+.card,
+.feature-card,
+.cmd-card,
+.stat-card,
+.game-preview-card,
+.testimonial-card,
+.step-card,
+.accordion-item,
+.btn {
+    transition: background-color 0.4s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+}

@@ -1,0 +1,739 @@
+{
+  "meta": {
+    "total": 22,
+    "version": "2.0.0",
+    "lastUpdated": "2024-01-01"
+  },
+  "categories": [
+    { "id": "word",      "name": "Word & Puzzle",  "emoji": "📝", "color": "#00FF88" },
+    { "id": "card",      "name": "Card & Casino",  "emoji": "🃏", "color": "#ffd040" },
+    { "id": "strategy",  "name": "Strategy",       "emoji": "♟️", "color": "#a855f7" },
+    { "id": "action",    "name": "Action & Reflex", "emoji": "⚡", "color": "#ff6b6b" },
+    { "id": "trivia",    "name": "Trivia & Quiz",  "emoji": "❓", "color": "#00b4ff" },
+    { "id": "multiplayer","name": "Multiplayer",   "emoji": "👥", "color": "#ec4899" }
+  ],
+  "difficulties": {
+    "easy":   { "label": "Easy",   "color": "#00FF88", "stars": 1 },
+    "medium": { "label": "Medium", "color": "#ffd040", "stars": 2 },
+    "hard":   { "label": "Hard",   "color": "#ff6b6b", "stars": 3 },
+    "expert": { "label": "Expert", "color": "#a855f7", "stars": 4 }
+  },
+  "games": [
+    {
+      "id": "wordle",
+      "name": "Wordle",
+      "emoji": "🟩",
+      "category": "word",
+      "difficulty": "medium",
+      "command": "/wordle",
+      "shortDesc": "Guess the 5-letter word in 6 tries.",
+      "longDesc": "Classic Wordle game fully playable in Discord. Green tiles mean correct letter and position. Yellow means correct letter, wrong position. Grey means letter not in word. Daily challenge mode shares the same word for all players.",
+      "features": [
+        "Daily challenge mode with shared word",
+        "Random mode for unlimited play",
+        "Emoji tile display",
+        "Streak tracking",
+        "Server leaderboard"
+      ],
+      "players": "1",
+      "duration": "5–10 min",
+      "cooldown": "30s",
+      "coinReward": "50–200",
+      "modes": ["daily", "random"],
+      "stats": {
+        "totalPlays": 48200,
+        "avgWinRate": "72%",
+        "avgGuesses": 4.1
+      },
+      "tags": ["word", "puzzle", "daily", "streak"],
+      "isNew": false,
+      "isPopular": true,
+      "isFeatured": true
+    },
+    {
+      "id": "trivia",
+      "name": "Trivia",
+      "emoji": "❓",
+      "category": "trivia",
+      "difficulty": "medium",
+      "command": "/trivia",
+      "shortDesc": "Answer questions from 20+ categories.",
+      "longDesc": "Massive trivia database with 10,000+ questions across 20+ categories. Includes a Pakistan-specific category with questions about history, culture, cricket, and geography. Choose your difficulty and category for targeted practice.",
+      "features": [
+        "10,000+ questions",
+        "20+ categories",
+        "Pakistan-specific category",
+        "Difficulty selection",
+        "Time-limited answers",
+        "Coin rewards for correct answers"
+      ],
+      "players": "1",
+      "duration": "1–2 min",
+      "cooldown": "10s",
+      "coinReward": "20–100",
+      "modes": ["solo", "categories"],
+      "categories": [
+        "general", "science", "history", "geography", "sports",
+        "music", "movies", "technology", "pakistan", "islam",
+        "math", "animals", "food", "literature", "art"
+      ],
+      "stats": {
+        "totalPlays": 92400,
+        "avgWinRate": "58%",
+        "avgTime": "18s"
+      },
+      "tags": ["trivia", "quiz", "knowledge", "pakistan"],
+      "isNew": false,
+      "isPopular": true,
+      "isFeatured": true
+    },
+    {
+      "id": "blackjack",
+      "name": "Blackjack",
+      "emoji": "🃏",
+      "category": "card",
+      "difficulty": "medium",
+      "command": "/blackjack",
+      "shortDesc": "Beat the dealer to 21 without going over.",
+      "longDesc": "Full casino-style Blackjack game with Discord button interactions. Bet coins, receive two cards, and try to reach 21 (or closer than the dealer) without busting. Supports hit, stand, and double down. Blackjack pays 1.5x your bet.",
+      "features": [
+        "Real casino rules",
+        "Button-based interactions",
+        "Hit, Stand, Double Down",
+        "Blackjack pays 1.5x",
+        "Coin betting",
+        "Dealer plays optimally"
+      ],
+      "players": "1",
+      "duration": "2–5 min",
+      "cooldown": "15s",
+      "coinReward": "Bet ×1.5–×2",
+      "modes": ["classic"],
+      "stats": {
+        "totalPlays": 61300,
+        "avgWinRate": "43%",
+        "biggestWin": 50000
+      },
+      "tags": ["card", "gambling", "casino", "coins"],
+      "isNew": false,
+      "isPopular": true,
+      "isFeatured": true
+    },
+    {
+      "id": "hangman",
+      "name": "Hangman",
+      "emoji": "🎯",
+      "category": "word",
+      "difficulty": "easy",
+      "command": "/hangman",
+      "shortDesc": "Guess the hidden word before you run out of tries.",
+      "longDesc": "Classic Hangman with multiple word categories. Guess letters one at a time to reveal the hidden word. You have 7 wrong guesses before it's game over. Each correct guess is shown instantly in the word display.",
+      "features": [
+        "Multiple word categories",
+        "7 lives per game",
+        "ASCII art display",
+        "Pakistan-specific words",
+        "Hint system",
+        "Coin reward for wins"
+      ],
+      "players": "1",
+      "duration": "3–8 min",
+      "cooldown": "20s",
+      "coinReward": "30–150",
+      "modes": ["solo"],
+      "categories": [
+        "animals", "countries", "movies", "tech", "pakistan",
+        "food", "sports", "random"
+      ],
+      "stats": {
+        "totalPlays": 38900,
+        "avgWinRate": "64%",
+        "mostGuessedWrong": "Z"
+      },
+      "tags": ["word", "puzzle", "solo", "classic"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "chess",
+      "name": "Chess",
+      "emoji": "♟️",
+      "category": "strategy",
+      "difficulty": "expert",
+      "command": "/chess",
+      "shortDesc": "Full chess with ELO rating and move rendering.",
+      "longDesc": "Fully featured Chess engine in Discord. Challenge any server member and play a complete game with legal move validation, PGN board rendering, ELO rating system, and timed moves. Chess in Discord has never been this polished.",
+      "features": [
+        "Full legal move validation",
+        "PGN board rendering in embeds",
+        "ELO rating system",
+        "Challenge/accept system",
+        "Timed turns",
+        "Draw offer and resign",
+        "Move history"
+      ],
+      "players": "2",
+      "duration": "15–60 min",
+      "cooldown": "60s",
+      "coinReward": "100–500",
+      "modes": ["multiplayer"],
+      "stats": {
+        "totalPlays": 12400,
+        "avgGameLength": "32 moves",
+        "mostCommonOpening": "King's Pawn"
+      },
+      "tags": ["strategy", "multiplayer", "skill", "chess"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": true
+    },
+    {
+      "id": "tictactoe",
+      "name": "Tic-Tac-Toe",
+      "emoji": "⭕",
+      "category": "strategy",
+      "difficulty": "easy",
+      "command": "/tictactoe",
+      "shortDesc": "Classic 3×3 grid. Get 3 in a row to win.",
+      "longDesc": "Classic Tic-Tac-Toe played via Discord button interactions on a 3×3 grid. Challenge any server member. Take turns placing X and O. First to get 3 in a row (horizontally, vertically, or diagonally) wins.",
+      "features": [
+        "Interactive button grid",
+        "Challenge any member",
+        "Real-time board display",
+        "Win/draw detection",
+        "Timeout if inactive"
+      ],
+      "players": "2",
+      "duration": "1–3 min",
+      "cooldown": "30s",
+      "coinReward": "20–50",
+      "modes": ["multiplayer"],
+      "stats": {
+        "totalPlays": 29800,
+        "drawRate": "32%",
+        "avgDuration": "90s"
+      },
+      "tags": ["strategy", "multiplayer", "classic"],
+      "isNew": false,
+      "isPopular": true,
+      "isFeatured": false
+    },
+    {
+      "id": "connectfour",
+      "name": "Connect Four",
+      "emoji": "➕",
+      "category": "strategy",
+      "difficulty": "medium",
+      "command": "/connectfour",
+      "shortDesc": "Drop discs and connect 4 in a row.",
+      "longDesc": "Full Connect Four game rendered in Discord embeds. Players take turns selecting columns to drop coloured discs. First to connect 4 horizontally, vertically, or diagonally wins. 7×6 grid.",
+      "features": [
+        "7×6 emoji grid display",
+        "Column selection buttons",
+        "Gravity simulation",
+        "Diagonal detection",
+        "Challenge system"
+      ],
+      "players": "2",
+      "duration": "5–15 min",
+      "cooldown": "30s",
+      "coinReward": "30–100",
+      "modes": ["multiplayer"],
+      "stats": {
+        "totalPlays": 18200,
+        "avgMoves": 26,
+        "avgDuration": "8 min"
+      },
+      "tags": ["strategy", "multiplayer", "classic"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "snake",
+      "name": "Snake",
+      "emoji": "🐍",
+      "category": "action",
+      "difficulty": "easy",
+      "command": "/snake",
+      "shortDesc": "Control the snake to eat food and grow.",
+      "longDesc": "Classic Snake game played inside Discord using reaction buttons as controls. The snake grows longer with each food eaten. Colliding with a wall or yourself ends the game. Score = food eaten.",
+      "features": [
+        "Reaction button controls",
+        "Grid display in embed",
+        "Score tracking",
+        "High score leaderboard",
+        "Progressive speed increase"
+      ],
+      "players": "1",
+      "duration": "2–10 min",
+      "cooldown": "30s",
+      "coinReward": "10–100",
+      "modes": ["solo"],
+      "stats": {
+        "totalPlays": 22600,
+        "highScore": 47,
+        "avgScore": 12
+      },
+      "tags": ["action", "classic", "solo", "reflex"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "rps",
+      "name": "Rock Paper Scissors",
+      "emoji": "✂️",
+      "category": "multiplayer",
+      "difficulty": "easy",
+      "command": "/rps",
+      "shortDesc": "Rock, Paper, or Scissors — best of 3.",
+      "longDesc": "Classic Rock Paper Scissors. Play against the bot or challenge a server member. Best of 3 rounds wins the match. Optional coin bet — winner takes all.",
+      "features": [
+        "vs Bot or vs Player",
+        "Best of 3 rounds",
+        "Emoji button choices",
+        "Optional coin betting",
+        "Instant results"
+      ],
+      "players": "1–2",
+      "duration": "30s–2 min",
+      "cooldown": "10s",
+      "coinReward": "Bet ×2",
+      "modes": ["vs_bot", "vs_player"],
+      "stats": {
+        "totalPlays": 44100,
+        "winVsBot": "34%",
+        "mostChosen": "Rock"
+      },
+      "tags": ["multiplayer", "quick", "classic"],
+      "isNew": false,
+      "isPopular": true,
+      "isFeatured": false
+    },
+    {
+      "id": "guess",
+      "name": "Number Guess",
+      "emoji": "🔢",
+      "category": "action",
+      "difficulty": "easy",
+      "command": "/guess",
+      "shortDesc": "Guess the bot's number between 1 and 100.",
+      "longDesc": "The bot thinks of a number between 1 and 100. You have 7 attempts to guess it correctly. After each wrong guess, the bot tells you higher or lower. Fewer guesses = more coins.",
+      "features": [
+        "7 attempts per game",
+        "Higher/lower hints",
+        "Bonus coins for fewer guesses",
+        "Streak tracking",
+        "Fast and fun"
+      ],
+      "players": "1",
+      "duration": "1–3 min",
+      "cooldown": "15s",
+      "coinReward": "10–150",
+      "modes": ["solo"],
+      "stats": {
+        "totalPlays": 31400,
+        "avgGuesses": 4.8,
+        "perfectGuessRate": "1.2%"
+      },
+      "tags": ["action", "quick", "solo"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "slots",
+      "name": "Slots",
+      "emoji": "🎰",
+      "category": "card",
+      "difficulty": "easy",
+      "command": "/slots",
+      "shortDesc": "Spin the slot machine. Match to win big.",
+      "longDesc": "Three-reel slot machine with multiple symbol combinations. Three 7s pays 10x. Three matching fruits pay 3x. Two matching pay 1.5x. Any other combination is a loss. Luck Tokens increase win probability.",
+      "features": [
+        "Animated reel spin",
+        "Multiple payout tiers",
+        "Luck Token compatible",
+        "Real-time result",
+        "Jackpot detection"
+      ],
+      "players": "1",
+      "duration": "30s",
+      "cooldown": "10s",
+      "coinReward": "Bet ×1.5–×10",
+      "modes": ["classic"],
+      "payouts": [
+        { "combo": "7️⃣7️⃣7️⃣", "multiplier": "×10", "label": "Jackpot!" },
+        { "combo": "🍒🍒🍒", "multiplier": "×3", "label": "Triple" },
+        { "combo": "🍋🍋🍋", "multiplier": "×3", "label": "Triple" },
+        { "combo": "⭐⭐⭐", "multiplier": "×5", "label": "Stars!" },
+        { "combo": "X X _", "multiplier": "×1.5", "label": "Pair" }
+      ],
+      "stats": {
+        "totalPlays": 78900,
+        "jackpotCount": 142,
+        "avgReturn": "92%"
+      },
+      "tags": ["card", "gambling", "quick", "casino"],
+      "isNew": false,
+      "isPopular": true,
+      "isFeatured": false
+    },
+    {
+      "id": "coinflip",
+      "name": "Coin Flip",
+      "emoji": "🪙",
+      "category": "card",
+      "difficulty": "easy",
+      "command": "/coinflip",
+      "shortDesc": "Heads or Tails — 50/50 chance, double your bet.",
+      "longDesc": "The simplest gambling game — bet any amount and choose heads or tails. Win and you double your bet. Lose and it's all gone. True 50/50 probability, no house edge.",
+      "features": [
+        "True 50/50 probability",
+        "Animated coin flip",
+        "No house edge",
+        "Instant result",
+        "Any bet amount"
+      ],
+      "players": "1",
+      "duration": "10s",
+      "cooldown": "5s",
+      "coinReward": "Bet ×2",
+      "modes": ["classic"],
+      "stats": {
+        "totalPlays": 105400,
+        "headsWinRate": "50.1%",
+        "biggestSingleBet": 100000
+      },
+      "tags": ["card", "gambling", "quick", "50/50"],
+      "isNew": false,
+      "isPopular": true,
+      "isFeatured": false
+    },
+    {
+      "id": "dice",
+      "name": "Dice Roll",
+      "emoji": "🎲",
+      "category": "card",
+      "difficulty": "easy",
+      "command": "/dice",
+      "shortDesc": "Roll dice and beat the bot's roll.",
+      "longDesc": "Both you and the bot roll a die (1–6). Highest roll wins the bet. Ties result in a re-roll. Roll a 6 vs any other number wins a bonus 1.5x. Simple, fast, and fun.",
+      "features": [
+        "Animated dice emoji",
+        "Tie re-roll mechanic",
+        "Bonus for rolling 6",
+        "Adjustable bet",
+        "Instant result"
+      ],
+      "players": "1",
+      "duration": "10s",
+      "cooldown": "5s",
+      "coinReward": "Bet ×2",
+      "modes": ["vs_bot"],
+      "stats": {
+        "totalPlays": 39200,
+        "avgWinRate": "47%",
+        "mostRolled": 4
+      },
+      "tags": ["card", "gambling", "quick"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "roulette",
+      "name": "Roulette",
+      "emoji": "🎡",
+      "category": "card",
+      "difficulty": "medium",
+      "command": "/roulette",
+      "shortDesc": "Bet on numbers, colours, or groups. Spin the wheel.",
+      "longDesc": "Full roulette simulation with multiple bet types. Bet on a single number (35x), red/black (2x), odd/even (2x), or number groups (3x). Spin the wheel and watch the ball land.",
+      "features": [
+        "Multiple bet types",
+        "Single number = ×35",
+        "Colour bets = ×2",
+        "Group bets = ×3",
+        "Animated wheel result"
+      ],
+      "players": "1",
+      "duration": "1–2 min",
+      "cooldown": "10s",
+      "coinReward": "Bet ×2–×35",
+      "modes": ["classic"],
+      "betTypes": [
+        { "name": "Single Number", "payout": "×35", "odds": "2.7%" },
+        { "name": "Red / Black", "payout": "×2", "odds": "48.6%" },
+        { "name": "Odd / Even", "payout": "×2", "odds": "48.6%" },
+        { "name": "1-12 / 13-24 / 25-36", "payout": "×3", "odds": "32.4%" }
+      ],
+      "stats": {
+        "totalPlays": 21800,
+        "mostBet": "Red",
+        "biggestWin": 35000
+      },
+      "tags": ["card", "gambling", "casino"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "quiz",
+      "name": "Quiz Battle",
+      "emoji": "⚔️",
+      "category": "trivia",
+      "difficulty": "hard",
+      "command": "/quiz",
+      "shortDesc": "Multiplayer trivia battle. First to 5 correct wins.",
+      "longDesc": "Head-to-head trivia battle between two players. Questions flash to both players simultaneously. First to answer correctly scores a point. First to 5 points wins the match and earns coins.",
+      "features": [
+        "Multiplayer battle mode",
+        "First to 5 correct wins",
+        "Speed-based scoring",
+        "Multiple categories",
+        "Coin prize pool"
+      ],
+      "players": "2",
+      "duration": "5–15 min",
+      "cooldown": "30s",
+      "coinReward": "100–500",
+      "modes": ["multiplayer", "solo"],
+      "stats": {
+        "totalPlays": 15200,
+        "avgMatchDuration": "9 min",
+        "closestMatch": "5-4"
+      },
+      "tags": ["trivia", "multiplayer", "competitive"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "memory",
+      "name": "Memory Match",
+      "emoji": "🧠",
+      "category": "action",
+      "difficulty": "medium",
+      "command": "/memory",
+      "shortDesc": "Flip cards and match pairs from memory.",
+      "longDesc": "Classic memory card game played in Discord. A grid of emoji cards is revealed briefly, then flipped face-down. Select pairs by position to match them. Clear all pairs to win. Fewer flips = more coins.",
+      "features": [
+        "Multiple grid sizes",
+        "Brief preview then flip",
+        "Efficiency scoring",
+        "Emoji themed cards",
+        "Time tracking"
+      ],
+      "players": "1",
+      "duration": "3–8 min",
+      "cooldown": "20s",
+      "coinReward": "20–200",
+      "modes": ["4x4", "6x6"],
+      "stats": {
+        "totalPlays": 14300,
+        "avgFlips": 28,
+        "perfectGames": 312
+      },
+      "tags": ["action", "memory", "solo", "puzzle"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "akinator",
+      "name": "Akinator",
+      "emoji": "🧞",
+      "category": "trivia",
+      "difficulty": "medium",
+      "command": "/akinator",
+      "shortDesc": "The genie guesses who you're thinking of.",
+      "longDesc": "Think of any real or fictional character. The bot asks yes/no questions one at a time to narrow down who you're thinking of. Can it guess in 20 questions or fewer?",
+      "features": [
+        "Yes/No question flow",
+        "Button-based answers",
+        "20 question limit",
+        "Celebrity & fictional support",
+        "Accuracy counter"
+      ],
+      "players": "1",
+      "duration": "3–10 min",
+      "cooldown": "30s",
+      "coinReward": "50",
+      "modes": ["solo"],
+      "stats": {
+        "totalPlays": 18700,
+        "guessAccuracy": "81%",
+        "avgQuestions": 16.4
+      },
+      "tags": ["trivia", "solo", "ai", "guess"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "typing",
+      "name": "Typing Race",
+      "emoji": "⌨️",
+      "category": "action",
+      "difficulty": "medium",
+      "command": "/typing",
+      "shortDesc": "Type the sentence as fast as you can. WPM tracked.",
+      "longDesc": "A random sentence appears and you must type it as accurately and quickly as possible. WPM (words per minute) and accuracy are both measured. Race against others or beat your personal best.",
+      "features": [
+        "WPM measurement",
+        "Accuracy tracking",
+        "Multiplayer racing",
+        "Personal best records",
+        "Difficulty-scaled sentences"
+      ],
+      "players": "1–4",
+      "duration": "1–3 min",
+      "cooldown": "20s",
+      "coinReward": "20–150",
+      "modes": ["solo", "race"],
+      "stats": {
+        "totalPlays": 24100,
+        "serverRecord": "142 WPM",
+        "avgWPM": 58
+      },
+      "tags": ["action", "skill", "typing", "race"],
+      "isNew": true,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "minesweeper",
+      "name": "Minesweeper",
+      "emoji": "💣",
+      "category": "action",
+      "difficulty": "hard",
+      "command": "/minesweeper",
+      "shortDesc": "Classic Minesweeper using Discord spoiler tags.",
+      "longDesc": "Classic Minesweeper generated using Discord spoiler tags. Each cell is a hidden spoiler — click to reveal. Numbers show adjacent mine count. Flag all mines without detonating any to win.",
+      "features": [
+        "Spoiler tag mechanic",
+        "Multiple grid sizes",
+        "Mine count display",
+        "Auto-reveal safe areas",
+        "Win detection"
+      ],
+      "players": "1",
+      "duration": "3–15 min",
+      "cooldown": "20s",
+      "coinReward": "50–300",
+      "modes": ["easy", "medium", "hard"],
+      "gridSizes": {
+        "easy":   { "size": "5×5",  "mines": 5 },
+        "medium": { "size": "8×8",  "mines": 12 },
+        "hard":   { "size": "10×10","mines": 20 }
+      },
+      "stats": {
+        "totalPlays": 17600,
+        "avgWinRate": "38%",
+        "fastestWin": "23s"
+      },
+      "tags": ["action", "puzzle", "solo", "classic"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "anagram",
+      "name": "Anagram",
+      "emoji": "🔤",
+      "category": "word",
+      "difficulty": "hard",
+      "command": "/anagram",
+      "shortDesc": "Unscramble the letters to find the hidden word.",
+      "longDesc": "A word is scrambled letter by letter. You must unscramble it by typing the correct word. Harder words earn more coins. Clues available — but cost coins to use.",
+      "features": [
+        "Scrambled letter display",
+        "Difficulty scaling",
+        "Paid clue system",
+        "Streak tracking",
+        "Fast round format"
+      ],
+      "players": "1",
+      "duration": "1–3 min",
+      "cooldown": "15s",
+      "coinReward": "20–150",
+      "modes": ["solo"],
+      "stats": {
+        "totalPlays": 19400,
+        "avgWinRate": "61%",
+        "hardestWord": "SEQUOIA"
+      },
+      "tags": ["word", "puzzle", "solo"],
+      "isNew": false,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "scramble",
+      "name": "Word Scramble",
+      "emoji": "🌀",
+      "category": "word",
+      "difficulty": "medium",
+      "command": "/scramble",
+      "shortDesc": "Unscramble Pakistani themed words against a timer.",
+      "longDesc": "Pakistani-themed word scramble game. Words are drawn from categories including cities, foods, cricketers, and landmarks. Beat the timer and earn coins. Desi knowledge required!",
+      "features": [
+        "Pakistan-themed word bank",
+        "Timer-based rounds",
+        "Category selection",
+        "Leaderboard",
+        "Difficulty levels"
+      ],
+      "players": "1",
+      "duration": "1–3 min",
+      "cooldown": "15s",
+      "coinReward": "15–100",
+      "modes": ["solo", "timed"],
+      "categories": ["cities", "foods", "cricketers", "landmarks", "mixed"],
+      "stats": {
+        "totalPlays": 11800,
+        "avgWinRate": "69%",
+        "mostAttemptedCategory": "cricketers"
+      },
+      "tags": ["word", "puzzle", "pakistan", "solo"],
+      "isNew": true,
+      "isPopular": false,
+      "isFeatured": false
+    },
+    {
+      "id": "2048",
+      "name": "2048",
+      "emoji": "🔢",
+      "category": "strategy",
+      "difficulty": "hard",
+      "command": "/2048",
+      "shortDesc": "Merge tiles to reach the 2048 tile.",
+      "longDesc": "Classic 2048 puzzle game played via Discord button controls. Swipe in four directions to merge matching number tiles. Reach the 2048 tile to win — or push beyond for higher scores.",
+      "features": [
+        "4×4 grid display",
+        "Arrow button controls",
+        "Score tracking",
+        "High score leaderboard",
+        "Undo last move"
+      ],
+      "players": "1",
+      "duration": "5–20 min",
+      "cooldown": "30s",
+      "coinReward": "50–500",
+      "modes": ["classic"],
+      "stats": {
+        "totalPlays": 9800,
+        "winRate": "22%",
+        "highestTile": 4096,
+        "avgScore": 3840
+      },
+      "tags": ["strategy", "puzzle", "solo", "numbers"],
+      "isNew": true,
+      "isPopular": false,
+      "isFeatured": false
+    }
+  ]
+}

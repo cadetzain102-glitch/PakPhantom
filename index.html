@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PakPhantom - The Ultimate Pakistani Discord Bot with 94 commands, 22 games, economy system, and endless fun!">
+    <meta name="keywords" content="discord bot, pakistan, pakphantom, games, fun, economy, anime">
+    <meta name="author" content="PakPhantom">
+    <meta name="theme-color" content="#00FF88">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="PakPhantom - Ultimate Pakistani Discord Bot">
+    <meta property="og:description" content="94 commands, 22 games, economy system and endless fun for your Discord server!">
+    <meta property="og:image" content="assets/images/og-image.png">
+    <meta property="og:url" content="https://pakphantom.xyz">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PakPhantom - Ultimate Pakistani Discord Bot">
+    <meta name="twitter:description" content="94 commands, 22 games, economy system and endless fun!">
+    <meta name="twitter:image" content="assets/images/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <title>PakPhantom - Ultimate Pakistani Discord Bot 🇵🇰</title>
+</head>
+<body>
+
+    <!-- ========== PAGE LOADER ========== -->
+    <div id="page-loader" class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <div class="loader-ring ring-1"></div>
+                <div class="loader-ring ring-2"></div>
+                <div class="loader-ring ring-3"></div>
+                <div class="loader-emoji">🇵🇰</div>
+            </div>
+            <div class="loader-text">
+                <span class="loader-brand">PakPhantom</span>
+                <div class="loader-bar-wrap">
+                    <div class="loader-bar"></div>
+                </div>
+                <span class="loader-status">Initializing...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== CUSTOM CURSOR ========== -->
+    <div id="cursor" class="custom-cursor"></div>
+    <div id="cursor-follower" class="cursor-follower"></div>
+
+    <!-- ========== PARTICLES BACKGROUND ========== -->
+    <canvas id="particles-canvas" class="particles-canvas"></canvas>
+
+    <!-- ========== AURORA BACKGROUND ========== -->
+    <div class="aurora-bg">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+        <div class="aurora aurora-3"></div>
+    </div>
+
+    <!-- ========== SCROLL PROGRESS ========== -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <span class="logo-emoji">🇵🇰</span>
+                    <div class="logo-glow"></div>
+                </div>
+                <div class="nav-logo-text">
+                    <span class="logo-name">PakPhantom</span>
+                    <span class="logo-tag">Discord Bot</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link active" data-page="home">
+                    <i class="fas fa-home"></i> Home
+                </a></li>
+                <li><a href="commands.html" class="nav-link" data-page="commands">
+                    <i class="fas fa-terminal"></i> Commands
+                </a></li>
+                <li><a href="games.html" class="nav-link" data-page="games">
+                    <i class="fas fa-gamepad"></i> Games
+                </a></li>
+                <li><a href="features.html" class="nav-link" data-page="features">
+                    <i class="fas fa-star"></i> Features
+                </a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-page="more">
+                        <i class="fas fa-ellipsis-h"></i> More <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="fun.html"><i class="fas fa-laugh"></i> Fun Commands</a></li>
+                        <li><a href="economy.html"><i class="fas fa-coins"></i> Economy</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="support.html"><i class="fas fa-headset"></i> Support</a></li>
+                        <li><a href="status.html"><i class="fas fa-signal"></i> Status</a></li>
+                    </ul>
+                </li>
+                <li><a href="support.html" class="nav-link" data-page="support">
+                    <i class="fas fa-headset"></i> Support
+                </a></li>
+            </ul>
+
+            <!-- Nav Actions -->
+            <div class="nav-actions">
+                <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary nav-cta">
+                    <i class="fab fa-discord"></i>
+                    <span>Add to Server</span>
+                    <div class="btn-shimmer"></div>
+                </a>
+                <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle Menu">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="mobile-menu-inner">
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html" class="mobile-nav-link active">
+                        <i class="fas fa-home"></i> Home
+                    </a></li>
+                    <li><a href="commands.html" class="mobile-nav-link">
+                        <i class="fas fa-terminal"></i> Commands
+                    </a></li>
+                    <li><a href="games.html" class="mobile-nav-link">
+                        <i class="fas fa-gamepad"></i> Games
+                    </a></li>
+                    <li><a href="features.html" class="mobile-nav-link">
+                        <i class="fas fa-star"></i> Features
+                    </a></li>
+                    <li><a href="fun.html" class="mobile-nav-link">
+                        <i class="fas fa-laugh"></i> Fun Commands
+                    </a></li>
+                    <li><a href="economy.html" class="mobile-nav-link">
+                        <i class="fas fa-coins"></i> Economy
+                    </a></li>
+                    <li><a href="about.html" class="mobile-nav-link">
+                        <i class="fas fa-info-circle"></i> About
+                    </a></li>
+                    <li><a href="support.html" class="mobile-nav-link">
+                        <i class="fas fa-headset"></i> Support
+                    </a></li>
+                    <li><a href="status.html" class="mobile-nav-link">
+                        <i class="fas fa-signal"></i> Status
+                    </a></li>
+                </ul>
+                <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary mobile-cta">
+                    <i class="fab fa-discord"></i> Add to Server
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            <!-- Left Content -->
+            <div class="hero-content" data-aos="fade-right">
+                <!-- Badge -->
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>🇵🇰 Made in Pakistan</span>
+                    <span class="badge-new">NEW</span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="hero-title">
+                    <span class="title-line-1">The Ultimate</span>
+                    <span class="title-line-2 gradient-text">
+                        <span id="typewriter-text">Pakistani</span>
+                        <span class="typewriter-cursor">|</span>
+                    </span>
+                    <span class="title-line-3">Discord Bot</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="hero-subtitle">
+                    <span id="subtitle-cycle">94 commands, 22 games, and endless fun for your Discord server!</span>
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="hero-ctas">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary btn-lg magnetic-btn">
+                        <i class="fab fa-discord"></i>
+                        <span>Add to Server</span>
+                        <div class="btn-shimmer"></div>
+                        <div class="btn-particles"></div>
+                    </a>
+                    <a href="commands.html" class="btn btn-secondary btn-lg magnetic-btn">
+                        <i class="fas fa-terminal"></i>
+                        <span>View Commands</span>
+                        <div class="btn-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </a>
+                    <a href="https://discord.gg/support" target="_blank" class="btn btn-ghost btn-lg magnetic-btn">
+                        <i class="fab fa-discord"></i>
+                        <span>Support Server</span>
+                    </a>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="hero-quick-stats">
+                    <div class="quick-stat">
+                        <span class="quick-stat-value" data-count="94">0</span>
+                        <span class="quick-stat-label">Commands</span>
+                    </div>
+                    <div class="quick-stat-divider"></div>
+                    <div class="quick-stat">
+                        <span class="quick-stat-value" data-count="22">0</span>
+                        <span class="quick-stat-label">Games</span>
+                    </div>
+                    <div class="quick-stat-divider"></div>
+                    <div class="quick-stat">
+                        <span class="quick-stat-value" data-count="100">0</span>
+                        <span class="quick-stat-label">% Free</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual -->
+            <div class="hero-visual" data-aos="fade-left">
+                <!-- Discord Mockup -->
+                <div class="discord-mockup floating-element">
+                    <div class="mockup-header">
+                        <div class="mockup-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <span class="mockup-title">Discord - PakPhantom Bot</span>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="mockup-sidebar">
+                            <div class="sidebar-server active">🇵🇰</div>
+                            <div class="sidebar-server">🎮</div>
+                            <div class="sidebar-server">💰</div>
+                            <div class="sidebar-server">+</div>
+                        </div>
+                        <div class="mockup-chat">
+                            <div class="chat-header">
+                                <span class="chat-channel"># general</span>
+                                <div class="chat-online">
+                                    <span class="online-dot"></span>
+                                    <span>PakPhantom Online</span>
+                                </div>
+                            </div>
+                            <div class="chat-messages">
+                                <div class="chat-message user-msg" data-delay="0">
+                                    <div class="msg-avatar user-avatar">U</div>
+                                    <div class="msg-content">
+                                        <span class="msg-author">User</span>
+                                        <span class="msg-text">/wordle</span>
+                                    </div>
+                                </div>
+                                <div class="chat-message bot-msg" data-delay="500">
+                                    <div class="msg-avatar bot-avatar">🇵🇰</div>
+                                    <div class="msg-content">
+                                        <span class="msg-author bot-name">PakPhantom <span class="bot-tag">BOT</span></span>
+                                        <div class="msg-embed">
+                                            <div class="embed-bar"></div>
+                                            <div class="embed-content">
+                                                <div class="embed-title">🟩 Wordle Game</div>
+                                                <div class="wordle-grid">
+                                                    <div class="wg-row">
+                                                        <span class="wg-cell correct">W</span>
+                                                        <span class="wg-cell present">O</span>
+                                                        <span class="wg-cell absent">R</span>
+                                                        <span class="wg-cell correct">L</span>
+                                                        <span class="wg-cell present">D</span>
+                                                    </div>
+                                                    <div class="wg-row">
+                                                        <span class="wg-cell correct">W</span>
+                                                        <span class="wg-cell correct">O</span>
+                                                        <span class="wg-cell correct">R</span>
+                                                        <span class="wg-cell correct">L</span>
+                                                        <span class="wg-cell correct">D</span>
+                                                    </div>
+                                                </div>
+                                                <div class="embed-footer">Guess 2/6 • Medium difficulty</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chat-message user-msg" data-delay="1000">
+                                    <div class="msg-avatar user-avatar">U</div>
+                                    <div class="msg-content">
+                                        <span class="msg-author">User</span>
+                                        <span class="msg-text">/blackjack bet:500</span>
+                                    </div>
+                                </div>
+                                <div class="chat-message bot-msg" data-delay="1500">
+                                    <div class="msg-avatar bot-avatar">🇵🇰</div>
+                                    <div class="msg-content">
+                                        <span class="msg-author bot-name">PakPhantom <span class="bot-tag">BOT</span></span>
+                                        <div class="msg-embed blackjack-embed">
+                                            <div class="embed-bar" style="background:#FFD700"></div>
+                                            <div class="embed-content">
+                                                <div class="embed-title">🃏 Blackjack</div>
+                                                <div class="bj-cards">
+                                                    <span class="card">A♠</span>
+                                                    <span class="card">K♥</span>
+                                                </div>
+                                                <div class="embed-footer">Blackjack! You win 750 coins! 🎉</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-input">
+                                <span class="input-icon">+</span>
+                                <span class="input-text typing-indicator">
+                                    <span class="typing-dot"></span>
+                                    <span class="typing-dot"></span>
+                                    <span class="typing-dot"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Badges -->
+                <div class="floating-badge badge-games" data-float="1">
+                    <span>🎮</span>
+                    <div>
+                        <strong>22 Games</strong>
+                        <small>Arcade & Board</small>
+                    </div>
+                </div>
+                <div class="floating-badge badge-commands" data-float="2">
+                    <span>⚡</span>
+                    <div>
+                        <strong>94 Commands</strong>
+                        <small>Slash Commands</small>
+                    </div>
+                </div>
+                <div class="floating-badge badge-free" data-float="3">
+                    <span>💚</span>
+                    <div>
+                        <strong>100% Free</strong>
+                        <small>No Premium</small>
+                    </div>
+                </div>
+
+                <!-- Sparkles -->
+                <div class="sparkle sparkle-1">✨</div>
+                <div class="sparkle sparkle-2">⭐</div>
+                <div class="sparkle sparkle-3">💫</div>
+                <div class="sparkle sparkle-4">✨</div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down scroll-arrow"></i>
+        </div>
+
+        <!-- Wave Divider -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="var(--bg-secondary)"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ========== STATS SECTION ========== -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stat-icon">🖥️</div>
+                    <div class="stat-number" data-count="500" data-suffix="+">0</div>
+                    <div class="stat-label">Servers</div>
+                    <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 70%"></div></div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" data-count="10000" data-suffix="+">0</div>
+                    <div class="stat-label">Users</div>
+                    <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 85%"></div></div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-number" data-count="94">0</div>
+                    <div class="stat-label">Commands</div>
+                    <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 94%"></div></div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon">🎮</div>
+                    <div class="stat-number" data-count="22">0</div>
+                    <div class="stat-label">Games</div>
+                    <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 80%"></div></div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-number" data-count="99" data-suffix="%">0</div>
+                    <div class="stat-label">Uptime</div>
+                    <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 99%"></div></div>
+                </div>
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="stat-icon">🌐</div>
+                    <div class="stat-number" data-count="15" data-suffix="+">0</div>
+                    <div class="stat-label">API Integrations</div>
+                    <div class="stat-bar"><div class="stat-bar-fill" style="--fill: 60%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FEATURES SECTION ========== -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">✨ Why PakPhantom?</div>
+                <h2 class="section-title">Everything Your Server <span class="gradient-text">Needs</span></h2>
+                <p class="section-subtitle">From games to economy, from fun to utility — we've got it all packed in one bot!</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Games -->
+                <div class="feature-card holographic" data-aos="fade-up" data-aos-delay="0" data-tilt>
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🎮</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3 class="feature-title">22 Epic Games</h3>
+                    <p class="feature-desc">From Wordle to Blackjack, Snake to Connect4 — hours of entertainment with AI opponents and multiplayer modes.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Blackjack</span>
+                        <span class="tag">Wordle</span>
+                        <span class="tag">Snake</span>
+                        <span class="tag">+19 more</span>
+                    </div>
+                    <a href="games.html" class="feature-link">Explore Games <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Fun -->
+                <div class="feature-card holographic" data-aos="fade-up" data-aos-delay="100" data-tilt>
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🎭</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3 class="feature-title">Fun & Interactions</h3>
+                    <p class="feature-desc">Hug, kiss, slap and dance with friends! Complete marriage system, personality tests, desi jokes and more.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Interact</span>
+                        <span class="tag">Marriage</span>
+                        <span class="tag">Memes</span>
+                        <span class="tag">+27 more</span>
+                    </div>
+                    <a href="fun.html" class="feature-link">Explore Fun <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Economy -->
+                <div class="feature-card holographic" data-aos="fade-up" data-aos-delay="200" data-tilt>
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">💰</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3 class="feature-title">Economy System</h3>
+                    <p class="feature-desc">Earn coins by working, claim daily rewards, gamble at the casino, and spend at the shop!</p>
+                    <div class="feature-tags">
+                        <span class="tag">Daily</span>
+                        <span class="tag">Work</span>
+                        <span class="tag">Shop</span>
+                        <span class="tag">Transfer</span>
+                    </div>
+                    <a href="economy.html" class="feature-link">Explore Economy <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Utility -->
+                <div class="feature-card holographic" data-aos="fade-up" data-aos-delay="300" data-tilt>
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🛠️</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3 class="feature-title">Utility Tools</h3>
+                    <p class="feature-desc">Reminders, notes, to-do lists, polls, weather info, IP lookup, and dozens of productivity tools.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Reminders</span>
+                        <span class="tag">Notes</span>
+                        <span class="tag">Weather</span>
+                        <span class="tag">+17 more</span>
+                    </div>
+                    <a href="features.html" class="feature-link">Explore Tools <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- API -->
+                <div class="feature-card holographic" data-aos="fade-up" data-aos-delay="400" data-tilt>
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🌐</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3 class="feature-title">15+ API Integrations</h3>
+                    <p class="feature-desc">Dogs, cats, anime, weather, movies, facts, dad jokes — powered by real external APIs for fresh content.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Animals</span>
+                        <span class="tag">Anime</span>
+                        <span class="tag">Weather</span>
+                        <span class="tag">+12 more</span>
+                    </div>
+                    <a href="commands.html" class="feature-link">Explore APIs <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Pakistan -->
+                <div class="feature-card holographic featured-card" data-aos="fade-up" data-aos-delay="500" data-tilt>
+                    <div class="feature-card-glow"></div>
+                    <div class="featured-ribbon">🇵🇰 Exclusive</div>
+                    <div class="feature-icon-wrap">
+                        <div class="feature-icon">🇵🇰</div>
+                        <div class="feature-icon-bg"></div>
+                    </div>
+                    <h3 class="feature-title">Desi Culture</h3>
+                    <p class="feature-desc">Pakistani-themed content, desi jokes, board exam results, and cultural humor made specifically for Pakistani servers!</p>
+                    <div class="feature-tags">
+                        <span class="tag">Desi Jokes</span>
+                        <span class="tag">Result</span>
+                        <span class="tag">Culture</span>
+                        <span class="tag">Local</span>
+                    </div>
+                    <a href="fun.html" class="feature-link">Explore Desi <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== COMMAND SHOWCASE ========== -->
+    <section id="command-showcase" class="showcase-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">⚡ Commands</div>
+                <h2 class="section-title">Popular <span class="gradient-text">Commands</span></h2>
+                <p class="section-subtitle">A quick look at what PakPhantom can do!</p>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="category-filter" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> All
+                </button>
+                <button class="filter-btn" data-filter="games">
+                    <i class="fas fa-gamepad"></i> Games
+                </button>
+                <button class="filter-btn" data-filter="fun">
+                    <i class="fas fa-laugh"></i> Fun
+                </button>
+                <button class="filter-btn" data-filter="economy">
+                    <i class="fas fa-coins"></i> Economy
+                </button>
+                <button class="filter-btn" data-filter="utility">
+                    <i class="fas fa-tools"></i> Utility
+                </button>
+                <button class="filter-btn" data-filter="api">
+                    <i class="fas fa-globe"></i> API
+                </button>
+            </div>
+
+            <!-- Commands Grid -->
+            <div class="commands-showcase-grid" id="showcase-grid">
+                <!-- Games -->
+                <div class="cmd-card" data-category="games" data-aos="fade-up">
+                    <div class="cmd-icon">🃏</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/blackjack</span>
+                        <span class="cmd-desc">Play blackjack against AI dealer</span>
+                    </div>
+                    <span class="cmd-badge games-badge">Games</span>
+                </div>
+                <div class="cmd-card" data-category="games" data-aos="fade-up">
+                    <div class="cmd-icon">🟩</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/wordle</span>
+                        <span class="cmd-desc">Guess the 5-letter word</span>
+                    </div>
+                    <span class="cmd-badge games-badge">Games</span>
+                </div>
+                <div class="cmd-card" data-category="games" data-aos="fade-up">
+                    <div class="cmd-icon">🎰</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/slots</span>
+                        <span class="cmd-desc">Spin the slot machine</span>
+                    </div>
+                    <span class="cmd-badge games-badge">Games</span>
+                </div>
+                <div class="cmd-card" data-category="games" data-aos="fade-up">
+                    <div class="cmd-icon">🧠</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/trivia</span>
+                        <span class="cmd-desc">154 trivia questions</span>
+                    </div>
+                    <span class="cmd-badge games-badge">Games</span>
+                </div>
+                <div class="cmd-card" data-category="fun" data-aos="fade-up">
+                    <div class="cmd-icon">🤗</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/interact hug</span>
+                        <span class="cmd-desc">Hug someone with GIF</span>
+                    </div>
+                    <span class="cmd-badge fun-badge">Fun</span>
+                </div>
+                <div class="cmd-card" data-category="fun" data-aos="fade-up">
+                    <div class="cmd-icon">💍</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/marry propose</span>
+                        <span class="cmd-desc">Propose to your love</span>
+                    </div>
+                    <span class="cmd-badge fun-badge">Fun</span>
+                </div>
+                <div class="cmd-card" data-category="fun" data-aos="fade-up">
+                    <div class="cmd-icon">🎱</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/8ball</span>
+                        <span class="cmd-desc">600+ magic responses</span>
+                    </div>
+                    <span class="cmd-badge fun-badge">Fun</span>
+                </div>
+                <div class="cmd-card" data-category="fun" data-aos="fade-up">
+                    <div class="cmd-icon">🇵🇰</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/desi</span>
+                        <span class="cmd-desc">Pakistani desi jokes</span>
+                    </div>
+                    <span class="cmd-badge fun-badge">Fun</span>
+                </div>
+                <div class="cmd-card" data-category="economy" data-aos="fade-up">
+                    <div class="cmd-icon">💰</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/daily</span>
+                        <span class="cmd-desc">Claim daily rewards</span>
+                    </div>
+                    <span class="cmd-badge economy-badge">Economy</span>
+                </div>
+                <div class="cmd-card" data-category="economy" data-aos="fade-up">
+                    <div class="cmd-icon">💼</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/work</span>
+                        <span class="cmd-desc">Work to earn coins</span>
+                    </div>
+                    <span class="cmd-badge economy-badge">Economy</span>
+                </div>
+                <div class="cmd-card" data-category="utility" data-aos="fade-up">
+                    <div class="cmd-icon">⏰</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/remind</span>
+                        <span class="cmd-desc">Set custom reminders</span>
+                    </div>
+                    <span class="cmd-badge utility-badge">Utility</span>
+                </div>
+                <div class="cmd-card" data-category="utility" data-aos="fade-up">
+                    <div class="cmd-icon">📊</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/poll</span>
+                        <span class="cmd-desc">Create server polls</span>
+                    </div>
+                    <span class="cmd-badge utility-badge">Utility</span>
+                </div>
+                <div class="cmd-card" data-category="api" data-aos="fade-up">
+                    <div class="cmd-icon">🐕</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/dog</span>
+                        <span class="cmd-desc">Random dog images</span>
+                    </div>
+                    <span class="cmd-badge api-badge">API</span>
+                </div>
+                <div class="cmd-card" data-category="api" data-aos="fade-up">
+                    <div class="cmd-icon">🌤️</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/weather</span>
+                        <span class="cmd-desc">Real-time weather info</span>
+                    </div>
+                    <span class="cmd-badge api-badge">API</span>
+                </div>
+                <div class="cmd-card" data-category="api" data-aos="fade-up">
+                    <div class="cmd-icon">🎬</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/imdb</span>
+                        <span class="cmd-desc">Movie & TV info</span>
+                    </div>
+                    <span class="cmd-badge api-badge">API</span>
+                </div>
+                <div class="cmd-card" data-category="api" data-aos="fade-up">
+                    <div class="cmd-icon">🦊</div>
+                    <div class="cmd-info">
+                        <span class="cmd-name">/fox</span>
+                        <span class="cmd-desc">Random fox images</span>
+                    </div>
+                    <span class="cmd-badge api-badge">API</span>
+                </div>
+            </div>
+
+            <div class="showcase-footer" data-aos="fade-up">
+                <a href="commands.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-terminal"></i>
+                    View All 94 Commands
+                    <div class="btn-shimmer"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section id="how-it-works" class="how-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">🚀 Getting Started</div>
+                <h2 class="section-title">Up & Running in <span class="gradient-text">3 Steps</span></h2>
+                <p class="section-subtitle">Add PakPhantom to your server in less than 60 seconds!</p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step-card" data-aos="fade-right" data-aos-delay="0">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3 class="step-title">Invite the Bot</h3>
+                    <p class="step-desc">Click the "Add to Server" button and select your Discord server from the dropdown menu.</p>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="step-title">Grant Permissions</h3>
+                    <p class="step-desc">Authorize the required permissions so PakPhantom can send messages, embeds, and manage interactions.</p>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="step-card" data-aos="fade-left" data-aos-delay="300">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3 class="step-title">Type /help</h3>
+                    <p class="step-desc">That's it! Type /help in any channel to see all 94 commands and start having fun immediately!</p>
+                </div>
+            </div>
+
+            <div class="steps-cta" data-aos="fade-up">
+                <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary btn-xl magnetic-btn">
+                    <i class="fab fa-discord"></i>
+                    Add PakPhantom Now — It's Free!
+                    <div class="btn-shimmer"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== GAMES PREVIEW ========== -->
+    <section id="games-preview" class="games-preview-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">🎮 Games</div>
+                <h2 class="section-title">22 Games to <span class="gradient-text">Play</span></h2>
+                <p class="section-subtitle">Word games, arcade, casino, trivia — something for everyone!</p>
+            </div>
+
+            <div class="games-grid">
+                <div class="game-preview-card" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="game-emoji">🃏</div>
+                    <div class="game-info">
+                        <h4>Blackjack</h4>
+                        <div class="game-meta">
+                            <span class="game-type casino">Casino</span>
+                            <span class="game-difficulty">⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-preview-card" data-aos="zoom-in" data-aos-delay="50">
+                    <div class="game-emoji">🟩</div>
+                    <div class="game-info">
+                        <h4>Wordle</h4>
+                        <div class="game-meta">
+                            <span class="game-type word">Word</span>
+                            <span class="game-difficulty">⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-preview-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="game-emoji">🎰</div>
+                    <div class="game-info">
+                        <h4>Slots</h4>
+                        <div class="game-meta">
+                            <span class="game-type casino">Casino</span>
+                            <span class="game-difficulty">⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-preview-card" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="game-emoji">🎯</div>
+                    <div class="game-info">
+                        <h4>Tic-Tac-Toe</h4>
+                        <div class="game-meta">
+                            <span class="game-type board">Board</span>
+                            <span class="game-difficulty">⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-preview-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="game-emoji">🐍</div>
+                    <div class="game-info">
+                        <h4>Snake</h4>
+                        <div class="game-meta">
+                            <span class="game-type arcade">Arcade</span>
+                            <span class="game-difficulty">⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-preview-card" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="game-emoji">💣</div>
+                    <div class="game-info">
+                        <h4>Minesweeper</h4>
+                        <div class="game-meta">
+                            <span class="game-type arcade">Arcade</span>
+                            <span class="game-difficulty">⭐⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-preview-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="game-emoji">🧠</div>
+                    <div class="game-info">
+                        <h4>Trivia</h4>
+                        <div class="game-meta">
+                            <span class="game-type quiz">Quiz</span>
+                            <span class="game-difficulty">⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-preview-card" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="game-emoji">🎱</div>
+                    <div class="game-info">
+                        <h4>8-Ball</h4>
+                        <div class="game-meta">
+                            <span class="game-type fun">Fun</span>
+                            <span class="game-difficulty">⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-preview-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="game-emoji">✊</div>
+                    <div class="game-info">
+                        <h4>Rock Paper Scissors</h4>
+                        <div class="game-meta">
+                            <span class="game-type classic">Classic</span>
+                            <span class="game-difficulty">⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-preview-card" data-aos="zoom-in" data-aos-delay="450">
+                    <div class="game-emoji">🎡</div>
+                    <div class="game-info">
+                        <h4>Roulette</h4>
+                        <div class="game-meta">
+                            <span class="game-type casino">Casino</span>
+                            <span class="game-difficulty">⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-preview-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="game-emoji">🔤</div>
+                    <div class="game-info">
+                        <h4>Unscramble</h4>
+                        <div class="game-meta">
+                            <span class="game-type word">Word</span>
+                            <span class="game-difficulty">⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-preview-card see-all-card" data-aos="zoom-in" data-aos-delay="550">
+                    <div class="game-emoji">+11</div>
+                    <div class="game-info">
+                        <h4>More Games</h4>
+                        <a href="games.html" class="see-all-link">See All →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-badge">💬 Community</div>
+                <h2 class="section-title">Loved by <span class="gradient-text">Players</span></h2>
+                <p class="section-subtitle">What our community says about PakPhantom!</p>
+            </div>
+
+            <div class="testimonials-track" id="testimonials-track">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Best Pakistani Discord bot ever! The games are so addictive especially wordle and blackjack. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <span class="author-name">Ahmed Hassan</span>
+                            <span class="author-role">Server Owner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The marriage system and interactions make our server so lively! Plus desi jokes are 😂 Love it!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">Z</div>
+                        <div class="author-info">
+                            <span class="author-name">Zara Khan</span>
+                            <span class="author-role">Discord Mod</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"94 commands and completely free! The economy system keeps everyone engaged. 10/10 bot!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">U</div>
+                        <div class="author-info">
+                            <span class="author-name">Usman Ali</span>
+                            <span class="author-role">Community Leader</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Snake game on Discord?! Never thought it was possible. PakPhantom always surprises us!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">F</div>
+                        <div class="author-info">
+                            <span class="author-name">Fatima Malik</span>
+                            <span class="author-role">Gamer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA SECTION ========== -->
+    <section id="final-cta" class="cta-section">
+        <div class="cta-bg-effects">
+            <div class="cta-orb cta-orb-1"></div>
+            <div class="cta-orb cta-orb-2"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <div class="cta-badge">🚀 Ready to get started?</div>
+                <h2 class="cta-title">Add <span class="gradient-text">PakPhantom</span> to Your Server Today!</h2>
+                <p class="cta-subtitle">Join thousands of users enjoying 94 commands, 22 games, and endless fun — completely free!</p>
+                <div class="cta-buttons">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary btn-xl magnetic-btn">
+                        <i class="fab fa-discord"></i>
+                        Add to Server — Free!
+                        <div class="btn-shimmer"></div>
+                    </a>
+                    <a href="https://discord.gg/support" target="_blank" class="btn btn-ghost btn-xl magnetic-btn">
+                        <i class="fas fa-headset"></i>
+                        Join Support Server
+                    </a>
+                </div>
+                <div class="cta-features">
+                    <span><i class="fas fa-check-circle"></i> 100% Free</span>
+                    <span><i class="fas fa-check-circle"></i> No Setup Required</span>
+                    <span><i class="fas fa-check-circle"></i> 99% Uptime</span>
+                    <span><i class="fas fa-check-circle"></i> 24/7 Online</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Brand -->
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <span class="logo-emoji">🇵🇰</span>
+                            <span class="logo-name">PakPhantom</span>
+                        </a>
+                        <p class="footer-tagline">The Ultimate Pakistani Discord Bot. 94 commands, 22 games, endless fun — completely free!</p>
+                        <div class="footer-socials">
+                            <a href="https://discord.gg/CtHEgdGdp" target="_blank" class="social-btn discord" aria-label="Discord">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                            <a href="https://github.com" target="_blank" class="social-btn github" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" class="social-btn twitter" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                        <div class="footer-status">
+                            <span class="status-dot online"></span>
+                            <span>Bot is Online</span>
+                        </div>
+                    </div>
+
+                    <!-- Pages -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Pages</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="commands.html"><i class="fas fa-terminal"></i> Commands</a></li>
+                            <li><a href="features.html"><i class="fas fa-star"></i> Features</a></li>
+                            <li><a href="games.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                            <li><a href="status.html"><i class="fas fa-signal"></i> Status</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Commands -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Commands</h4>
+                        <ul class="footer-links">
+                            <li><a href="games.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                            <li><a href="fun.html"><i class="fas fa-laugh"></i> Fun</a></li>
+                            <li><a href="economy.html"><i class="fas fa-coins"></i> Economy</a></li>
+                            <li><a href="commands.html#utility"><i class="fas fa-tools"></i> Utility</a></li>
+                            <li><a href="commands.html#api"><i class="fas fa-globe"></i> API</a></li>
+                            <li><a href="commands.html#general"><i class="fas fa-list"></i> General</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Legal & Support -->
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Legal & Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="support.html"><i class="fas fa-headset"></i> Support</a></li>
+                            <li><a href="support.html#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                            <li><a href="privacy.html"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+                            <li><a href="terms.html"><i class="fas fa-file-alt"></i> Terms of Service</a></li>
+                            <li><a href="https://discord.gg/support" target="_blank"><i class="fab fa-discord"></i> Discord Server</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p class="footer-copy">
+                        © 2024 <strong>PakPhantom</strong>. Made with 💚 in Pakistan 🇵🇰
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="privacy.html">Privacy</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="support.html">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== BACK TO TOP ========== -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+        <div class="btt-ring"></div>
+    </button>
+
+    <!-- ========== COOKIE BANNER ========== -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <span class="cookie-icon">🍪</span>
+            <p>We use cookies to enhance your experience. <a href="privacy.html">Learn more</a></p>
+            <div class="cookie-buttons">
+                <button id="cookie-accept" class="btn btn-primary btn-sm">Accept</button>
+                <button id="cookie-decline" class="btn btn-ghost btn-sm">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/particles.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/typewriter.js"></script>
+    <script src="js/tilt.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/pages/home.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

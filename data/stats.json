@@ -1,0 +1,405 @@
+{
+  "meta": {
+    "version": "2.0.0",
+    "lastUpdated": "2024-01-01",
+    "updateInterval": 300,
+    "timezone": "Asia/Karachi"
+  },
+  "bot": {
+    "name": "PakPhantom",
+    "discriminator": "0",
+    "id": "1234567890123456789",
+    "avatar": "https://cdn.discordapp.com/avatars/1234567890123456789/avatar.png",
+    "version": "2.0.0",
+    "library": "Discord.js v14",
+    "language": "Node.js v20 LTS",
+    "database": "MongoDB Atlas",
+    "cache": "Redis",
+    "hosting": "Dedicated VPS",
+    "region": "Asia Pacific",
+    "createdAt": "2023-06-01T00:00:00.000Z",
+    "prefix": "/",
+    "inviteUrl": "https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands",
+    "supportServer": "https://discord.gg/pakphantom",
+    "website": "https://pakphantom.xyz",
+    "github": "https://github.com/pakphantom"
+  },
+  "live": {
+    "status": "operational",
+    "statusMessage": "All systems operational",
+    "uptime": {
+      "percentage": 99.9,
+      "currentSessionStart": "2024-01-01T00:00:00.000Z",
+      "longestStreak": "47 days",
+      "lastRestart": "2024-01-01T03:14:00.000Z",
+      "lastRestartReason": "Scheduled update v2.0.0"
+    },
+    "performance": {
+      "latencyWs": 42,
+      "latencyRest": 87,
+      "latencyDatabase": 12,
+      "latencyCache": 3,
+      "memoryUsageMb": 312,
+      "memoryLimitMb": 2048,
+      "cpuUsagePercent": 8.4,
+      "activeConnections": 1284,
+      "commandsPerMinute": 847,
+      "cacheHitRate": 94.2
+    }
+  },
+  "community": {
+    "totalServers": 2840,
+    "totalUsers": 128400,
+    "totalCommandsRun": 4920000,
+    "totalGamesPlayed": 892000,
+    "totalCoinsDistributed": 48200000,
+    "totalMessagesProcessed": 12400000,
+    "newServersThisWeek": 142,
+    "newUsersThisWeek": 6200,
+    "activeServersToday": 1840,
+    "activeUsersToday": 28400,
+    "peakConcurrentUsers": 4200,
+    "peakDateTime": "2024-01-01T20:00:00.000Z",
+    "countriesRepresented": 28,
+    "topCountry": "Pakistan",
+    "topCountryPercentage": 68
+  },
+  "commands": {
+    "total": 94,
+    "totalRun": 4920000,
+    "mostUsed": [
+      { "name": "daily",       "emoji": "🎁", "count": 892000, "percentage": 18.1 },
+      { "name": "balance",     "emoji": "💳", "count": 748000, "percentage": 15.2 },
+      { "name": "coinflip",    "emoji": "🪙", "count": 614000, "percentage": 12.5 },
+      { "name": "slots",       "emoji": "🎰", "count": 521000, "percentage": 10.6 },
+      { "name": "work",        "emoji": "💼", "count": 489000, "percentage": 9.9  },
+      { "name": "trivia",      "emoji": "❓", "count": 412000, "percentage": 8.4  },
+      { "name": "wordle",      "emoji": "🟩", "count": 384000, "percentage": 7.8  },
+      { "name": "meme",        "emoji": "😂", "count": 298000, "percentage": 6.1  },
+      { "name": "desijoke",    "emoji": "😄", "count": 241000, "percentage": 4.9  },
+      { "name": "blackjack",   "emoji": "🃏", "count": 198000, "percentage": 4.0  }
+    ],
+    "byCategory": {
+      "economy":    { "count": 1840000, "percentage": 37.4, "color": "#ffd040" },
+      "games":      { "count": 1240000, "percentage": 25.2, "color": "#a855f7" },
+      "fun":        { "count": 892000,  "percentage": 18.1, "color": "#00FF88" },
+      "utility":    { "count": 482000,  "percentage": 9.8,  "color": "#f97316" },
+      "moderation": { "count": 284000,  "percentage": 5.8,  "color": "#ff6b6b" },
+      "levelling":  { "count": 142000,  "percentage": 2.9,  "color": "#00b4ff" },
+      "social":     { "count": 81000,   "percentage": 1.6,  "color": "#ec4899" },
+      "admin":      { "count": 24000,   "percentage": 0.5,  "color": "#78716c" }
+    },
+    "successRate": 99.4,
+    "avgResponseMs": 84,
+    "errorRate": 0.6
+  },
+  "games": {
+    "total": 22,
+    "totalPlaysAllTime": 892000,
+    "mostPlayed": [
+      { "id": "coinflip",  "name": "Coin Flip",    "emoji": "🪙", "plays": 105400 },
+      { "id": "slots",     "name": "Slots",         "emoji": "🎰", "plays": 78900  },
+      { "id": "trivia",    "name": "Trivia",        "emoji": "❓", "plays": 92400  },
+      { "id": "blackjack", "name": "Blackjack",     "emoji": "🃏", "plays": 61300  },
+      { "id": "rps",       "name": "Rock Paper Scissors", "emoji": "✂️", "plays": 44100 },
+      { "id": "wordle",    "name": "Wordle",        "emoji": "🟩", "plays": 48200  }
+    ],
+    "economy": {
+      "totalCoinsWagered": 28400000,
+      "totalCoinsWon": 24100000,
+      "houseEdge": 4.2,
+      "biggestSingleWin": 100000,
+      "biggestSingleWinGame": "Roulette",
+      "jackpotHits": 142
+    },
+    "wordle": {
+      "dailyPlays": 1840,
+      "avgGuesses": 4.1,
+      "winRate": 72,
+      "streakRecord": 84
+    },
+    "chess": {
+      "totalGames": 12400,
+      "avgMoves": 32,
+      "avgDurationMinutes": 28,
+      "eloRecord": 2140
+    }
+  },
+  "economy": {
+    "totalCoinsInCirculation": 48200000,
+    "totalCoinsInWallets": 12400000,
+    "totalCoinsInBanks": 35800000,
+    "dailyClaimsToday": 8420,
+    "workCommandsToday": 14200,
+    "crimeCommandsToday": 4810,
+    "fishCommandsToday": 3920,
+    "shopPurchasesToday": 840,
+    "robAttemptsToday": 1240,
+    "richestUserCoins": 842900,
+    "avgUserBalance": 12400,
+    "mostPopularShopItem": "Work Boost",
+    "shopItemsSoldToday": 840
+  },
+  "uptime": {
+    "current": 99.9,
+    "last30Days": 99.8,
+    "last90Days": 99.7,
+    "allTime": 99.6,
+    "history": [
+      { "date": "2024-01-01", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-31", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-30", "uptime": 99.8,  "incidents": 1 },
+      { "date": "2023-12-29", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-28", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-27", "uptime": 99.9,  "incidents": 0 },
+      { "date": "2023-12-26", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-25", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-24", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-23", "uptime": 99.7,  "incidents": 1 },
+      { "date": "2023-12-22", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-21", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-20", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-19", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-18", "uptime": 99.5,  "incidents": 1 },
+      { "date": "2023-12-17", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-16", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-15", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-14", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-13", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-12", "uptime": 99.9,  "incidents": 0 },
+      { "date": "2023-12-11", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-10", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-09", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-08", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-07", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-06", "uptime": 99.8,  "incidents": 1 },
+      { "date": "2023-12-05", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-04", "uptime": 100.0, "incidents": 0 },
+      { "date": "2023-12-03", "uptime": 100.0, "incidents": 0 }
+    ]
+  },
+  "services": [
+    {
+      "id": "discord_api",
+      "name": "Discord API",
+      "description": "Core Discord gateway and REST API connection",
+      "status": "operational",
+      "uptime": 99.9,
+      "latencyMs": 42,
+      "icon": "fab fa-discord",
+      "color": "#5865F2"
+    },
+    {
+      "id": "database",
+      "name": "MongoDB Database",
+      "description": "Primary data storage for economy, levelling, and settings",
+      "status": "operational",
+      "uptime": 99.99,
+      "latencyMs": 12,
+      "icon": "fas fa-database",
+      "color": "#47A248"
+    },
+    {
+      "id": "cache",
+      "name": "Redis Cache",
+      "description": "High-speed caching layer for fast responses",
+      "status": "operational",
+      "uptime": 100.0,
+      "latencyMs": 3,
+      "icon": "fas fa-memory",
+      "color": "#DC382D"
+    },
+    {
+      "id": "api_server",
+      "name": "REST API Server",
+      "description": "Website backend and stats API endpoint",
+      "status": "operational",
+      "uptime": 99.8,
+      "latencyMs": 87,
+      "icon": "fas fa-server",
+      "color": "#00b4ff"
+    },
+    {
+      "id": "weather_api",
+      "name": "OpenWeather API",
+      "description": "Real-time weather data for /weather command",
+      "status": "operational",
+      "uptime": 99.5,
+      "latencyMs": 142,
+      "icon": "fas fa-cloud-sun",
+      "color": "#f97316"
+    },
+    {
+      "id": "prayer_api",
+      "name": "Aladhan Prayer API",
+      "description": "Islamic prayer times for /prayer command",
+      "status": "operational",
+      "uptime": 99.3,
+      "latencyMs": 198,
+      "icon": "fas fa-mosque",
+      "color": "#00FF88"
+    },
+    {
+      "id": "translate_api",
+      "name": "Translation API",
+      "description": "100+ language translation for /translate command",
+      "status": "operational",
+      "uptime": 98.9,
+      "latencyMs": 284,
+      "icon": "fas fa-language",
+      "color": "#a855f7"
+    },
+    {
+      "id": "reddit_api",
+      "name": "Reddit Meme API",
+      "description": "Fresh meme fetching for /meme command",
+      "status": "operational",
+      "uptime": 97.8,
+      "latencyMs": 312,
+      "icon": "fab fa-reddit",
+      "color": "#ff6b6b"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "INC-2023-004",
+      "title": "Brief API Gateway Disruption",
+      "date": "2023-12-30",
+      "duration": "14 minutes",
+      "severity": "minor",
+      "status": "resolved",
+      "affectedServices": ["discord_api"],
+      "description": "A brief disruption to the Discord API gateway caused some commands to respond slowly. The issue was resolved within 14 minutes.",
+      "resolution": "Discord resolved the gateway issue on their end. No action required from our side."
+    },
+    {
+      "id": "INC-2023-003",
+      "title": "Database Latency Spike",
+      "date": "2023-12-23",
+      "duration": "8 minutes",
+      "severity": "minor",
+      "status": "resolved",
+      "affectedServices": ["database"],
+      "description": "MongoDB Atlas experienced a brief latency spike causing economy commands to respond slower than usual.",
+      "resolution": "MongoDB Atlas auto-scaled and resolved the latency within 8 minutes."
+    },
+    {
+      "id": "INC-2023-002",
+      "title": "Scheduled Maintenance",
+      "date": "2023-12-18",
+      "duration": "22 minutes",
+      "severity": "maintenance",
+      "status": "resolved",
+      "affectedServices": ["discord_api", "database", "api_server"],
+      "description": "Scheduled downtime for bot update to v1.9.5. New features deployed including improved economy system.",
+      "resolution": "Maintenance completed successfully. All systems restored and running v1.9.5."
+    },
+    {
+      "id": "INC-2023-001",
+      "title": "Reddit API Rate Limit",
+      "date": "2023-12-06",
+      "duration": "35 minutes",
+      "severity": "minor",
+      "status": "resolved",
+      "affectedServices": ["reddit_api"],
+      "description": "/meme command returned errors due to Reddit API rate limiting during a high-traffic period.",
+      "resolution": "Implemented request queuing and caching for Reddit API calls. Issue will not recur."
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2023-06-01",
+      "title": "PakPhantom Launched",
+      "description": "First public release with 40 commands",
+      "emoji": "🚀"
+    },
+    {
+      "date": "2023-07-15",
+      "title": "500 Servers",
+      "description": "Reached 500 Discord servers milestone",
+      "emoji": "🎉"
+    },
+    {
+      "date": "2023-09-01",
+      "title": "Economy System Added",
+      "description": "Full virtual economy with coins, shop, and gambling",
+      "emoji": "💰"
+    },
+    {
+      "date": "2023-10-20",
+      "title": "1,000 Servers",
+      "description": "Doubled server count to 1,000",
+      "emoji": "🏆"
+    },
+    {
+      "date": "2023-11-15",
+      "title": "Games Update",
+      "description": "Launched 22 mini-games including Chess and Wordle",
+      "emoji": "🎮"
+    },
+    {
+      "date": "2023-12-01",
+      "title": "2,000 Servers",
+      "description": "Reached 2,000 servers and 100,000 users",
+      "emoji": "⭐"
+    },
+    {
+      "date": "2024-01-01",
+      "title": "v2.0.0 Released",
+      "description": "Major update: 94 commands, improved UI, new features",
+      "emoji": "✨"
+    }
+  ],
+  "changelog": [
+    {
+      "version": "2.0.0",
+      "date": "2024-01-01",
+      "type": "major",
+      "changes": [
+        "Added 12 new commands bringing total to 94",
+        "Complete economy system overhaul",
+        "New games: Typing Race, 2048, Word Scramble",
+        "Improved auto-mod with AI spam detection",
+        "Redesigned rank cards with Canvas API",
+        "Added Redis caching for 3x faster responses",
+        "Prayer times command with Hijri calendar",
+        "New shop items: Phantom Badge, Lucky Chest"
+      ]
+    },
+    {
+      "version": "1.9.5",
+      "date": "2023-12-18",
+      "type": "minor",
+      "changes": [
+        "Fixed economy streak calculation bug",
+        "Improved Wordle daily word generation",
+        "Added /currency command with live PKR rates",
+        "Optimised database queries for leaderboard"
+      ]
+    },
+    {
+      "version": "1.9.0",
+      "date": "2023-11-15",
+      "type": "major",
+      "changes": [
+        "Launched 22 mini-games system",
+        "Chess engine with ELO rating",
+        "Wordle with daily challenge mode",
+        "Blackjack with Discord button interactions",
+        "Game leaderboards per server"
+      ]
+    },
+    {
+      "version": "1.5.0",
+      "date": "2023-09-01",
+      "type": "major",
+      "changes": [
+        "Full economy system: coins, wallet, bank",
+        "Daily rewards with streak system",
+        "Virtual item shop",
+        "Gambling minigames: slots, coinflip, dice",
+        "Economy leaderboard"
+      ]
+    }
+  ]
+}

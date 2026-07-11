@@ -1,0 +1,25 @@
+{
+  "name": "pakphantom-website",
+  "version": "1.0.0",
+  "description": "Official website for PakPhantom Discord Bot",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server --port=3000 --open=index.html",
+    "dev": "npx live-server --port=3000",
+    "build": "echo 'Static site - no build needed'",
+    "preview": "npx serve . -p 3000"
+  },
+  "keywords": [
+    "discord-bot",
+    "pakphantom",
+    "pakistan",
+    "discord",
+    "bot-website"
+  ],
+  "author": "PakPhantom",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.0"
+  }
+}

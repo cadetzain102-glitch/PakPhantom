@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "total": 40,
+    "categories": 7,
+    "version": "2.0.0",
+    "lastUpdated": "2024-01-01"
+  },
+  "categories": [
+    { "id": "general",    "name": "General",     "emoji": "❓", "color": "#00FF88" },
+    { "id": "setup",      "name": "Setup",        "emoji": "⚙️", "color": "#5865F2" },
+    { "id": "commands",   "name": "Commands",     "emoji": "⌨️", "color": "#f97316" },
+    { "id": "economy",    "name": "Economy",      "emoji": "💰", "color": "#ffd040" },
+    { "id": "games",      "name": "Games",        "emoji": "🎮", "color": "#a855f7" },
+    { "id": "moderation", "name": "Moderation",   "emoji": "🛡️", "color": "#ff6b6b" },
+    { "id": "technical",  "name": "Technical",    "emoji": "🔧", "color": "#00b4ff" }
+  ],
+  "faqs": [
+    {
+      "id": 1,
+      "category": "general",
+      "question": "What is PakPhantom?",
+      "answer": "PakPhantom is a Pakistani-made Discord bot featuring 94 commands across 8 categories — moderation, economy, 22 games, fun commands, utility tools, levelling, social interactions, and more. It's completely free with no premium paywalls.",
+      "tags": ["general", "intro"]
+    },
+    {
+      "id": 2,
+      "category": "general",
+      "question": "Is PakPhantom really free?",
+      "answer": "Yes, 100% free. Every single feature — all 94 commands, 22 games, the full economy system, moderation suite, and all utilities — are available to every server at zero cost. There are no paid tiers, subscriptions, or premium features.",
+      "tags": ["free", "pricing"]
+    },
+    {
+      "id": 3,
+      "category": "general",
+      "question": "Who made PakPhantom?",
+      "answer": "PakPhantom was created by a Pakistani developer who wanted to build the best free Discord bot specifically for Pakistani and South Asian communities. It's maintained and updated regularly with community feedback.",
+      "tags": ["developer", "pakistan"]
+    },
+    {
+      "id": 4,
+      "category": "general",
+      "question": "How many servers is PakPhantom in?",
+      "answer": "PakPhantom is growing rapidly across Pakistani Discord communities. You can check live server count and bot statistics on our Status page at any time.",
+      "tags": ["stats", "servers"]
+    },
+    {
+      "id": 5,
+      "category": "general",
+      "question": "What languages does PakPhantom support?",
+      "answer": "PakPhantom's interface is in English, but many commands have Pakistani/desi content in Urdu and Roman Urdu — including shayari, desi jokes, desi roasts, and quotes. The /translate command supports 100+ languages including Urdu.",
+      "tags": ["urdu", "language", "multilingual"]
+    },
+    {
+      "id": 6,
+      "category": "general",
+      "question": "Does PakPhantom work in any Discord server?",
+      "answer": "Yes! PakPhantom works in any Discord server worldwide. While it's designed with Pakistani communities in mind, all features work perfectly for any server regardless of location.",
+      "tags": ["compatibility", "global"]
+    },
+    {
+      "id": 7,
+      "category": "general",
+      "question": "What permissions does PakPhantom need?",
+      "answer": "PakPhantom requests the minimum permissions needed to function: Send Messages, Embed Links, Read Message History, Add Reactions, Attach Files, and optionally Manage Messages, Manage Roles, and Ban Members for moderation features.",
+      "tags": ["permissions", "security"]
+    },
+    {
+      "id": 8,
+      "category": "setup",
+      "question": "How do I add PakPhantom to my server?",
+      "answer": "Click the 'Add to Discord' button on our website or any page. You'll be redirected to Discord's OAuth2 authorization page. Select your server, review the permissions, and click Authorize. The bot will join instantly.",
+      "tags": ["add", "invite", "install"]
+    },
+    {
+      "id": 9,
+      "category": "setup",
+      "question": "How do I set up PakPhantom after adding it?",
+      "answer": "Run /setup in your server to launch the interactive setup wizard. It guides you through configuring the mod-log channel, welcome messages, XP settings, economy options, and auto-mod in a step-by-step process.",
+      "tags": ["setup", "config", "wizard"]
+    },
+    {
+      "id": 10,
+      "category": "setup",
+      "question": "How do I configure the welcome message?",
+      "answer": "Use /welcome #channel [message] to set up your welcome message. You can use variables like {user} for the username, {mention} for the ping, {server} for the server name, and {count} for the member number.",
+      "tags": ["welcome", "config"]
+    },
+    {
+      "id": 11,
+      "category": "setup",
+      "question": "Can I change which channel the bot logs moderation actions to?",
+      "answer": "Yes. Use /config modlog_channel #channel to set your mod-log channel. All bans, kicks, warns, timeouts, and other moderation actions will be automatically logged there.",
+      "tags": ["modlog", "config", "channel"]
+    },
+    {
+      "id": 12,
+      "category": "setup",
+      "question": "How do I set up auto-role for new members?",
+      "answer": "Use /autorole @RoleName to set a role that's automatically assigned to every new member who joins. Use /autorole none to disable it. Make sure the bot's role is higher than the auto-role in the role hierarchy.",
+      "tags": ["autorole", "setup", "members"]
+    },
+    {
+      "id": 13,
+      "category": "commands",
+      "question": "What is the prefix for PakPhantom commands?",
+      "answer": "PakPhantom uses Discord's native slash commands — all commands start with /. There's no custom text prefix needed. Just type / in any channel to see all available commands from the Discord command picker.",
+      "tags": ["prefix", "slash", "commands"]
+    },
+    {
+      "id": 14,
+      "category": "commands",
+      "question": "Where can I see a full list of commands?",
+      "answer": "Visit our Commands page on this website for all 94 commands with descriptions, usage examples, and options. Alternatively, use /help in Discord to browse commands by category.",
+      "tags": ["commands", "list", "help"]
+    },
+    {
+      "id": 15,
+      "category": "commands",
+      "question": "Why is a command not working for me?",
+      "answer": "Most issues are caused by missing permissions. Make sure the bot has the required permissions for that command (shown in /help [command]), and that your account has the required user permissions. Also check the bot's role hierarchy for moderation commands.",
+      "tags": ["error", "permissions", "troubleshoot"]
+    },
+    {
+      "id": 16,
+      "category": "commands",
+      "question": "Why do I see 'Cooldown' when using commands?",
+      "answer": "Commands have cooldowns to prevent spam and server strain. Cooldowns vary by command — from 3 seconds for basic info commands to 24 hours for /daily. The bot will tell you exactly how long to wait.",
+      "tags": ["cooldown", "ratelimit"]
+    },
+    {
+      "id": 17,
+      "category": "commands",
+      "question": "Can I disable specific commands in my server?",
+      "answer": "Yes. Use /config disable_command [command_name] to disable a specific command in your server. Use /config enable_command [command_name] to re-enable it. Admins can also restrict commands to specific channels.",
+      "tags": ["disable", "config", "commands"]
+    },
+    {
+      "id": 18,
+      "category": "economy",
+      "question": "How do I start earning coins?",
+      "answer": "Start with /daily for your first free coins, then set an hourly reminder for /work which has no risk. Once you have some coins, explore /fish, /crime (risky), and gambling games like /slots and /coinflip.",
+      "tags": ["coins", "earn", "start"]
+    },
+    {
+      "id": 19,
+      "category": "economy",
+      "question": "What happens if I miss a daily streak?",
+      "answer": "Missing a day resets your streak back to Day 1. The base reward stays the same, but you lose your streak multiplier bonuses. Set a reminder every 24 hours to maintain your streak and unlock the Day 7 (2×) and Day 30 (legendary) bonuses.",
+      "tags": ["daily", "streak", "reset"]
+    },
+    {
+      "id": 20,
+      "category": "economy",
+      "question": "What is the difference between wallet and bank?",
+      "answer": "Your wallet holds coins that can be spent, transferred, or lost via /rob. Your bank is a safe storage — coins in the bank cannot be stolen by /rob attacks. Always bank your savings and only keep spending money in your wallet.",
+      "tags": ["wallet", "bank", "rob", "safe"]
+    },
+    {
+      "id": 21,
+      "category": "economy",
+      "question": "Can my coins be reset or lost permanently?",
+      "answer": "Coins can only be permanently lost through gambling commands (/slots, /coinflip, /roulette, /dice) or the /crime and /rob commands if you fail. Admins cannot take your coins. The bot team will never remove coins without reason.",
+      "tags": ["coins", "lost", "permanent"]
+    },
+    {
+      "id": 22,
+      "category": "economy",
+      "question": "Is the economy shared across all servers?",
+      "answer": "Each server has its own separate economy. Coins earned in Server A cannot be used in Server B. This gives each community a unique economy experience. Global leaderboards compare net worth across all servers.",
+      "tags": ["economy", "servers", "separate"]
+    },
+    {
+      "id": 23,
+      "category": "economy",
+      "question": "What is the best item to buy from the shop?",
+      "answer": "For new players: the Work Boost (2,000 coins) doubles /work earnings for 24 hours and pays itself back quickly. For mid-game: the Golden Rod (4,000 coins) improves fishing payouts significantly. For flexing: the Rich Role (5,000 coins) is the most popular.",
+      "tags": ["shop", "items", "best", "buy"]
+    },
+    {
+      "id": 24,
+      "category": "economy",
+      "question": "How does the /rob command work?",
+      "answer": "Use /rob @user to attempt stealing from their wallet (not bank). Success rate is around 50%. On success, you steal 20–40% of their wallet. On failure, you pay a fine of 20% of your wallet. Target needs at least 200 coins in wallet. Robber Shield item blocks rob attempts.",
+      "tags": ["rob", "steal", "coins"]
+    },
+    {
+      "id": 25,
+      "category": "games",
+      "question": "How many games does PakPhantom have?",
+      "answer": "PakPhantom has 22 fully playable games including Wordle, Trivia, Blackjack, Chess, Connect Four, Hangman, Snake, Slots, Roulette, Minesweeper, 2048, Typing Race, and more. Visit the Games page for the full list.",
+      "tags": ["games", "count", "list"]
+    },
+    {
+      "id": 26,
+      "category": "games",
+      "question": "Do games earn real coins?",
+      "answer": "Yes! Most games reward coins on completion or winning. The amount depends on the game, difficulty, and your performance. Gambling games use your existing coins as bets with the chance to multiply them.",
+      "tags": ["games", "coins", "rewards"]
+    },
+    {
+      "id": 27,
+      "category": "games",
+      "question": "Can I play games against other server members?",
+      "answer": "Yes! Several games support multiplayer: Chess, Tic-Tac-Toe, Connect Four, Rock Paper Scissors, Quiz Battle, and Typing Race all support challenging other server members. Use /chess @opponent, /tictactoe @opponent etc.",
+      "tags": ["multiplayer", "games", "challenge"]
+    },
+    {
+      "id": 28,
+      "category": "games",
+      "question": "Is there a daily Wordle challenge?",
+      "answer": "Yes! /wordle daily gives you the same word as all other players that day. Daily challenge results are tracked on the server leaderboard. Use /wordle random for unlimited additional games.",
+      "tags": ["wordle", "daily", "challenge"]
+    },
+    {
+      "id": 29,
+      "category": "games",
+      "question": "Why does Chess take so long to load?",
+      "answer": "Chess board rendering requires image generation which can take 2–5 seconds. This is normal. If the command times out, it may be due to high bot load — try again in a few seconds. The board is rendered fresh after every move.",
+      "tags": ["chess", "slow", "render"]
+    },
+    {
+      "id": 30,
+      "category": "moderation",
+      "question": "What permissions do I need to use moderation commands?",
+      "answer": "Different commands require different permissions: Ban/Unban needs Ban Members, Kick needs Kick Members, Timeout needs Moderate Members, Warn/Purge needs Manage Messages, Role management needs Manage Roles. Admin commands need Administrator.",
+      "tags": ["moderation", "permissions", "roles"]
+    },
+    {
+      "id": 31,
+      "category": "moderation",
+      "question": "How does the auto-escalation warning system work?",
+      "answer": "When a user accumulates warnings: at 3 warnings they're auto-muted for 1 hour, at 5 warnings they're auto-banned. You can customise these thresholds using /config warning_threshold. Use /clearwarn to remove warnings.",
+      "tags": ["warnings", "auto", "escalation", "ban"]
+    },
+    {
+      "id": 32,
+      "category": "moderation",
+      "question": "Can I set PakPhantom to automatically delete bad words?",
+      "answer": "Yes. PakPhantom's auto-mod system can filter messages containing words from a custom bad words list. Use /config add_badword [word] to add words to the filter. Filtered messages are auto-deleted and the user is warned.",
+      "tags": ["automod", "filter", "badwords"]
+    },
+    {
+      "id": 33,
+      "category": "moderation",
+      "question": "Does PakPhantom have anti-raid protection?",
+      "answer": "Yes. PakPhantom detects raid patterns (large numbers of accounts joining rapidly) and can automatically enable lockdown mode — preventing new members from sending messages until you disable it with /unlock.",
+      "tags": ["anti-raid", "protection", "security"]
+    },
+    {
+      "id": 34,
+      "category": "moderation",
+      "question": "Can I use /purge to delete messages older than 14 days?",
+      "answer": "No — this is a Discord API limitation. Discord's bulk-delete API only supports messages up to 14 days old. Messages older than 14 days must be deleted manually. PakPhantom's /purge command respects this limitation.",
+      "tags": ["purge", "delete", "14days", "limitation"]
+    },
+    {
+      "id": 35,
+      "category": "technical",
+      "question": "What technology is PakPhantom built with?",
+      "answer": "PakPhantom is built with Node.js v20, Discord.js v14, MongoDB Atlas for database, Redis for caching, Express.js for the REST API, and Docker for containerisation. Hosted on a dedicated server for maximum uptime.",
+      "tags": ["tech", "stack", "nodejs", "mongodb"]
+    },
+    {
+      "id": 36,
+      "category": "technical",
+      "question": "What is PakPhantom's uptime?",
+      "answer": "PakPhantom maintains 99.9% uptime. Occasional brief restarts happen for updates, but these are typically under 30 seconds. Live uptime is always visible on our Status page.",
+      "tags": ["uptime", "reliability", "status"]
+    },
+    {
+      "id": 37,
+      "category": "technical",
+      "question": "How fast does PakPhantom respond to commands?",
+      "answer": "PakPhantom responds to most commands in under 100ms. Some commands that fetch external API data (weather, wiki, prayer times) may take 200–500ms due to API latency. Image generation commands (avatar, rank card) may take up to 1 second.",
+      "tags": ["speed", "latency", "response", "ping"]
+    },
+    {
+      "id": 38,
+      "category": "technical",
+      "question": "Does PakPhantom store my messages or personal data?",
+      "answer": "PakPhantom only stores what's necessary to function: user IDs for economy/levelling data, moderation records (warns, bans), and server configuration. We do not store message content, passwords, or any personal information. See our Privacy Policy for full details.",
+      "tags": ["privacy", "data", "storage", "messages"]
+    },
+    {
+      "id": 39,
+      "category": "technical",
+      "question": "The bot is offline in my server. What should I do?",
+      "answer": "First, check the Status page to see if there's a known outage. If status is operational, try re-inviting the bot. If it's still offline after 10 minutes, join our support server and create a ticket — our team will investigate promptly.",
+      "tags": ["offline", "down", "troubleshoot"]
+    },
+    {
+      "id": 40,
+      "category": "technical",
+      "question": "How do I report a bug or suggest a feature?",
+      "answer": "Join our Discord support server and use the #bug-reports or #suggestions channel. Alternatively, use the support form on our Support page. We actively review all suggestions and prioritise them for future updates.",
+      "tags": ["bug", "report", "suggest", "feedback"]
+    }
+  ]
+}

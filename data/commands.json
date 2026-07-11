@@ -1,0 +1,1625 @@
+{
+  "meta": {
+    "total": 94,
+    "categories": 8,
+    "version": "2.0.0",
+    "lastUpdated": "2024-01-01",
+    "prefix": "/"
+  },
+  "categories": [
+    {
+      "id": "moderation",
+      "name": "Moderation",
+      "emoji": "🛡️",
+      "color": "#ff6b6b",
+      "description": "Server moderation and management commands",
+      "count": 14
+    },
+    {
+      "id": "economy",
+      "name": "Economy",
+      "emoji": "💰",
+      "color": "#ffd040",
+      "description": "Virtual currency and economy commands",
+      "count": 16
+    },
+    {
+      "id": "games",
+      "name": "Games",
+      "emoji": "🎮",
+      "color": "#a855f7",
+      "description": "Mini games and entertainment",
+      "count": 12
+    },
+    {
+      "id": "fun",
+      "name": "Fun",
+      "emoji": "😂",
+      "color": "#00FF88",
+      "description": "Fun and entertainment commands",
+      "count": 16
+    },
+    {
+      "id": "utility",
+      "name": "Utility",
+      "emoji": "🔧",
+      "color": "#f97316",
+      "description": "Useful utility and information commands",
+      "count": 18
+    },
+    {
+      "id": "levelling",
+      "name": "Levelling",
+      "emoji": "📊",
+      "color": "#00b4ff",
+      "description": "XP and rank system commands",
+      "count": 6
+    },
+    {
+      "id": "social",
+      "name": "Social",
+      "emoji": "🤗",
+      "color": "#ec4899",
+      "description": "Social interaction and GIF commands",
+      "count": 8
+    },
+    {
+      "id": "admin",
+      "name": "Admin",
+      "emoji": "⚙️",
+      "color": "#78716c",
+      "description": "Bot configuration and admin commands",
+      "count": 4
+    }
+  ],
+  "commands": [
+    {
+      "id": "ban",
+      "name": "ban",
+      "category": "moderation",
+      "emoji": "🔨",
+      "description": "Ban a user from the server permanently or temporarily.",
+      "longDescription": "Bans the specified user from the server. Optionally set a duration for temporary bans. Requires Ban Members permission. Logs to mod-log channel if configured.",
+      "usage": "/ban @user [reason] [duration]",
+      "examples": [
+        "/ban @BadUser Spamming in general",
+        "/ban @Raider Raid attempt 7d",
+        "/ban @AltAccount No reason provided"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "The user to ban" },
+        { "name": "reason", "type": "string", "required": false, "description": "Reason for the ban" },
+        { "name": "duration", "type": "string", "required": false, "description": "Duration e.g. 7d, 24h, 30m" }
+      ],
+      "permissions": ["BAN_MEMBERS"],
+      "cooldown": 3,
+      "tags": ["moderation", "punishment", "admin"]
+    },
+    {
+      "id": "unban",
+      "name": "unban",
+      "category": "moderation",
+      "emoji": "✅",
+      "description": "Unban a previously banned user by their ID.",
+      "longDescription": "Removes the ban for a user using their Discord ID. The user must be currently banned for this to work.",
+      "usage": "/unban [user_id] [reason]",
+      "examples": [
+        "/unban 123456789012345678 Appeal accepted",
+        "/unban 987654321098765432"
+      ],
+      "options": [
+        { "name": "user_id", "type": "string", "required": true, "description": "Discord ID of the banned user" },
+        { "name": "reason", "type": "string", "required": false, "description": "Reason for unbanning" }
+      ],
+      "permissions": ["BAN_MEMBERS"],
+      "cooldown": 3,
+      "tags": ["moderation", "admin"]
+    },
+    {
+      "id": "kick",
+      "name": "kick",
+      "category": "moderation",
+      "emoji": "👢",
+      "description": "Kick a user from the server. They can rejoin with an invite.",
+      "longDescription": "Removes the specified user from the server. Unlike a ban, the user can rejoin using an invite link.",
+      "usage": "/kick @user [reason]",
+      "examples": [
+        "/kick @Troll Breaking rules",
+        "/kick @NewUser Suspicious behavior"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "The user to kick" },
+        { "name": "reason", "type": "string", "required": false, "description": "Reason for the kick" }
+      ],
+      "permissions": ["KICK_MEMBERS"],
+      "cooldown": 3,
+      "tags": ["moderation", "punishment"]
+    },
+    {
+      "id": "timeout",
+      "name": "timeout",
+      "category": "moderation",
+      "emoji": "⏱️",
+      "description": "Temporarily timeout a user, preventing them from sending messages.",
+      "longDescription": "Puts a user in Discord's native timeout state for a specified duration. They cannot send messages, join voice channels, or add reactions during the timeout.",
+      "usage": "/timeout @user [duration] [reason]",
+      "examples": [
+        "/timeout @Spammer 30m Spamming messages",
+        "/timeout @Fighter 2h Arguments in general",
+        "/timeout @Troll 1d Repeated rule breaks"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to timeout" },
+        { "name": "duration", "type": "string", "required": true, "description": "Duration: 60s, 30m, 2h, 1d, 7d (max)" },
+        { "name": "reason", "type": "string", "required": false, "description": "Reason for timeout" }
+      ],
+      "permissions": ["MODERATE_MEMBERS"],
+      "cooldown": 3,
+      "tags": ["moderation", "punishment"]
+    },
+    {
+      "id": "warn",
+      "name": "warn",
+      "category": "moderation",
+      "emoji": "⚠️",
+      "description": "Issue a formal warning to a user. Warnings stack and trigger auto-punishments.",
+      "longDescription": "Issues a warning to the user and saves it to their profile. At 3 warnings, the user is auto-muted. At 5 warnings, auto-banned. DMs the user with the warning reason.",
+      "usage": "/warn @user [reason]",
+      "examples": [
+        "/warn @User Breaking rule #3",
+        "/warn @Spammer Please read the rules"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to warn" },
+        { "name": "reason", "type": "string", "required": true, "description": "Reason for the warning" }
+      ],
+      "permissions": ["MANAGE_MESSAGES"],
+      "cooldown": 3,
+      "tags": ["moderation", "warning"]
+    },
+    {
+      "id": "warnings",
+      "name": "warnings",
+      "category": "moderation",
+      "emoji": "📋",
+      "description": "View all warnings for a user.",
+      "longDescription": "Displays a full list of all warnings issued to the specified user, including dates, reasons, and the moderator who issued each warning.",
+      "usage": "/warnings @user",
+      "examples": [
+        "/warnings @User",
+        "/warnings @Troll"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User whose warnings to view" }
+      ],
+      "permissions": ["MANAGE_MESSAGES"],
+      "cooldown": 5,
+      "tags": ["moderation", "info"]
+    },
+    {
+      "id": "clearwarn",
+      "name": "clearwarn",
+      "category": "moderation",
+      "emoji": "🗑️",
+      "description": "Clear all or specific warnings for a user.",
+      "longDescription": "Removes warnings from a user's record. Specify a warning ID to remove a single warning, or use 'all' to clear their entire warning history.",
+      "usage": "/clearwarn @user [all|warn_id]",
+      "examples": [
+        "/clearwarn @User all",
+        "/clearwarn @User 3"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User whose warnings to clear" },
+        { "name": "amount", "type": "string", "required": false, "description": "Warning ID or 'all'" }
+      ],
+      "permissions": ["MANAGE_MESSAGES"],
+      "cooldown": 3,
+      "tags": ["moderation", "admin"]
+    },
+    {
+      "id": "purge",
+      "name": "purge",
+      "category": "moderation",
+      "emoji": "🗑️",
+      "description": "Bulk delete messages from a channel. Up to 100 at a time.",
+      "longDescription": "Deletes a specified number of recent messages from the current channel. Can filter by user to only delete messages from a specific person. Messages older than 14 days cannot be bulk-deleted.",
+      "usage": "/purge [amount] [@user]",
+      "examples": [
+        "/purge 50",
+        "/purge 20 @Spammer",
+        "/purge 100"
+      ],
+      "options": [
+        { "name": "amount", "type": "integer", "required": true, "description": "Number of messages to delete (1-100)" },
+        { "name": "user", "type": "user", "required": false, "description": "Only delete messages from this user" }
+      ],
+      "permissions": ["MANAGE_MESSAGES"],
+      "cooldown": 5,
+      "tags": ["moderation", "messages"]
+    },
+    {
+      "id": "lock",
+      "name": "lock",
+      "category": "moderation",
+      "emoji": "🔒",
+      "description": "Lock a channel so only mods can send messages.",
+      "longDescription": "Removes the Send Messages permission from @everyone in the specified channel, effectively locking it. Mods with explicit permissions can still message.",
+      "usage": "/lock [#channel] [reason]",
+      "examples": [
+        "/lock",
+        "/lock #general Cooldown period",
+        "/lock #announcements"
+      ],
+      "options": [
+        { "name": "channel", "type": "channel", "required": false, "description": "Channel to lock (defaults to current)" },
+        { "name": "reason", "type": "string", "required": false, "description": "Reason for locking" }
+      ],
+      "permissions": ["MANAGE_CHANNELS"],
+      "cooldown": 5,
+      "tags": ["moderation", "channel"]
+    },
+    {
+      "id": "unlock",
+      "name": "unlock",
+      "category": "moderation",
+      "emoji": "🔓",
+      "description": "Unlock a previously locked channel.",
+      "longDescription": "Restores the Send Messages permission for @everyone in the specified channel, allowing members to send messages again.",
+      "usage": "/unlock [#channel]",
+      "examples": [
+        "/unlock",
+        "/unlock #general"
+      ],
+      "options": [
+        { "name": "channel", "type": "channel", "required": false, "description": "Channel to unlock" }
+      ],
+      "permissions": ["MANAGE_CHANNELS"],
+      "cooldown": 5,
+      "tags": ["moderation", "channel"]
+    },
+    {
+      "id": "slowmode",
+      "name": "slowmode",
+      "category": "moderation",
+      "emoji": "🐢",
+      "description": "Set slowmode delay for a channel (0 to disable).",
+      "longDescription": "Sets a slowmode cooldown on the specified channel. Users must wait the specified time between messages. Set to 0 to disable slowmode.",
+      "usage": "/slowmode [seconds] [#channel]",
+      "examples": [
+        "/slowmode 5",
+        "/slowmode 30 #general",
+        "/slowmode 0"
+      ],
+      "options": [
+        { "name": "seconds", "type": "integer", "required": true, "description": "Slowmode delay in seconds (0-21600)" },
+        { "name": "channel", "type": "channel", "required": false, "description": "Target channel" }
+      ],
+      "permissions": ["MANAGE_CHANNELS"],
+      "cooldown": 3,
+      "tags": ["moderation", "channel"]
+    },
+    {
+      "id": "role",
+      "name": "role",
+      "category": "moderation",
+      "emoji": "🎭",
+      "description": "Add or remove a role from a user.",
+      "longDescription": "Adds or removes a specified role from a user. The bot's role must be higher than the role being assigned/removed in the role hierarchy.",
+      "usage": "/role @user @role [add|remove]",
+      "examples": [
+        "/role @User @Member add",
+        "/role @User @Muted remove"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "Target user" },
+        { "name": "role", "type": "role", "required": true, "description": "Role to add/remove" },
+        { "name": "action", "type": "string", "required": false, "description": "add or remove (toggles if not specified)" }
+      ],
+      "permissions": ["MANAGE_ROLES"],
+      "cooldown": 3,
+      "tags": ["moderation", "roles"]
+    },
+    {
+      "id": "nickname",
+      "name": "nickname",
+      "category": "moderation",
+      "emoji": "✏️",
+      "description": "Change or reset a user's server nickname.",
+      "longDescription": "Changes the server nickname of the specified user. Leave the nickname blank to reset it to their username.",
+      "usage": "/nickname @user [new_nickname]",
+      "examples": [
+        "/nickname @User CoolNickname",
+        "/nickname @User"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to nickname" },
+        { "name": "nickname", "type": "string", "required": false, "description": "New nickname (blank to reset)" }
+      ],
+      "permissions": ["MANAGE_NICKNAMES"],
+      "cooldown": 3,
+      "tags": ["moderation", "admin"]
+    },
+    {
+      "id": "modlog",
+      "name": "modlog",
+      "category": "moderation",
+      "emoji": "📝",
+      "description": "View recent moderation actions taken in the server.",
+      "longDescription": "Shows a paginated list of the most recent moderation actions (bans, kicks, warns, timeouts) with full details including moderator, target, reason, and timestamp.",
+      "usage": "/modlog [page]",
+      "examples": [
+        "/modlog",
+        "/modlog 2"
+      ],
+      "options": [
+        { "name": "page", "type": "integer", "required": false, "description": "Page number (default: 1)" }
+      ],
+      "permissions": ["MANAGE_MESSAGES"],
+      "cooldown": 5,
+      "tags": ["moderation", "logs"]
+    },
+    {
+      "id": "balance",
+      "name": "balance",
+      "category": "economy",
+      "emoji": "💳",
+      "description": "Check your wallet and bank balance, or view another user's.",
+      "longDescription": "Displays a full balance card showing wallet balance, bank balance, total net worth, and server rank. Optionally view another user's public balance.",
+      "usage": "/balance [@user]",
+      "examples": [
+        "/balance",
+        "/balance @Friend"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": false, "description": "User whose balance to check" }
+      ],
+      "permissions": [],
+      "cooldown": 3,
+      "tags": ["economy", "info"]
+    },
+    {
+      "id": "daily",
+      "name": "daily",
+      "category": "economy",
+      "emoji": "🎁",
+      "description": "Claim your free daily coins. Builds a streak for bonus multipliers.",
+      "longDescription": "Claim between 100–500 coins every 24 hours. Build a streak for multiplier bonuses — Day 7 gives 2x reward, Day 30 gives a legendary bonus chest.",
+      "usage": "/daily",
+      "examples": ["/daily"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 86400,
+      "tags": ["economy", "reward", "free"]
+    },
+    {
+      "id": "work",
+      "name": "work",
+      "category": "economy",
+      "emoji": "💼",
+      "description": "Do a virtual job to earn coins. Safe with no risk of loss.",
+      "longDescription": "Perform a randomly selected virtual job for guaranteed coin earnings. No risk of loss — great for consistent grinding. Has a 1-hour cooldown.",
+      "usage": "/work",
+      "examples": ["/work"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 3600,
+      "tags": ["economy", "earn"]
+    },
+    {
+      "id": "crime",
+      "name": "crime",
+      "category": "economy",
+      "emoji": "🦹",
+      "description": "Attempt a risky crime for big coins. Fail and pay a fine.",
+      "longDescription": "High-risk, high-reward earn method. ~60% success rate. On success earn 200–800 coins. On failure, lose a fine from your wallet. 2-hour cooldown.",
+      "usage": "/crime",
+      "examples": ["/crime"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 7200,
+      "tags": ["economy", "earn", "risky"]
+    },
+    {
+      "id": "fish",
+      "name": "fish",
+      "category": "economy",
+      "emoji": "🎣",
+      "description": "Go fishing to catch fish worth varying amounts of coins.",
+      "longDescription": "Cast your rod and catch a random fish. Common fish are worth 20–100 coins. Rare fish like Golden Carp or Blue Whale can be worth thousands. 30-minute cooldown.",
+      "usage": "/fish",
+      "examples": ["/fish"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 1800,
+      "tags": ["economy", "earn"]
+    },
+    {
+      "id": "beg",
+      "name": "beg",
+      "category": "economy",
+      "emoji": "🙏",
+      "description": "Beg for coins. Low reward but zero risk. Very desi.",
+      "longDescription": "Beg for a small amount of coins from the universe. Sometimes generous, sometimes not. Earn 1–50 coins with a 30-minute cooldown.",
+      "usage": "/beg",
+      "examples": ["/beg"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 1800,
+      "tags": ["economy", "earn"]
+    },
+    {
+      "id": "deposit",
+      "name": "deposit",
+      "category": "economy",
+      "emoji": "🏦",
+      "description": "Deposit coins from your wallet into the bank for safekeeping.",
+      "longDescription": "Transfers coins from your wallet to your bank. Banked coins are safe from /rob attempts. Use 'all' to deposit your entire wallet balance.",
+      "usage": "/deposit [amount|all]",
+      "examples": [
+        "/deposit 5000",
+        "/deposit all",
+        "/deposit 1000"
+      ],
+      "options": [
+        { "name": "amount", "type": "string", "required": true, "description": "Amount to deposit or 'all'" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["economy", "bank"]
+    },
+    {
+      "id": "withdraw",
+      "name": "withdraw",
+      "category": "economy",
+      "emoji": "💸",
+      "description": "Withdraw coins from your bank back to your wallet.",
+      "longDescription": "Transfers coins from your bank to your wallet. Withdrawn coins can be used in shop, gambling, and transfers. Use 'all' to withdraw everything.",
+      "usage": "/withdraw [amount|all]",
+      "examples": [
+        "/withdraw 2000",
+        "/withdraw all"
+      ],
+      "options": [
+        { "name": "amount", "type": "string", "required": true, "description": "Amount to withdraw or 'all'" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["economy", "bank"]
+    },
+    {
+      "id": "transfer",
+      "name": "transfer",
+      "category": "economy",
+      "emoji": "📤",
+      "description": "Send coins to another user from your wallet.",
+      "longDescription": "Transfers the specified amount of coins from your wallet to another user's wallet. Cannot transfer from bank. Minimum transfer amount is 1 coin.",
+      "usage": "/transfer @user [amount]",
+      "examples": [
+        "/transfer @Friend 1000",
+        "/transfer @AliKhan 500"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to send coins to" },
+        { "name": "amount", "type": "integer", "required": true, "description": "Amount of coins to send" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["economy", "transfer"]
+    },
+    {
+      "id": "rob",
+      "name": "rob",
+      "category": "economy",
+      "emoji": "🔫",
+      "description": "Attempt to rob coins from another user's wallet.",
+      "longDescription": "Try to steal coins from another user's wallet. Success earns you a portion of their wallet. Fail and you pay a fine. Target must have at least 200 coins in wallet. Robber Shield item protects from being robbed.",
+      "usage": "/rob @user",
+      "examples": [
+        "/rob @RichUser",
+        "/rob @Sleeping"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to rob" }
+      ],
+      "permissions": [],
+      "cooldown": 3600,
+      "tags": ["economy", "risky"]
+    },
+    {
+      "id": "shop",
+      "name": "shop",
+      "category": "economy",
+      "emoji": "🏪",
+      "description": "Browse the item shop — roles, badges, boosts, and power-ups.",
+      "longDescription": "Opens a paginated shop display showing all available items, their prices, effects, and stock. Items include roles, cosmetic badges, economy boosts, and special power-ups.",
+      "usage": "/shop [page]",
+      "examples": [
+        "/shop",
+        "/shop 2"
+      ],
+      "options": [
+        { "name": "page", "type": "integer", "required": false, "description": "Shop page number" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["economy", "shop"]
+    },
+    {
+      "id": "buy",
+      "name": "buy",
+      "category": "economy",
+      "emoji": "🛒",
+      "description": "Purchase an item from the shop using your wallet coins.",
+      "longDescription": "Buys the specified item from the shop. Deducts the price from your wallet and adds the item to your inventory. Some items activate automatically on purchase.",
+      "usage": "/buy [item_name]",
+      "examples": [
+        "/buy rich_role",
+        "/buy work_boost",
+        "/buy robber_shield"
+      ],
+      "options": [
+        { "name": "item", "type": "string", "required": true, "description": "Item name to purchase" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["economy", "shop"]
+    },
+    {
+      "id": "inventory",
+      "name": "inventory",
+      "category": "economy",
+      "emoji": "🎒",
+      "description": "View all items currently in your inventory.",
+      "longDescription": "Shows all items you own, including active boosts with their remaining duration, collectible roles, badges, and any special items.",
+      "usage": "/inventory [@user]",
+      "examples": [
+        "/inventory",
+        "/inventory @Friend"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": false, "description": "User whose inventory to view" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["economy", "info"]
+    },
+    {
+      "id": "leaderboard",
+      "name": "leaderboard",
+      "category": "economy",
+      "emoji": "🏆",
+      "description": "View the richest users in the server or globally.",
+      "longDescription": "Displays a top-10 leaderboard sorted by total net worth (wallet + bank + item values). Use the 'global' option to see rankings across all servers.",
+      "usage": "/leaderboard [global]",
+      "examples": [
+        "/leaderboard",
+        "/leaderboard global"
+      ],
+      "options": [
+        { "name": "type", "type": "string", "required": false, "description": "server (default) or global" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["economy", "leaderboard"]
+    },
+    {
+      "id": "slots",
+      "name": "slots",
+      "category": "economy",
+      "emoji": "🎰",
+      "description": "Spin the slot machine. Match symbols to win big.",
+      "longDescription": "Bet coins on the slot machine. Match 3 symbols to win. Three 7s = 10x your bet. Three same fruits = 3x. Two same = 1.5x. Anything else loses.",
+      "usage": "/slots [amount]",
+      "examples": [
+        "/slots 500",
+        "/slots 1000",
+        "/slots 100"
+      ],
+      "options": [
+        { "name": "amount", "type": "integer", "required": true, "description": "Amount to bet (min: 10)" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["economy", "gambling"]
+    },
+    {
+      "id": "coinflip",
+      "name": "coinflip",
+      "category": "economy",
+      "emoji": "🪙",
+      "description": "Flip a coin. Bet on heads or tails. Win = double your bet.",
+      "longDescription": "50/50 gambling command. Bet any amount and choose heads or tails. Win and you double your bet. Lose and you lose it all. Pure luck.",
+      "usage": "/coinflip [amount] [heads|tails]",
+      "examples": [
+        "/coinflip 1000 heads",
+        "/coinflip 500 tails"
+      ],
+      "options": [
+        { "name": "amount", "type": "integer", "required": true, "description": "Amount to bet" },
+        { "name": "choice", "type": "string", "required": true, "description": "heads or tails" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["economy", "gambling"]
+    },
+    {
+      "id": "wordle",
+      "name": "wordle",
+      "category": "games",
+      "emoji": "🟩",
+      "description": "Play the classic 5-letter word guessing game.",
+      "longDescription": "Guess a 5-letter word in 6 tries. Green = correct letter & position. Yellow = correct letter wrong position. Grey = letter not in word. Daily challenge mode available.",
+      "usage": "/wordle [daily|random]",
+      "examples": [
+        "/wordle",
+        "/wordle daily",
+        "/wordle random"
+      ],
+      "options": [
+        { "name": "mode", "type": "string", "required": false, "description": "daily or random (default: random)" }
+      ],
+      "permissions": [],
+      "cooldown": 30,
+      "tags": ["games", "word", "puzzle"]
+    },
+    {
+      "id": "trivia",
+      "name": "trivia",
+      "category": "games",
+      "emoji": "❓",
+      "description": "Answer trivia questions from 20+ categories.",
+      "longDescription": "Get a random trivia question from 10,000+ question database across 20+ categories. Includes a Pakistan-specific category. Choose difficulty: easy, medium, or hard.",
+      "usage": "/trivia [category] [difficulty]",
+      "examples": [
+        "/trivia",
+        "/trivia pakistan",
+        "/trivia science hard",
+        "/trivia history medium"
+      ],
+      "options": [
+        { "name": "category", "type": "string", "required": false, "description": "Category name" },
+        { "name": "difficulty", "type": "string", "required": false, "description": "easy, medium, or hard" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["games", "trivia", "quiz"]
+    },
+    {
+      "id": "blackjack",
+      "name": "blackjack",
+      "category": "games",
+      "emoji": "🃏",
+      "description": "Play Blackjack against the bot. Get closer to 21 to win.",
+      "longDescription": "Full casino-style Blackjack. Bet coins, receive cards, and try to beat the dealer without going over 21. Supports hit, stand, and double down actions via buttons.",
+      "usage": "/blackjack [bet]",
+      "examples": [
+        "/blackjack 500",
+        "/blackjack 1000",
+        "/blackjack 100"
+      ],
+      "options": [
+        { "name": "bet", "type": "integer", "required": false, "description": "Amount to bet (optional)" }
+      ],
+      "permissions": [],
+      "cooldown": 15,
+      "tags": ["games", "cards", "gambling"]
+    },
+    {
+      "id": "hangman",
+      "name": "hangman",
+      "category": "games",
+      "emoji": "🎯",
+      "description": "Play hangman. Guess the hidden word one letter at a time.",
+      "longDescription": "Classic hangman game with multiple word categories. Guess letters to reveal the hidden word. You have 7 wrong guesses before it's game over. Win and earn coins.",
+      "usage": "/hangman [category]",
+      "examples": [
+        "/hangman",
+        "/hangman animals",
+        "/hangman countries",
+        "/hangman pakistan"
+      ],
+      "options": [
+        { "name": "category", "type": "string", "required": false, "description": "Word category" }
+      ],
+      "permissions": [],
+      "cooldown": 20,
+      "tags": ["games", "word", "puzzle"]
+    },
+    {
+      "id": "tictactoe",
+      "name": "tictactoe",
+      "category": "games",
+      "emoji": "⭕",
+      "description": "Challenge a user to Tic-Tac-Toe. Classic 3x3 grid.",
+      "longDescription": "Challenge any server member to a game of Tic-Tac-Toe. Game is played via Discord button interactions on a 3x3 grid embed.",
+      "usage": "/tictactoe @opponent",
+      "examples": [
+        "/tictactoe @Friend",
+        "/tictactoe @Ali"
+      ],
+      "options": [
+        { "name": "opponent", "type": "user", "required": true, "description": "User to play against" }
+      ],
+      "permissions": [],
+      "cooldown": 30,
+      "tags": ["games", "multiplayer"]
+    },
+    {
+      "id": "chess",
+      "name": "chess",
+      "category": "games",
+      "emoji": "♟️",
+      "description": "Challenge a user to a game of chess with ELO tracking.",
+      "longDescription": "Full chess engine with PGN-based board rendering, legal move validation, ELO rating system, and challenge/accept system for server members.",
+      "usage": "/chess @opponent",
+      "examples": [
+        "/chess @GrandMaster",
+        "/chess @Usman"
+      ],
+      "options": [
+        { "name": "opponent", "type": "user", "required": true, "description": "User to challenge" }
+      ],
+      "permissions": [],
+      "cooldown": 60,
+      "tags": ["games", "strategy", "multiplayer"]
+    },
+    {
+      "id": "connectfour",
+      "name": "connectfour",
+      "category": "games",
+      "emoji": "➕",
+      "description": "Play Connect Four against a server member.",
+      "longDescription": "Classic Connect Four drop-disc game rendered in Discord embeds. Take turns dropping coloured discs to connect 4 in a row horizontally, vertically, or diagonally.",
+      "usage": "/connectfour @opponent",
+      "examples": [
+        "/connectfour @Friend"
+      ],
+      "options": [
+        { "name": "opponent", "type": "user", "required": true, "description": "User to play against" }
+      ],
+      "permissions": [],
+      "cooldown": 30,
+      "tags": ["games", "multiplayer"]
+    },
+    {
+      "id": "snake",
+      "name": "snake",
+      "category": "games",
+      "emoji": "🐍",
+      "description": "Play Snake game in Discord using reaction buttons.",
+      "longDescription": "Classic Snake game rendered in a Discord embed grid. Control the snake with reaction arrows to eat food and grow. Game ends when you hit a wall or yourself.",
+      "usage": "/snake",
+      "examples": ["/snake"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 30,
+      "tags": ["games", "solo"]
+    },
+    {
+      "id": "rps",
+      "name": "rps",
+      "category": "games",
+      "emoji": "✂️",
+      "description": "Play Rock Paper Scissors against the bot or a user.",
+      "longDescription": "Classic Rock Paper Scissors. Play against the bot for fun, or challenge a server member. First to 3 wins wins the match. Optional coin bet.",
+      "usage": "/rps [@opponent] [bet]",
+      "examples": [
+        "/rps",
+        "/rps @Friend",
+        "/rps @Ali 500"
+      ],
+      "options": [
+        { "name": "opponent", "type": "user", "required": false, "description": "User to challenge (bot if empty)" },
+        { "name": "bet", "type": "integer", "required": false, "description": "Coins to bet" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["games", "multiplayer"]
+    },
+    {
+      "id": "guess",
+      "name": "guess",
+      "category": "games",
+      "emoji": "🔢",
+      "description": "Guess the number the bot is thinking of (1–100).",
+      "longDescription": "The bot picks a random number between 1 and 100. You have 7 attempts to guess it. After each guess, the bot says higher or lower. Correct guess earns coins.",
+      "usage": "/guess",
+      "examples": ["/guess"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 15,
+      "tags": ["games", "solo"]
+    },
+    {
+      "id": "meme",
+      "name": "meme",
+      "category": "fun",
+      "emoji": "😂",
+      "description": "Get a random hot meme from Reddit.",
+      "longDescription": "Fetches a random fresh meme from top Pakistani and international meme subreddits including r/memes, r/dankmemes, and r/PakistanMemes. New memes every call.",
+      "usage": "/meme",
+      "examples": ["/meme"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["fun", "meme"]
+    },
+    {
+      "id": "roast",
+      "name": "roast",
+      "category": "fun",
+      "emoji": "🔥",
+      "description": "Roast a user with a savage burn. Targets @mention.",
+      "longDescription": "Delivers a savage roast line targeted at the mentioned user. Choose intensity level: mild, medium, or savage. The bot will never hold back.",
+      "usage": "/roast @user [intensity]",
+      "examples": [
+        "/roast @Friend",
+        "/roast @Ali savage"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to roast" },
+        { "name": "intensity", "type": "string", "required": false, "description": "mild, medium, or savage" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["fun", "roast"]
+    },
+    {
+      "id": "joke",
+      "name": "joke",
+      "category": "fun",
+      "emoji": "🤣",
+      "description": "Get a random joke. Dad jokes, dark humor, puns & more.",
+      "longDescription": "Fetches a random joke from a massive database. Categories include: general, programming, dark, pun, dad, and spooky. Guaranteed to either make you laugh or groan.",
+      "usage": "/joke [category]",
+      "examples": [
+        "/joke",
+        "/joke dad",
+        "/joke programming"
+      ],
+      "options": [
+        { "name": "category", "type": "string", "required": false, "description": "Joke category" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["fun", "joke"]
+    },
+    {
+      "id": "8ball",
+      "name": "8ball",
+      "category": "fun",
+      "emoji": "🔮",
+      "description": "Ask the Magic 8-Ball any yes/no question.",
+      "longDescription": "The mystical Magic 8-Ball answers your yes/no questions with 20 unique responses — 10 positive, 5 neutral, and 5 negative. The universe has spoken.",
+      "usage": "/8ball [question]",
+      "examples": [
+        "/8ball Will I pass my exams?",
+        "/8ball Am I going to get rich?"
+      ],
+      "options": [
+        { "name": "question", "type": "string", "required": true, "description": "Your yes/no question" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["fun", "magic"]
+    },
+    {
+      "id": "desiroast",
+      "name": "desiroast",
+      "category": "fun",
+      "emoji": "🌶️",
+      "description": "Roast someone with Pakistani desi style burns in Roman Urdu.",
+      "longDescription": "Delivers a savage Pakistani desi roast in Roman Urdu. Extra spicy, guaranteed to offend. For entertainment purposes only — handle with care.",
+      "usage": "/desiroast @user",
+      "examples": [
+        "/desiroast @Yaar",
+        "/desiroast @Dost"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to desi roast" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["fun", "desi", "roast"]
+    },
+    {
+      "id": "desijoke",
+      "name": "desijoke",
+      "category": "fun",
+      "emoji": "😄",
+      "description": "Get a Pakistani desi joke in Roman Urdu.",
+      "longDescription": "Delivers a random Pakistani joke — latifas, puns, and classic desi humor in Roman Urdu. Fresh jokes pulled from a database of 500+ desi latifas.",
+      "usage": "/desijoke",
+      "examples": ["/desijoke"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["fun", "desi", "joke"]
+    },
+    {
+      "id": "shayari",
+      "name": "shayari",
+      "category": "fun",
+      "emoji": "📜",
+      "description": "Get beautiful Urdu shayari for any mood.",
+      "longDescription": "Fetches a random piece of beautiful Urdu poetry (shayari). Mood options include love, sad, motivational, funny, and philosophical. Poetry from classic Pakistani poets.",
+      "usage": "/shayari [mood]",
+      "examples": [
+        "/shayari",
+        "/shayari love",
+        "/shayari sad"
+      ],
+      "options": [
+        { "name": "mood", "type": "string", "required": false, "description": "love, sad, motivational, funny" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["fun", "desi", "poetry"]
+    },
+    {
+      "id": "quote",
+      "name": "quote",
+      "category": "fun",
+      "emoji": "💬",
+      "description": "Inspirational quotes from famous Pakistani leaders and poets.",
+      "longDescription": "Fetches an inspirational quote from famous Pakistani and Muslim historical figures — Allama Iqbal, Quaid-e-Azam, Imran Khan, Benazir Bhutto, and more.",
+      "usage": "/quote [person]",
+      "examples": [
+        "/quote",
+        "/quote iqbal",
+        "/quote quaid"
+      ],
+      "options": [
+        { "name": "person", "type": "string", "required": false, "description": "Person name to get quotes from" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["fun", "desi", "motivation"]
+    },
+    {
+      "id": "rishta",
+      "name": "rishta",
+      "category": "fun",
+      "emoji": "💍",
+      "description": "Generate a hilarious fake rishta bio for a user.",
+      "longDescription": "Generates a satirical desi marriage proposal bio for the targeted user. Includes made-up height, profession, family background, and demands. Pure Pakistani culture.",
+      "usage": "/rishta @user",
+      "examples": [
+        "/rishta @User",
+        "/rishta @Ali"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to generate rishta for" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["fun", "desi"]
+    },
+    {
+      "id": "aesthetic",
+      "name": "aesthetic",
+      "category": "fun",
+      "emoji": "🔡",
+      "description": "Convert text to ａｅｓｔｈｅｔｉｃ fullwidth characters.",
+      "longDescription": "Transforms your text into fullwidth aesthetic Japanese-style characters for that vaporwave look. Works with letters, numbers, and spaces.",
+      "usage": "/aesthetic [text]",
+      "examples": [
+        "/aesthetic Hello World",
+        "/aesthetic PakPhantom"
+      ],
+      "options": [
+        { "name": "text", "type": "string", "required": true, "description": "Text to aestheticize" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["fun", "text"]
+    },
+    {
+      "id": "spongebob",
+      "name": "spongebob",
+      "category": "fun",
+      "emoji": "🧽",
+      "description": "tYpE YoUr TeXt LiKe MoCkInG SpOnGeBoB.",
+      "longDescription": "Transforms your text into the iconic mocking SpongeBob alternating case format. Perfect for sarcasm, arguments, and being insufferable online.",
+      "usage": "/spongebob [text]",
+      "examples": [
+        "/spongebob I am always right",
+        "/spongebob rules dont apply to me"
+      ],
+      "options": [
+        { "name": "text", "type": "string", "required": true, "description": "Text to SpongeBob-ify" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["fun", "text"]
+    },
+    {
+      "id": "reverse",
+      "name": "reverse",
+      "category": "fun",
+      "emoji": "🔄",
+      "description": "Reverse any text backwards.",
+      "longDescription": "Takes your input text and returns it completely reversed — letter by letter. Great for secret messages or confusing your friends.",
+      "usage": "/reverse [text]",
+      "examples": [
+        "/reverse Hello",
+        "/reverse PakPhantom"
+      ],
+      "options": [
+        { "name": "text", "type": "string", "required": true, "description": "Text to reverse" }
+      ],
+      "permissions": [],
+      "cooldown": 3,
+      "tags": ["fun", "text"]
+    },
+    {
+      "id": "fortune",
+      "name": "fortune",
+      "category": "fun",
+      "emoji": "🥠",
+      "description": "Crack open a fortune cookie for your daily prophecy.",
+      "longDescription": "Opens a virtual fortune cookie and delivers a random fortune message. Wisdom, humor, or cryptic prophecies — the universe decides.",
+      "usage": "/fortune",
+      "examples": ["/fortune"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 300,
+      "tags": ["fun", "magic"]
+    },
+    {
+      "id": "hug",
+      "name": "hug",
+      "category": "social",
+      "emoji": "🤗",
+      "description": "Send a warm virtual hug to someone with a GIF.",
+      "longDescription": "Sends a wholesome hug GIF to the mentioned user. Comes with a heartwarming message. Great for when someone needs some love.",
+      "usage": "/hug @user",
+      "examples": ["/hug @Friend", "/hug @Yaar"],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to hug" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["social", "interaction"]
+    },
+    {
+      "id": "slap",
+      "name": "slap",
+      "category": "social",
+      "emoji": "👋",
+      "description": "Slap a user with a satisfying anime GIF.",
+      "longDescription": "Delivers a virtual slap to the targeted user with a random anime slap GIF. Comes with a dramatic message. For when words just aren't enough.",
+      "usage": "/slap @user",
+      "examples": ["/slap @User", "/slap @Bhai"],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to slap" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["social", "interaction"]
+    },
+    {
+      "id": "kiss",
+      "name": "kiss",
+      "category": "social",
+      "emoji": "😘",
+      "description": "Send a virtual kiss with a cute anime GIF.",
+      "longDescription": "Sends a virtual kiss to the mentioned user paired with a cute anime kiss GIF. Sweet and wholesome. Use responsibly.",
+      "usage": "/kiss @user",
+      "examples": ["/kiss @User"],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to kiss" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["social", "interaction"]
+    },
+    {
+      "id": "pat",
+      "name": "pat",
+      "category": "social",
+      "emoji": "🥺",
+      "description": "Give someone a gentle head pat with an adorable GIF.",
+      "longDescription": "Pats the mentioned user on the head with an adorable anime pat GIF. Perfect for comfort, encouragement, or just being wholesome.",
+      "usage": "/pat @user",
+      "examples": ["/pat @Sad", "/pat @Friend"],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to pat" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["social", "interaction"]
+    },
+    {
+      "id": "poke",
+      "name": "poke",
+      "category": "social",
+      "emoji": "👉",
+      "description": "Poke someone who's gone quiet in the server.",
+      "longDescription": "Sends a poke GIF to the mentioned user. Nothing says 'hey are you alive?' quite like a good poke. Comes with a playful message.",
+      "usage": "/poke @user",
+      "examples": ["/poke @Quiet"],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User to poke" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["social", "interaction"]
+    },
+    {
+      "id": "serverinfo",
+      "name": "serverinfo",
+      "category": "utility",
+      "emoji": "🖥️",
+      "description": "Display detailed information about the current server.",
+      "longDescription": "Shows a full server information embed including member count, online count, channel count, role count, boost level, creation date, verification level, and server icon.",
+      "usage": "/serverinfo",
+      "examples": ["/serverinfo"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["utility", "info"]
+    },
+    {
+      "id": "userinfo",
+      "name": "userinfo",
+      "category": "utility",
+      "emoji": "👤",
+      "description": "Display detailed information about a user.",
+      "longDescription": "Shows full user info — account creation date, server join date, roles, nickname, avatar, boost status, and online status. Works for any server member.",
+      "usage": "/userinfo [@user]",
+      "examples": [
+        "/userinfo",
+        "/userinfo @Ali"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": false, "description": "User to get info on (yourself if empty)" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["utility", "info"]
+    },
+    {
+      "id": "avatar",
+      "name": "avatar",
+      "category": "utility",
+      "emoji": "🖼️",
+      "description": "Display a user's Discord avatar in full resolution.",
+      "longDescription": "Fetches and displays the mentioned user's Discord avatar in full resolution. Supports static PNG, animated GIF, and server-specific avatars.",
+      "usage": "/avatar [@user]",
+      "examples": [
+        "/avatar",
+        "/avatar @User"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": false, "description": "User whose avatar to show" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["utility", "info"]
+    },
+    {
+      "id": "banner",
+      "name": "banner",
+      "category": "utility",
+      "emoji": "🏳️",
+      "description": "Display a user's Discord profile banner.",
+      "longDescription": "Fetches and displays the mentioned user's Discord profile banner in full quality. If the user has no banner, displays their accent color instead.",
+      "usage": "/banner [@user]",
+      "examples": [
+        "/banner",
+        "/banner @User"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": false, "description": "User whose banner to show" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["utility", "info"]
+    },
+    {
+      "id": "poll",
+      "name": "poll",
+      "category": "utility",
+      "emoji": "📊",
+      "description": "Create a poll with up to 10 options and a timer.",
+      "longDescription": "Creates a rich poll embed with up to 10 voting options displayed as buttons. Set an optional auto-close timer. Results are published when the poll ends.",
+      "usage": "/poll [question] [option1] [option2] ... [duration]",
+      "examples": [
+        "/poll Best game? Wordle Chess Trivia",
+        "/poll Favourite food? Biryani Karahi Nihari 1h"
+      ],
+      "options": [
+        { "name": "question", "type": "string", "required": true, "description": "Poll question" },
+        { "name": "options", "type": "string", "required": true, "description": "Options separated by spaces" },
+        { "name": "duration", "type": "string", "required": false, "description": "Poll duration e.g. 1h, 30m" }
+      ],
+      "permissions": [],
+      "cooldown": 30,
+      "tags": ["utility", "community"]
+    },
+    {
+      "id": "remind",
+      "name": "remind",
+      "category": "utility",
+      "emoji": "⏰",
+      "description": "Set a personal reminder. Bot will DM you when time is up.",
+      "longDescription": "Sets a reminder that the bot will DM you about after the specified duration. Supports natural language time parsing. Max 1 month in advance.",
+      "usage": "/remind [time] [message]",
+      "examples": [
+        "/remind 30m Check the oven",
+        "/remind 2h Study session",
+        "/remind 1d Submit assignment"
+      ],
+      "options": [
+        { "name": "time", "type": "string", "required": true, "description": "When to remind e.g. 30m, 2h, 1d" },
+        { "name": "message", "type": "string", "required": true, "description": "What to remind you about" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["utility", "reminder"]
+    },
+    {
+      "id": "weather",
+      "name": "weather",
+      "category": "utility",
+      "emoji": "🌤️",
+      "description": "Get real-time weather for any city worldwide.",
+      "longDescription": "Fetches current weather data from OpenWeather API. Shows temperature, humidity, wind speed, UV index, feels-like temperature, and a 3-day forecast.",
+      "usage": "/weather [city]",
+      "examples": [
+        "/weather Karachi",
+        "/weather Lahore",
+        "/weather London"
+      ],
+      "options": [
+        { "name": "city", "type": "string", "required": true, "description": "City name" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["utility", "info", "api"]
+    },
+    {
+      "id": "translate",
+      "name": "translate",
+      "category": "utility",
+      "emoji": "🌍",
+      "description": "Translate text to any of 100+ languages including Urdu.",
+      "longDescription": "Translates text using LibreTranslate API. Supports 100+ languages including Urdu, Punjabi, Sindhi, Arabic, and all major global languages. Auto-detects source language.",
+      "usage": "/translate [language] [text]",
+      "examples": [
+        "/translate urdu Hello how are you",
+        "/translate english میں ٹھیک ہوں",
+        "/translate french Good morning"
+      ],
+      "options": [
+        { "name": "language", "type": "string", "required": true, "description": "Target language" },
+        { "name": "text", "type": "string", "required": true, "description": "Text to translate" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["utility", "language", "api"]
+    },
+    {
+      "id": "calc",
+      "name": "calc",
+      "category": "utility",
+      "emoji": "🔢",
+      "description": "Calculate any math expression including advanced functions.",
+      "longDescription": "Full math calculator supporting basic operators, brackets, powers, square roots, trigonometry, logarithms, and more. Never be wrong again.",
+      "usage": "/calc [expression]",
+      "examples": [
+        "/calc 2 + 2 * 10",
+        "/calc sqrt(144)",
+        "/calc (5^3) / 2"
+      ],
+      "options": [
+        { "name": "expression", "type": "string", "required": true, "description": "Math expression to calculate" }
+      ],
+      "permissions": [],
+      "cooldown": 3,
+      "tags": ["utility", "math"]
+    },
+    {
+      "id": "currency",
+      "name": "currency",
+      "category": "utility",
+      "emoji": "💱",
+      "description": "Convert between currencies with live exchange rates.",
+      "longDescription": "Converts any amount between world currencies using live exchange rates. Includes PKR, USD, EUR, GBP, AED, SAR, and 150+ more currencies.",
+      "usage": "/currency [amount] [from] [to]",
+      "examples": [
+        "/currency 100 USD PKR",
+        "/currency 50000 PKR USD",
+        "/currency 1 GBP EUR"
+      ],
+      "options": [
+        { "name": "amount", "type": "number", "required": true, "description": "Amount to convert" },
+        { "name": "from", "type": "string", "required": true, "description": "Source currency code" },
+        { "name": "to", "type": "string", "required": true, "description": "Target currency code" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["utility", "finance", "api"]
+    },
+    {
+      "id": "prayer",
+      "name": "prayer",
+      "category": "utility",
+      "emoji": "🕌",
+      "description": "Get accurate prayer times for any Pakistani city.",
+      "longDescription": "Fetches accurate Islamic prayer times from Aladhan API for any city in Pakistan or worldwide. Shows Fajr, Dhuhr, Asr, Maghrib, Isha, and Sunrise times with Hijri date.",
+      "usage": "/prayer [city]",
+      "examples": [
+        "/prayer Karachi",
+        "/prayer Islamabad",
+        "/prayer Lahore"
+      ],
+      "options": [
+        { "name": "city", "type": "string", "required": true, "description": "City name" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["utility", "islam", "pakistan", "api"]
+    },
+    {
+      "id": "wiki",
+      "name": "wiki",
+      "category": "utility",
+      "emoji": "📖",
+      "description": "Search Wikipedia and get a summary of any topic.",
+      "longDescription": "Searches Wikipedia and returns a clean summary of the first matching article. Includes title, extract, page image (if available), and a link to the full article.",
+      "usage": "/wiki [query]",
+      "examples": [
+        "/wiki Pakistan",
+        "/wiki Allama Iqbal",
+        "/wiki Discord"
+      ],
+      "options": [
+        { "name": "query", "type": "string", "required": true, "description": "Topic to search" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["utility", "info", "api"]
+    },
+    {
+      "id": "ping",
+      "name": "ping",
+      "category": "utility",
+      "emoji": "🏓",
+      "description": "Check the bot's current latency and API response time.",
+      "longDescription": "Shows the bot's WebSocket heartbeat latency and REST API round-trip time. Useful for checking bot performance and connectivity.",
+      "usage": "/ping",
+      "examples": ["/ping"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["utility", "info"]
+    },
+    {
+      "id": "uptime",
+      "name": "uptime",
+      "category": "utility",
+      "emoji": "⏱️",
+      "description": "Check how long the bot has been running without a restart.",
+      "longDescription": "Displays the bot's current uptime since last restart, including days, hours, minutes, and seconds. Also shows memory usage and server count.",
+      "usage": "/uptime",
+      "examples": ["/uptime"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["utility", "info"]
+    },
+    {
+      "id": "botinfo",
+      "name": "botinfo",
+      "category": "utility",
+      "emoji": "🤖",
+      "description": "View full information about PakPhantom bot.",
+      "longDescription": "Displays full bot stats — version, developer, uptime, server count, user count, command count, library version, and invite link.",
+      "usage": "/botinfo",
+      "examples": ["/botinfo"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["utility", "info"]
+    },
+    {
+      "id": "help",
+      "name": "help",
+      "category": "utility",
+      "emoji": "❓",
+      "description": "Get help with commands. Browse categories or search.",
+      "longDescription": "Displays all available commands organized by category. Search for a specific command to get detailed usage info. Use the category buttons to navigate.",
+      "usage": "/help [command|category]",
+      "examples": [
+        "/help",
+        "/help ban",
+        "/help economy"
+      ],
+      "options": [
+        { "name": "query", "type": "string", "required": false, "description": "Command name or category" }
+      ],
+      "permissions": [],
+      "cooldown": 5,
+      "tags": ["utility", "help"]
+    },
+    {
+      "id": "rank",
+      "name": "rank",
+      "category": "levelling",
+      "emoji": "🎖️",
+      "description": "View your current XP rank card with level and progress.",
+      "longDescription": "Displays a beautiful rank card showing your current level, XP progress bar, server rank position, total messages sent, and current level role if any.",
+      "usage": "/rank [@user]",
+      "examples": [
+        "/rank",
+        "/rank @Ali"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": false, "description": "User whose rank to view" }
+      ],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["levelling", "xp"]
+    },
+    {
+      "id": "levels",
+      "name": "levels",
+      "category": "levelling",
+      "emoji": "📊",
+      "description": "View the server XP leaderboard — top 10 ranked users.",
+      "longDescription": "Displays the top 10 members in the server sorted by total XP earned. Shows rank, username, level, and XP amount for each entry.",
+      "usage": "/levels",
+      "examples": ["/levels"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["levelling", "leaderboard"]
+    },
+    {
+      "id": "setxp",
+      "name": "setxp",
+      "category": "levelling",
+      "emoji": "⚡",
+      "description": "Admin: Set a user's XP to a specific amount.",
+      "longDescription": "Manually set the XP amount for a specific user. Admin-only command. Useful for correcting XP or granting bonus XP as rewards.",
+      "usage": "/setxp @user [amount]",
+      "examples": [
+        "/setxp @User 5000",
+        "/setxp @Ali 0"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "Target user" },
+        { "name": "amount", "type": "integer", "required": true, "description": "XP amount to set" }
+      ],
+      "permissions": ["ADMINISTRATOR"],
+      "cooldown": 5,
+      "tags": ["levelling", "admin"]
+    },
+    {
+      "id": "addxp",
+      "name": "addxp",
+      "category": "levelling",
+      "emoji": "➕",
+      "description": "Admin: Add XP to a user's total.",
+      "longDescription": "Adds a specified amount of XP to a user's current total. Admin-only command. Can be used to reward active members.",
+      "usage": "/addxp @user [amount]",
+      "examples": [
+        "/addxp @User 500",
+        "/addxp @Helper 1000"
+      ],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "Target user" },
+        { "name": "amount", "type": "integer", "required": true, "description": "XP to add" }
+      ],
+      "permissions": ["ADMINISTRATOR"],
+      "cooldown": 5,
+      "tags": ["levelling", "admin"]
+    },
+    {
+      "id": "levelroles",
+      "name": "levelroles",
+      "category": "levelling",
+      "emoji": "🏅",
+      "description": "View the level-up role reward configuration.",
+      "longDescription": "Displays all configured level-up role rewards — which roles are granted at which level milestones. Admins can configure these via /setup.",
+      "usage": "/levelroles",
+      "examples": ["/levelroles"],
+      "options": [],
+      "permissions": [],
+      "cooldown": 10,
+      "tags": ["levelling", "roles"]
+    },
+    {
+      "id": "resetxp",
+      "name": "resetxp",
+      "category": "levelling",
+      "emoji": "🔄",
+      "description": "Admin: Reset a user's XP to zero.",
+      "longDescription": "Resets a user's XP and level back to zero. Admin-only. Irreversible unless you use /addxp afterwards.",
+      "usage": "/resetxp @user",
+      "examples": ["/resetxp @User"],
+      "options": [
+        { "name": "user", "type": "user", "required": true, "description": "User whose XP to reset" }
+      ],
+      "permissions": ["ADMINISTRATOR"],
+      "cooldown": 5,
+      "tags": ["levelling", "admin"]
+    },
+    {
+      "id": "setup",
+      "name": "setup",
+      "category": "admin",
+      "emoji": "⚙️",
+      "description": "Run the interactive bot setup wizard for your server.",
+      "longDescription": "Launches an interactive setup wizard that walks through configuring: mod-log channel, welcome channel, XP settings, economy settings, auto-mod, and more.",
+      "usage": "/setup",
+      "examples": ["/setup"],
+      "options": [],
+      "permissions": ["ADMINISTRATOR"],
+      "cooldown": 30,
+      "tags": ["admin", "setup"]
+    },
+    {
+      "id": "config",
+      "name": "config",
+      "category": "admin",
+      "emoji": "🔧",
+      "description": "View or change the bot's configuration for this server.",
+      "longDescription": "View all current bot settings for the server, or update specific settings like prefix, mod-log channel, welcome message, XP rate, and more.",
+      "usage": "/config [setting] [value]",
+      "examples": [
+        "/config",
+        "/config welcome_channel #welcome",
+        "/config xp_rate 1.5"
+      ],
+      "options": [
+        { "name": "setting", "type": "string", "required": false, "description": "Setting name to change" },
+        { "name": "value", "type": "string", "required": false, "description": "New value for the setting" }
+      ],
+      "permissions": ["ADMINISTRATOR"],
+      "cooldown": 10,
+      "tags": ["admin", "config"]
+    },
+    {
+      "id": "autorole",
+      "name": "autorole",
+      "category": "admin",
+      "emoji": "🎭",
+      "description": "Set a role to automatically assign to new members.",
+      "longDescription": "Configures an auto-role that is automatically assigned to every new member who joins the server. Set to 'none' to disable auto-role.",
+      "usage": "/autorole [@role|none]",
+      "examples": [
+        "/autorole @Member",
+        "/autorole none"
+      ],
+      "options": [
+        { "name": "role", "type": "role", "required": true, "description": "Role to auto-assign (or 'none' to disable)" }
+      ],
+      "permissions": ["ADMINISTRATOR"],
+      "cooldown": 10,
+      "tags": ["admin", "roles", "setup"]
+    },
+    {
+      "id": "welcome",
+      "name": "welcome",
+      "category": "admin",
+      "emoji": "👋",
+      "description": "Configure the welcome message and channel for new members.",
+      "longDescription": "Sets up a custom welcome message for new members. Configure the channel, message content (with variable placeholders), and embed style. Also supports goodbye messages.",
+      "usage": "/welcome [channel] [message]",
+      "examples": [
+        "/welcome #welcome Welcome {user} to {server}!",
+        "/welcome #greetings Hey {mention}, you are member #{count}!"
+      ],
+      "options": [
+        { "name": "channel", "type": "channel", "required": false, "description": "Channel for welcome messages" },
+        { "name": "message", "type": "string", "required": false, "description": "Custom welcome message with variables" }
+      ],
+      "permissions": ["ADMINISTRATOR"],
+      "cooldown": 10,
+      "tags": ["admin", "welcome", "setup"]
+    }
+  ]
+}

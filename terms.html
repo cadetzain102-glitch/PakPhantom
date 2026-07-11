@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PakPhantom Discord Bot Terms of Service - Rules and guidelines for using PakPhantom.">
+    <meta name="keywords" content="pakphantom terms, discord bot terms of service, usage rules">
+    <meta name="author" content="PakPhantom">
+    <meta name="theme-color" content="#00FF88">
+
+    <meta property="og:title" content="PakPhantom - Terms of Service">
+    <meta property="og:description" content="Terms of Service for PakPhantom Discord Bot. Rules, guidelines, and usage policies.">
+    <meta property="og:image" content="assets/images/og-image.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <title>Terms of Service - PakPhantom Discord Bot 📜</title>
+</head>
+<body class="loading">
+
+    <!-- LOADER -->
+    <div id="page-loader" class="page-loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <div class="loader-ring ring-1"></div>
+                <div class="loader-ring ring-2"></div>
+                <div class="loader-ring ring-3"></div>
+                <div class="loader-emoji">📜</div>
+            </div>
+            <div class="loader-text">
+                <span class="loader-brand">PakPhantom</span>
+                <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+                <span class="loader-status">Loading terms...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CURSOR -->
+    <div id="cursor" class="custom-cursor"></div>
+    <div id="cursor-follower" class="cursor-follower"></div>
+
+    <!-- PARTICLES -->
+    <canvas id="particles-canvas" class="particles-canvas"></canvas>
+
+    <!-- AURORA -->
+    <div class="aurora-bg">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+    </div>
+
+    <!-- SCROLL PROGRESS -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon"><span class="logo-emoji">🇵🇰</span><div class="logo-glow"></div></div>
+                <div class="nav-logo-text"><span class="logo-name">PakPhantom</span><span class="logo-tag">Discord Bot</span></div>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="commands.html" class="nav-link"><i class="fas fa-terminal"></i> Commands</a></li>
+                <li><a href="games.html" class="nav-link"><i class="fas fa-gamepad"></i> Games</a></li>
+                <li><a href="features.html" class="nav-link"><i class="fas fa-star"></i> Features</a></li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-ellipsis-h"></i> More <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="fun.html"><i class="fas fa-laugh"></i> Fun Commands</a></li>
+                        <li><a href="economy.html"><i class="fas fa-coins"></i> Economy</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="support.html"><i class="fas fa-headset"></i> Support</a></li>
+                        <li><a href="status.html"><i class="fas fa-signal"></i> Status</a></li>
+                    </ul>
+                </li>
+                <li><a href="support.html" class="nav-link"><i class="fas fa-headset"></i> Support</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary nav-cta">
+                    <i class="fab fa-discord"></i><span>Add to Server</span><div class="btn-shimmer"></div>
+                </a>
+                <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle Menu">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="mobile-menu-inner">
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="commands.html" class="mobile-nav-link"><i class="fas fa-terminal"></i> Commands</a></li>
+                    <li><a href="games.html" class="mobile-nav-link"><i class="fas fa-gamepad"></i> Games</a></li>
+                    <li><a href="features.html" class="mobile-nav-link"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="fun.html" class="mobile-nav-link"><i class="fas fa-laugh"></i> Fun</a></li>
+                    <li><a href="economy.html" class="mobile-nav-link"><i class="fas fa-coins"></i> Economy</a></li>
+                    <li><a href="about.html" class="mobile-nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="support.html" class="mobile-nav-link"><i class="fas fa-headset"></i> Support</a></li>
+                    <li><a href="status.html" class="mobile-nav-link"><i class="fas fa-signal"></i> Status</a></li>
+                </ul>
+                <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary mobile-cta"><i class="fab fa-discord"></i> Add to Server</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== PAGE HEADER ========== -->
+    <section class="page-header-section">
+        <div class="container">
+            <div class="breadcrumbs" data-aos="fade-down">
+                <div class="breadcrumb-item">
+                    <a href="index.html" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a>
+                    <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+                </div>
+                <div class="breadcrumb-item"><span class="breadcrumb-current">Terms of Service</span></div>
+            </div>
+
+            <div class="page-header-content" data-aos="fade-up">
+                <div class="section-badge">📜 Legal</div>
+                <h1 class="page-title">Terms of <span class="gradient-text">Service</span></h1>
+                <p class="page-subtitle">Rules and guidelines for using PakPhantom Discord Bot. Last updated: January 2024</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TERMS CONTENT ========== -->
+    <section class="legal-content-section">
+        <div class="container">
+            <div class="legal-content" data-aos="fade-up">
+
+                <!-- Quick Summary -->
+                <div class="alert alert-info" style="margin-bottom: 2.5rem;">
+                    <span class="alert-icon"><i class="fas fa-info-circle"></i></span>
+                    <div class="alert-content">
+                        <span class="alert-title">Quick Summary</span>
+                        <p class="alert-message">Be respectful, don't abuse the bot, don't exploit bugs, and follow Discord's ToS. That's basically it! We want everyone to have fun. 💚</p>
+                    </div>
+                </div>
+
+                <!-- Table of Contents -->
+                <div class="legal-toc card" data-aos="fade-up">
+                    <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary);">
+                        <i class="fas fa-list"></i> Table of Contents
+                    </h3>
+                    <ol class="toc-list">
+                        <li><a href="#acceptance">Acceptance of Terms</a></li>
+                        <li><a href="#description">Service Description</a></li>
+                        <li><a href="#eligibility">Eligibility</a></li>
+                        <li><a href="#acceptable-use">Acceptable Use</a></li>
+                        <li><a href="#prohibited">Prohibited Activities</a></li>
+                        <li><a href="#economy-rules">Economy & Virtual Currency</a></li>
+                        <li><a href="#intellectual-property">Intellectual Property</a></li>
+                        <li><a href="#availability">Service Availability</a></li>
+                        <li><a href="#limitation">Limitation of Liability</a></li>
+                        <li><a href="#termination">Termination</a></li>
+                        <li><a href="#modifications">Modifications</a></li>
+                        <li><a href="#governing-law">Governing Law</a></li>
+                        <li><a href="#tos-contact">Contact</a></li>
+                    </ol>
+                </div>
+
+                <!-- Sections -->
+                <div class="legal-section" id="acceptance" data-aos="fade-up">
+                    <h2>1. Acceptance of Terms</h2>
+                    <p>By adding PakPhantom to your Discord server or using any of its commands, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use PakPhantom.</p>
+                    <p>These Terms apply to all users of PakPhantom, including server administrators who invite the bot and members who interact with it.</p>
+                    <p>You must also comply with <a href="https://discord.com/terms" target="_blank" style="color: var(--primary);">Discord's Terms of Service</a> and <a href="https://discord.com/guidelines" target="_blank" style="color: var(--primary);">Community Guidelines</a> when using PakPhantom.</p>
+                </div>
+
+                <div class="legal-section" id="description" data-aos="fade-up">
+                    <h2>2. Service Description</h2>
+                    <p>PakPhantom is a multi-purpose Discord bot that provides:</p>
+                    <ul>
+                        <li>94 slash commands across 6 categories</li>
+                        <li>22 interactive games (casino, word, arcade, board, quiz, classic)</li>
+                        <li>Fun interaction commands with GIFs</li>
+                        <li>Marriage and relationship system</li>
+                        <li>Virtual economy system with coins</li>
+                        <li>Utility tools (reminders, notes, polls, etc.)</li>
+                        <li>API-powered content (weather, animals, anime, movies)</li>
+                        <li>Pakistani/Desi cultural content</li>
+                    </ul>
+                    <p>All features are provided free of charge with no premium tiers or paywalls.</p>
+                </div>
+
+                <div class="legal-section" id="eligibility" data-aos="fade-up">
+                    <h2>3. Eligibility</h2>
+                    <p>To use PakPhantom, you must:</p>
+                    <ul>
+                        <li>Be at least <strong>13 years old</strong> (or the minimum age required by Discord in your country)</li>
+                        <li>Have a valid Discord account in good standing</li>
+                        <li>Comply with Discord's Terms of Service</li>
+                        <li>Have the necessary permissions to add bots to your server (if adding the bot)</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section" id="acceptable-use" data-aos="fade-up">
+                    <h2>4. Acceptable Use</h2>
+                    <p>You agree to use PakPhantom in a manner that is:</p>
+                    <ul>
+                        <li><strong>Respectful</strong> — Treat other users and the bot with respect</li>
+                        <li><strong>Lawful</strong> — Only use the bot for legal purposes</li>
+                        <li><strong>Fair</strong> — Don't exploit bugs or loopholes in games or economy</li>
+                        <li><strong>Reasonable</strong> — Don't spam commands or intentionally overload the bot</li>
+                        <li><strong>Appropriate</strong> — Use features as intended, not to harass others</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section" id="prohibited" data-aos="fade-up">
+                    <h2>5. Prohibited Activities</h2>
+                    <p>The following activities are strictly prohibited:</p>
+
+                    <div class="alert alert-error" style="margin: 1.25rem 0;">
+                        <span class="alert-icon"><i class="fas fa-exclamation-triangle"></i></span>
+                        <div class="alert-content">
+                            <span class="alert-title">Prohibited</span>
+                            <p class="alert-message">Violating any of these rules may result in being blacklisted from using PakPhantom.</p>
+                        </div>
+                    </div>
+
+                    <ul>
+                        <li><strong>Exploiting Bugs</strong> — Using bugs, glitches, or exploits to gain unfair advantages in games or economy. Report bugs instead.</li>
+                        <li><strong>Automation</strong> — Using selfbots, macros, scripts, or other automated tools to interact with PakPhantom</li>
+                        <li><strong>Spam</strong> — Excessive or rapid command usage designed to disrupt the bot or server</li>
+                        <li><strong>Harassment</strong> — Using PakPhantom features (interactions, marriage, etc.) to harass, stalk, or bully other users</li>
+                        <li><strong>Impersonation</strong> — Pretending to be a PakPhantom developer or staff member</li>
+                        <li><strong>Reverse Engineering</strong> — Attempting to decompile, reverse engineer, or extract the bot's source code</li>
+                        <li><strong>API Abuse</strong> — Directly accessing PakPhantom's APIs or database without authorization</li>
+                        <li><strong>Scamming</strong> — Using the economy system to scam other users</li>
+                        <li><strong>Alt Abuse</strong> — Using multiple accounts to farm economy rewards</li>
+                        <li><strong>Illegal Content</strong> — Using the bot to distribute or promote illegal content</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section" id="economy-rules" data-aos="fade-up">
+                    <h2>6. Economy & Virtual Currency</h2>
+                    <p>PakPhantom features a virtual economy system with coins. Please note:</p>
+                    <ul>
+                        <li><strong>Virtual Only</strong> — PakPhantom coins have no real-world monetary value</li>
+                        <li><strong>No Real Trading</strong> — You may not buy, sell, or trade PakPhantom coins for real money, cryptocurrency, or other virtual currencies</li>
+                        <li><strong>No Guarantees</strong> — We reserve the right to reset, modify, or remove economy data at any time</li>
+                        <li><strong>Fair Play</strong> — Exploiting the economy system (alt farming, bug exploits, etc.) may result in balance resets or blacklisting</li>
+                        <li><strong>Gambling Disclaimer</strong> — Casino games (slots, blackjack, roulette) use virtual currency only. No real money is involved</li>
+                    </ul>
+
+                    <div class="alert alert-warning" style="margin-top: 1rem;">
+                        <span class="alert-icon"><i class="fas fa-exclamation-circle"></i></span>
+                        <div class="alert-content">
+                            <span class="alert-title">Important</span>
+                            <p class="alert-message">PakPhantom coins are not real currency and cannot be redeemed for anything of real-world value. Casino games are for entertainment purposes only.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legal-section" id="intellectual-property" data-aos="fade-up">
+                    <h2>7. Intellectual Property</h2>
+                    <ul>
+                        <li><strong>Bot Code</strong> — PakPhantom's source code, algorithms, and systems are the intellectual property of the developer</li>
+                        <li><strong>Branding</strong> — The PakPhantom name, logo, and branding are owned by the developer</li>
+                        <li><strong>User Content</strong> — Content you create through the bot (notes, reminders) remains yours</li>
+                        <li><strong>Third-Party Content</strong> — GIFs, images, and API content belong to their respective owners</li>
+                        <li><strong>Website</strong> — This website's design, code, and content are protected by copyright</li>
+                    </ul>
+                    <p>You may not copy, modify, distribute, or create derivative works based on PakPhantom without explicit permission.</p>
+                </div>
+
+                <div class="legal-section" id="availability" data-aos="fade-up">
+                    <h2>8. Service Availability</h2>
+                    <p>We strive for maximum uptime but cannot guarantee uninterrupted service:</p>
+                    <ul>
+                        <li><strong>Uptime</strong> — We aim for 99% uptime but cannot guarantee it</li>
+                        <li><strong>Maintenance</strong> — Planned downtime may occur for updates and improvements</li>
+                        <li><strong>Outages</strong> — Unplanned outages may happen due to hosting issues, Discord outages, or other technical problems</li>
+                        <li><strong>Feature Changes</strong> — We may add, modify, or remove features at any time</li>
+                        <li><strong>No SLA</strong> — As a free service, we do not provide a Service Level Agreement</li>
+                    </ul>
+                    <p>Check our <a href="status.html" style="color: var(--primary);">Status Page</a> for current bot status.</p>
+                </div>
+
+                <div class="legal-section" id="limitation" data-aos="fade-up">
+                    <h2>9. Limitation of Liability</h2>
+                    <p>PakPhantom is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of any kind, either express or implied.</p>
+                    <p>To the maximum extent permitted by law:</p>
+                    <ul>
+                        <li>We are not liable for any damages arising from the use or inability to use PakPhantom</li>
+                        <li>We are not responsible for data loss, including economy balances, game statistics, or other user data</li>
+                        <li>We are not liable for actions taken by other users through the bot</li>
+                        <li>We are not responsible for third-party API failures or content</li>
+                        <li>We are not liable for any indirect, incidental, special, or consequential damages</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section" id="termination" data-aos="fade-up">
+                    <h2>10. Termination</h2>
+                    <h3>By You</h3>
+                    <p>You may stop using PakPhantom at any time by simply removing the bot from your server. You can also request data deletion through our support server.</p>
+
+                    <h3>By Us</h3>
+                    <p>We reserve the right to:</p>
+                    <ul>
+                        <li><strong>Blacklist users</strong> — For violating these Terms or engaging in prohibited activities</li>
+                        <li><strong>Blacklist servers</strong> — For servers that consistently violate our Terms</li>
+                        <li><strong>Reset data</strong> — For users who exploit bugs or use automation</li>
+                        <li><strong>Discontinue service</strong> — We may discontinue PakPhantom at any time with reasonable notice</li>
+                    </ul>
+                    <p>Blacklisted users will be unable to use PakPhantom commands. Appeals can be made through our <a href="https://discord.gg/support" target="_blank" style="color: var(--primary);">Support Server</a>.</p>
+                </div>
+
+                <div class="legal-section" id="modifications" data-aos="fade-up">
+                    <h2>11. Modifications to Terms</h2>
+                    <p>We reserve the right to modify these Terms at any time. When significant changes are made:</p>
+                    <ul>
+                        <li>The "Last Updated" date at the top will be updated</li>
+                        <li>Changes may be announced in our Discord support server</li>
+                        <li>Continued use of PakPhantom after changes constitutes acceptance</li>
+                    </ul>
+                    <p>We recommend reviewing these Terms periodically to stay informed of any updates.</p>
+                </div>
+
+                <div class="legal-section" id="governing-law" data-aos="fade-up">
+                    <h2>12. Governing Law</h2>
+                    <p>These Terms shall be governed by and construed in accordance with the laws applicable in Pakistan. Any disputes arising from or related to these Terms or PakPhantom shall be subject to the jurisdiction of courts in Pakistan.</p>
+                    <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in effect.</p>
+                </div>
+
+                <div class="legal-section" id="tos-contact" data-aos="fade-up">
+                    <h2>13. Contact</h2>
+                    <p>If you have questions about these Terms of Service, please contact us:</p>
+
+                    <div class="contact-methods" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.25rem;">
+                        <div class="info-card card">
+                            <div class="info-card-icon" style="background: rgba(88,101,242,0.12); border-color: rgba(88,101,242,0.2);">
+                                <i class="fab fa-discord" style="color: #7983F5;"></i>
+                            </div>
+                            <div class="info-card-body">
+                                <h4>Discord Server</h4>
+                                <p>Fastest way to reach us</p>
+                                <a href="https://discord.gg/support" target="_blank" style="color: var(--primary); font-size: 0.85rem; font-weight: 600;">Join Server →</a>
+                            </div>
+                        </div>
+
+                        <div class="info-card card">
+                            <div class="info-card-icon" style="background: rgba(0,255,136,0.08); border-color: rgba(0,255,136,0.2);">
+                                <i class="fab fa-github" style="color: var(--primary);"></i>
+                            </div>
+                            <div class="info-card-body">
+                                <h4>GitHub</h4>
+                                <p>Open an issue or discussion</p>
+                                <a href="https://github.com" target="_blank" style="color: var(--primary); font-size: 0.85rem; font-weight: 600;">Visit GitHub →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agreement Notice -->
+                <div class="card card-gradient" style="text-align: center; padding: 2.5rem; margin-top: 3rem;" data-aos="fade-up">
+                    <span style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">🤝</span>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.75rem;">By Using PakPhantom</h3>
+                    <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.7;">
+                        You acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our <a href="privacy.html" style="color: var(--primary);">Privacy Policy</a>.
+                    </p>
+                    <a href="https://discord.com/oauth2/authorize?client_id=1524641156426633266&permissions=414464855104&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-primary btn-lg magnetic-btn">
+                        <i class="fab fa-discord"></i> I Agree — Add to Server <div class="btn-shimmer"></div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo"><span class="logo-emoji">🇵🇰</span><span class="logo-name">PakPhantom</span></a>
+                        <p class="footer-tagline">The Ultimate Pakistani Discord Bot. 94 commands, 22 games, endless fun!</p>
+                        <div class="footer-socials">
+                            <a href="https://discord.gg/CtHEgdGdp" class="social-btn discord"><i class="fab fa-discord"></i></a>
+                            <a href="#" class="social-btn github"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div class="footer-status"><span class="status-dot online"></span><span>Bot is Online</span></div>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Pages</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="commands.html"><i class="fas fa-terminal"></i> Commands</a></li>
+                            <li><a href="games.html"><i class="fas fa-gamepad"></i> Games</a></li>
+                            <li><a href="features.html"><i class="fas fa-star"></i> Features</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Resources</h4>
+                        <ul class="footer-links">
+                            <li><a href="support.html"><i class="fas fa-headset"></i> Support</a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                            <li><a href="status.html"><i class="fas fa-signal"></i> Status</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4 class="footer-col-title">Legal</h4>
+                        <ul class="footer-links">
+                            <li><a href="privacy.html"><i class="fas fa-lock"></i> Privacy</a></li>
+                            <li><a href="terms.html"><i class="fas fa-file-alt"></i> Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p class="footer-copy">© 2024 <strong>PakPhantom</strong>. Made with 💚 in Pakistan 🇵🇰</p>
+                    <div class="footer-bottom-links">
+                        <a href="privacy.html">Privacy</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="support.html">Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i><div class="btt-ring"></div>
+    </button>
+
+    <!-- PAGE STYLES -->
+    <style>
+        .page-header-section {
+            padding: calc(var(--nav-height) + 4rem) 0 3rem;
+            text-align: center;
+        }
+        .page-title {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        .page-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .legal-content-section {
+            padding: 2rem 0 5rem;
+        }
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .legal-toc {
+            padding: 1.5rem 2rem;
+            margin-bottom: 3rem;
+        }
+        .toc-list {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.4rem;
+        }
+        .toc-list li { font-size: 0.88rem; }
+        .toc-list li a {
+            color: var(--text-secondary);
+            transition: color var(--transition-base);
+        }
+        .toc-list li a:hover { color: var(--primary); }
+        .legal-section {
+            margin-bottom: 3rem;
+            scroll-margin-top: calc(var(--nav-height) + 2rem);
+        }
+        .legal-section h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .legal-section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 1.25rem 0 0.75rem;
+            color: var(--primary);
+        }
+        .legal-section p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .legal-section ul, .legal-section ol {
+            padding-left: 1.5rem;
+            margin: 0.75rem 0;
+        }
+        .legal-section li {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        .legal-section li strong { color: var(--text-primary); }
+        .legal-section a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .legal-section a:hover { color: var(--primary-light); }
+        @media (max-width: 768px) {
+            .toc-list { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <!-- SCRIPTS -->
+    <script src="js/particles.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/typewriter.js"></script>
+    <script src="js/tilt.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- PAGE JS -->
+    <script>
+        'use strict';
+        (function() {
+            // TOC smooth scroll
+            document.querySelectorAll('.toc-list a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        const navHeight = 80;
+                        window.scrollTo({
+                            top: target.offsetTop - navHeight,
+                            behavior: 'smooth'
+                        });
+
+                        target.style.borderLeftColor = 'rgba(0, 255, 136, 0.5)';
+                        target.style.borderLeftWidth = '3px';
+                        target.style.borderLeftStyle = 'solid';
+                        target.style.paddingLeft = '1rem';
+                        target.style.transition = 'all 0.3s ease';
+
+                        setTimeout(() => {
+                            target.style.borderLeftColor = '';
+                            target.style.borderLeftWidth = '';
+                            target.style.borderLeftStyle = '';
+                            target.style.paddingLeft = '';
+                        }, 2000);
+                    }
+                });
+            });
+
+            // Active section highlight
+            const sections = document.querySelectorAll('.legal-section');
+            const tocLinks = document.querySelectorAll('.toc-list a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        tocLinks.forEach(link => {
+                            link.style.color = '';
+                            link.style.fontWeight = '';
+                            if (link.getAttribute('href') === '#' + id) {
+                                link.style.color = 'var(--primary)';
+                                link.style.fontWeight = '700';
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+
+            sections.forEach(section => observer.observe(section));
+
+            console.log('%c📜 Terms page initialized', 'color: #00FF88;');
+        })();
+    </script>
+</body>
+</html>
